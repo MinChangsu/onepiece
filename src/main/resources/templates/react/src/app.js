@@ -13,6 +13,7 @@ import Sidebar from './components/sidebar/sidebar';
 import { useRecoilState } from 'recoil';
 import loginState from './store/loginState';
 import SideHeader from "./components/header/sideHeader";
+import SidebarRight from "./components/sidebar-right/sidebar-right";
 
 
 const App: React.FC = () => {
@@ -350,9 +351,12 @@ const App: React.FC = () => {
                 (hasScroll ? 'has-scroll ' : '')
               }
             >
+              <Header />
+              {/*<SidebarRight />*/}
+              {/*<Sidebar />*/}
+              {/*<SidebarRight />*/}
               {/*{!appHeaderNone && <SideHeader />}*/}
-              {!appSysHeaderNone && <SysHeader />}
-              {!appSidebarNone && <Sidebar />}
+              {/*{!appSidebarNone && <Sidebar />}*/}
               {/*{appSidebarTwo && <SidebarRight />}*/}
               {appTopMenu && <TopMenu />}
 

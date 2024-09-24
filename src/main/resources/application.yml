@@ -31,7 +31,7 @@ custom:
   path:
     files: 'd:/itk_public_property_files/'
 server:
-  port: 20093
+  port: 15271
 logging:
   file:
     name: app
@@ -73,7 +73,7 @@ custom:
 
 server:
   #  port: 20093  # 개발서버
-  port: 80  # 옥천서버
+  port: 15271  # 옥천서버
 logging:
   file:
     name: app

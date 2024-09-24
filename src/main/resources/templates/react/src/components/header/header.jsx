@@ -31,7 +31,7 @@ function Header() {
               </button>
             )}
             <Link to='/' className='navbar-brand'>
-              <span className='navbar-logo'></span> <b>Color</b> Admin
+              <span className='navbar-logo'></span> <b>OnePiece</b> BountyRush
             </Link>
 
             {appHeaderMegaMenu && (
@@ -70,24 +70,23 @@ function Header() {
               </button>
             )}
           </div>
+          {/*<div className='navbar-nav'>*/}
+          {/*  <DropdownNotification />*/}
 
-          <div className='navbar-nav'>
-            <DropdownNotification />
+          {/*  {appHeaderLanguageBar && <DropdownLanguage />}*/}
 
-            {appHeaderLanguageBar && <DropdownLanguage />}
+          {/*  <DropdownProfile />*/}
 
-            <DropdownProfile />
+          {/*  {appSidebarTwo && <div className='navbar-divider d-none d-md-block'></div>}*/}
 
-            {appSidebarTwo && <div className='navbar-divider d-none d-md-block'></div>}
-
-            {appSidebarTwo && (
-              <div className='navbar-item d-none d-md-block'>
-                <Link to='/' onClick={toggleAppSidebarEnd} className='navbar-link icon'>
-                  <i className='fa fa-th'></i>
-                </Link>
-              </div>
-            )}
-          </div>
+          {/*  {appSidebarTwo && (*/}
+          {/*    <div className='navbar-item d-none d-md-block'>*/}
+          {/*      <Link to='/' onClick={toggleAppSidebarEnd} className='navbar-link icon'>*/}
+          {/*        <i className='fa fa-th'></i>*/}
+          {/*      </Link>*/}
+          {/*    </div>*/}
+          {/*  )}*/}
+          {/*</div>*/}
         </div>
       )}
     </AppSettings.Consumer>

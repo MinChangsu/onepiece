@@ -6,7 +6,7 @@ import { useCookies } from 'react-cookie';
 function Home() {
   const [cookies, setCookie, removeCookie] = useCookies(['gis-pos']);
 
-  return <div>gkgk</div>;
+  return <div>원바러</div>;
 }
 
 export default Home;
