@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="onepiece.bounty.rush.repository.CMNFileRepo">
+
+    <select id="SELECT_FILE_INFO" parameterType="CMNFileDomain" resultType="CMNFileDomain">
+        SELECT c_seq            AS seq
+             , c_brd_type       AS brdType
+             , c_brd_seq        AS brdSeq
+             , c_ord            AS cOrd
+             , c_name           AS cFileName
+             , c_org_name       AS cFileOrgName
+             , c_path           AS cFilePath
+          FROM cmn_file
+         WHERE c_seq = #{seq}
+    </select>
+
+
+    <select id="SELECT_LIST_WITH_TYPE" parameterType="CMNFileDomain" resultType="CMNFileDomain">
+        SELECT  c_seq           AS seq
+             ,  c_brd_type      AS brdType
+             ,  c_brd_seq       AS brdSeq
+             ,  c_ord           AS cOrd
+             ,  c_name          AS cFileName
+             ,  c_org_name      AS cFileOrgName
+             ,  c_path          AS cFilePath
+          FROM cmn_file
+         WHERE c_brd_seq = #{brdSeq}
+           AND c_brd_type = #{brdType}
+    </select>
+
+    <insert id="INSERT_FILE_INFO" parameterType="CMNFileDomain">
+        INSERT INTO cmn_file (
+               c_brd_type
+             , c_brd_seq
+             , c_ord
+             , c_name
+             , c_path
+             , c_org_name
+        ) VALUES (
+               #{brdType}
+             , #{brdSeq}
+             , #{cOrd}
+             , #{cFileName}
+             , #{cFilePath}
+             , #{cFileOrgName}
+        )
+    </insert>
+
+    <delete id="DELETE_FILE_INFO" parameterType="int">
+        DELETE FROM cmn_file
+         WHERE c_seq = #{seq}
+    </delete>
+
+</mapper>

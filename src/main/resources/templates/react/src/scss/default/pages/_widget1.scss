@@ -1,0 +1,60 @@
+.widget1 {
+	--#{$prefix}pos-sidebar-bg: #{$pos-sidebar-bg};
+	--#{$prefix}pos-sidebar-header-bg: #{$pos-sidebar-header-bg};
+	--#{$prefix}pos-sidebar-header-color: #{$pos-sidebar-header-color};
+	--#{$prefix}pos-sidebar-header-back-btn-bg: #{$pos-sidebar-header-back-btn-bg};
+	--#{$prefix}pos-sidebar-header-nav-link-bg: #{$pos-sidebar-header-nav-link-bg};
+	--#{$prefix}pos-sidebar-header-nav-link-color: #{$pos-sidebar-header-nav-link-color};
+	--#{$prefix}pos-sidebar-header-nav-link-active-bg: #{$pos-sidebar-header-nav-link-active-bg};
+	--#{$prefix}pos-sidebar-header-nav-link-active-color: #{$pos-sidebar-header-nav-link-active-color};
+	--#{$prefix}pos-sidebar-footer-bg: #{$pos-sidebar-footer-bg};
+	--#{$prefix}pos-sidebar-footer-color: #{$pos-sidebar-footer-color};
+	--#{$prefix}pos-sidebar-product-border-color: #{$pos-sidebar-product-border-color};
+	--#{$prefix}pos-sidebar-product-confirmation-bg: #{$pos-sidebar-product-confirmation-bg};
+	
+	& .buttons {
+		width: $pos-sidebar-width;
+		height: 550px;
+		display: flex;
+		flex-direction: column;
+		flex: 0 0 $pos-sidebar-width;
+		background: var(--#{$prefix}pos-sidebar-bg);
+		color: var(--#{$prefix}body-color);
+
+		@include media-breakpoint-up(lg) {
+			position: fixed;
+			width: fit-content;
+			top: 58px;
+			bottom: 0;
+			height: 550px;
+			margin: $spacer;
+			border-radius: $border-radius-lg;
+			@if ($enable-rtl) {
+				left: 0;
+			} @else {
+				right: 0;
+			}
+		}
+	}
+}
+
+
+@if $enable-dark-mode {
+  @include color-mode(dark, true) {
+  	.pos,
+  	& {
+			--#{$prefix}pos-sidebar-bg: #{$pos-sidebar-bg-dark};
+			--#{$prefix}pos-sidebar-header-bg: #{$pos-sidebar-header-bg-dark};
+			--#{$prefix}pos-sidebar-header-color: #{$pos-sidebar-header-color-dark};
+			--#{$prefix}pos-sidebar-header-back-btn-bg: #{$pos-sidebar-header-back-btn-bg-dark};
+			--#{$prefix}pos-sidebar-header-nav-link-bg: #{$pos-sidebar-header-nav-link-bg-dark};
+			--#{$prefix}pos-sidebar-header-nav-link-color: #{$pos-sidebar-header-nav-link-color-dark};
+			--#{$prefix}pos-sidebar-header-nav-link-active-bg: #{$pos-sidebar-header-nav-link-active-bg-dark};
+			--#{$prefix}pos-sidebar-header-nav-link-active-color: #{$pos-sidebar-header-nav-link-active-color-dark};
+			--#{$prefix}pos-sidebar-footer-bg: #{$pos-sidebar-footer-bg-dark};
+			--#{$prefix}pos-sidebar-footer-color: #{$pos-sidebar-footer-color-dark};
+			--#{$prefix}pos-sidebar-product-border-color: #{$pos-sidebar-product-border-color-dark};
+			--#{$prefix}pos-sidebar-product-confirmation-bg: #{$pos-sidebar-product-confirmation-bg-dark};
+		}
+  }
+}

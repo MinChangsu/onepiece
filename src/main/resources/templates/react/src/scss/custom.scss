@@ -1,0 +1,511 @@
+//Variable
+$main-color: #0b2520;
+$second-color: #00acac;
+
+body, html {
+  font-family: "SCoreDream", "sans-serif" ;
+}
+//색상
+.main-bg {
+  background: $main-color !important;
+}
+.second-bg {
+  background: $second-color !important;
+}
+
+//home logo header {
+.logo-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4px 10px 4px 18px;
+  box-shadow: 0 0 10px rgba(0,0,0,.3);
+  z-index: 999;
+  //background: rgb(34,59,55);
+  background: $main-color;
+  width: auto;
+
+  border-radius: 0 0 0  3px;
+}
+.nav-container .nav-link:hover {
+  background: $second-color !important;
+  border: 1px solid transparent !important;
+}
+  // drag
+.modal-header {
+  &.handle {
+    cursor: move;
+  }
+}
+
+.doc-list-modal {
+  width: 80% !important;
+  max-width: none !important;
+}
+
+.board-list-modal {
+  width: 600px !important;
+  max-width: none !important;
+  float: right;
+  margin-right: 100px;
+}
+
+.rdt input {
+  padding: 5px;
+}
+
+body .docGrid .rdt_Table .rdt_TableCell{
+  padding: 1px 5px 1px 5px;
+}
+
+#tb-use-info > div {
+  border: 1px solid #ced4da;
+  border-radius: 3px;
+  max-height: 350px;
+
+}
+#tb-use-info .rdt_TableBody {
+  overflow-y: auto;
+
+}
+
+#tb-use-info .rdt_Table {
+  border: none;
+
+}
+
+
+.docGrid p {
+  margin: 0 0 3px;
+}
+
+.ol-tooltip {
+  position: relative;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 4px;
+  color: white;
+  padding: 4px 8px;
+  opacity: 0.7;
+  white-space: nowrap;
+  font-size: 12px;
+  cursor: default;
+  user-select: none;
+}
+.ol-tooltip-measure {
+  opacity: 1;
+  font-weight: bold;
+}
+.ol-tooltip-static {
+  background-color: #ffcc33;
+  color: black;
+  border: 1px solid white;
+}
+.ol-tooltip-measure:before,
+.ol-tooltip-static:before {
+  border-top: 6px solid rgba(0, 0, 0, 0.5);
+  border-right: 6px solid transparent;
+  border-left: 6px solid transparent;
+  content: "";
+  position: absolute;
+  bottom: -6px;
+  margin-left: -7px;
+  left: 50%;
+}
+.ol-tooltip-static:before {
+  border-top-color: #ffcc33;
+}
+
+
+.ol-popup {
+  position: absolute;
+  background-color: white;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+  padding: 15px;
+  border-radius: 10px;
+  border: 1px solid #cccccc;
+  bottom: 12px;
+  left: -50px;
+  min-width: 200px;
+}
+.ol-popup:after, .ol-popup:before {
+  top: 100%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+}
+.ol-popup:after {
+  border-top-color: white;
+  border-width: 10px;
+  left: 48px;
+  margin-left: -10px;
+}
+.ol-popup:before {
+  border-top-color: #cccccc;
+  border-width: 11px;
+  left: 48px;
+  margin-left: -11px;
+}
+.ol-popup-closer {
+  text-decoration: none;
+  position: absolute;
+  top: 2px;
+  right: 8px;
+}
+.ol-popup-closer:after {
+  content: "✖";
+}
+
+.modal-style1 .modal-content {
+  border: 1px solid #e5e5e5;
+  //background-color: white;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+//재산정보 모달 스타일 추가
+.modal-style2 .modal-content{
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  top: 30px;
+  left: 75px;
+}
+//재산정보 모달 이동 시
+.modal.fade .modal-dialog.react-draggable {
+  transition: none;
+  width: fit-content;
+}
+.modal.fade .modal-dialog.react-draggable .modal-content {
+  width: fit-content;
+  box-shadow: 0 0 10px rgba(0,0,0,.15);
+}
+.modal-title {
+  width: 100%;
+}
+.flip_icon {
+  margin-right: 15px;
+}
+
+
+.modal_back_op_40 {
+  --bs-backdrop-opacity: 0.40;
+}
+
+.map-bottom-info {
+  position: fixed!important;
+  bottom: -15px;
+  //left: 80px;
+  left: 0;
+  width: 1080px;
+  z-index: 1020;
+}
+.map-bottom-address {
+  position: fixed!important;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  display: flex;
+  margin-right: -75px;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.map-top-info {
+  position: fixed!important;
+  top: 0;
+  right: 0;
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  //z-index: 1020;
+}
+
+.ril__inner {
+  position: relative!important;
+  top: 500px;
+}
+
+
+.react-table-custom-cell {
+  max-width: 61%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+
+.loadingContainer {
+  width:100%;
+  height:100%;
+  overflow:hidden;
+  position:fixed;
+  top:0;
+  right:0;
+  bottom:0;
+  left:0;
+  background-color:rgba(0,0,0,0.4);
+  z-index:100;
+  text-align:center;
+}
+.loadingContainer svg {
+  position:absolute;
+  top:calc(50% - 30px);
+  left:calc(50% - 30px);
+}
+
+.rct-node-icon {
+  display: none;
+}
+
+
+.rightMenu {
+  position: absolute;
+  background-color: white;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+  padding: 15px;
+  border-radius: 10px;
+  border: 1px solid #cccccc;
+  z-index: 10000;
+}
+.rightMenuUi {
+  list-style: none;
+}
+
+.rightMenuLink:hover{
+  cursor: pointer;
+}
+
+.rightMenu2 {
+  position: absolute;
+  background-color: white;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+  padding: 15px;
+  border-radius: 10px;
+  border: 1px solid #cccccc;
+  z-index: 10000;
+  top: 50%;
+  left: 45%;
+  transform: translate(-50%, -50%);
+  width: 418px;
+}
+.rightMenuUi2 {
+  list-style: none;
+}
+
+.rightMenuLink2:hover{
+  cursor: pointer;
+}
+.chrome-pickerBox{
+  border: 1px solid #cccccc!important;
+  padding-bottom: 3px;
+}
+.layer-hatch{
+  background: #f6f6f6 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='none' stroke='%23cccccc' stroke-width='1' d='M0 4L4 0M-1 1L1 -1M3 5L5 3'/%3E%3C/svg%3E");
+}
+.layer-dot{
+  background: #f6f6f6 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 10 10'%3E%3Ccircle cx='1' cy='1' r='1' fill='%23cccccc'/%3E%3C/svg%3E");
+}
+.layer-times{
+  background: #f6f6f6 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 10 10'%3E%3Cpath d='M0 0 L0 10 L10 10 L10 0 Z M5 0 L5 10 M0 5 L10 5' stroke='%23cccccc' stroke-width='1'/%3E%3C/svg%3E");
+}
+
+.layerRadio{font-size: 1.1em}
+
+div [data-tag="allowRowEvents"]{
+  width: 100%;
+}
+.alpha-picker{
+  width: 185px!important;
+  margin-top: 3px;
+  margin-bottom: 3px;
+}
+.modal-body input.form-control, .modal-body textarea.form-control , .modal-body select.form-select {
+  background-color: #f9fcff;
+}
+//input readonly 스타일
+
+.modal-body input[readonly], .modal-body textarea[readonly] {
+  background: #ebf2fa;
+  outline: none !important;
+  border: 1px solid #ccc;
+}
+.modal-body input[readonly]:focus,  .modal-body textarea[readonly]:focus {
+  border-color:#ccc;
+  backgssround: #ebf2fa;
+  box-shadow:none;
+}
+
+.custom-input-container {
+  display: flex;
+  align-items: center;
+}
+.custom-number-input {
+  width: 100px;
+  margin-left: 14px;
+  padding: 3px;
+  font-size: 16px;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+
+  &:focus {
+    border-color: #007bff;
+    box-shadow: inset 0 1px 3px rgba(0, 123, 255, 0.25);
+    outline: none;
+  }
+}
+.compact-picker{
+  width: 180px!important;
+  position: relative;
+  z-index: 50;
+}
+.option-popup {
+  position: absolute;
+  background-color: white;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+  padding: 15px 10px 10px 0;
+  border-radius: 4px;
+  border: 1px solid #cccccc;
+  left: 76px;
+  top: 85px;
+  min-width: 200px;
+  min-height: 300px;
+  z-index: 1100;
+}
+.option-popup-closer {
+  text-decoration: none;
+  position: absolute;
+  top: 2px;
+  right: 8px;
+}
+.option-popup-closer:after {
+  content: "✖";
+}
+
+.map-option-popup {
+  position: fixed;
+  background-color: white;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+  border-radius: 4px;
+  padding: 10px 0;
+  border: 1px solid #cccccc;
+  right: 80px;
+  top: 158px;
+  min-width: 150px;
+  height: auto;
+  z-index: 1100;
+}
+
+//form 커스텀 스타일 추가
+.form-horizon-col_bg .form-group > .col-form-label ~ .col-form-label {
+  border-left: 1px solid rgba(var(--bs-component-border-color-rgb), 0.5);
+}
+.form-horizon-col_bg .form-group .bg-secondary-subtle {
+  background:#f5f5f5 !important;
+}
+
+.btn-pos-top , .btn-pos-bt .panel ,.btn-pos-top ~ .map-option-popup {
+  transition: right 0.15s linear;
+
+}
+.btn-pos-top.pos-right ~ .map-option-popup, .btn-pos-bt.pos-right .panel {
+  right: 360px !important;
+}
+
+
+
+
+
+//우측 메뉴 ui수정 start
+
+.top_layer_btn {
+  width: auto;
+}
+
+.right_top_nav_item a {
+  background: #fff ;
+  transition: none;
+
+}
+.right_top_nav_item.primary > div {
+  background:$second-color;
+  border: 1px solid $second-color;
+
+}
+.right_top_nav_item.primary a{
+  background: $second-color;
+  color:#fff;
+
+}
+.right_top_nav_item.primary i {
+  color: #fff;
+}
+.right_top_nav_item > div {
+  background: #fff ;
+  border: 1px solid #e1e1e1;
+  width: 105px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20px;
+  box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.1);
+}
+
+.right_top_nav_item a  .nav-text {
+  font-size: 12px !important;
+  line-height: 1.5;
+  font-weight: 900;
+  margin-left: 8px;
+}
+.right_top_nav_item a i {
+  color: #666;
+}
+
+.side_icon_items {
+  color: #666;
+  width: min-content;
+  background: #fff;
+  border-radius: 3px;
+
+}
+.side_icon_items button {
+  border-top: none;
+  box-sizing: border-box;
+  //color:#223B37;
+  font-weight: bold;
+  //color: rgb(52, 143, 226) !important;
+
+}
+.side_icon_items button:hover {
+  background: #eee !important;
+}
+.side_icon_items button:hover i {
+  color: $second-color;
+
+}
+.side_icon_items i{
+  color: #777;
+}
+.rdt_TableRow {
+  cursor:pointer;
+}
+// 관리자페이지 테이블 스크롤
+body .rdt_Table {
+  overflow-y: auto;
+}
+
+//차트 y축 라벨 수평으로 회전
+.y_label_row .y-axis-title{
+    position: absolute;
+    top: 50%;
+    left: -60px; /* 제목과 축 간의 간격을 조정합니다 */
+    transform: rotate(-90deg);
+    transform-origin: left center;
+    font-size: 16px;
+    font-weight: bold;
+    color: #000000;
+}

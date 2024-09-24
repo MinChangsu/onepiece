@@ -1,0 +1,233 @@
+$theme-panel2-width: rem(350px);
+.pos-right {
+	right: $theme-panel2-width + 10px !important;
+}
+
+
+.theme-panel2 {
+	position: fixed;
+	//position: absolute;
+	width: $theme-panel2-width;
+	right: -$theme-panel2-width;
+	//right: -$theme-panel2-width;
+	top: 0;
+	bottom: 0;
+	z-index: $app-theme-panel-zindex;
+	background: var(--#{$prefix}component-bg);
+	transition: right .1s linear;
+	border-radius: 0 $border-radius $border-radius 0;
+
+	@if $enable-rtl {
+		left: -$theme-panel2-width;
+		right: auto;
+		transition: right .2s linear;
+	}
+
+	& .theme-list {
+		margin-bottom: rem(-4px);
+		margin-right: rem(-4px);
+		display: flex;
+		flex-wrap: wrap;
+
+		& .theme-list-item {
+			margin-bottom: rem(4px);
+
+			@if $enable-rtl {
+				margin-left: rem(4px);
+			} @else {
+				margin-right: rem(4px);
+			}
+
+			& .theme-list-link {
+				width: rem(28px);
+				height: rem(28px);
+				display: block;
+				text-decoration: none;
+				position: relative;
+				border-radius: 30px;
+				transition: all .2s linear;
+
+				&:hover,
+				&:focus {
+					opacity: .6;
+				}
+			}
+			&.active {
+				& .theme-list-link {
+					&:before {
+						content: '\f00c';
+						position: absolute;
+						left: 0;
+						right: 0;
+						top: 0;
+						bottom: 0;
+						font-size: rem(14px);
+						line-height: 1;
+						color: $white;
+						opacity: .4;
+						text-align: center;
+						display: flex;
+						align-items: center;
+						justify-content: center;
+
+						@include fontawesome();
+					}
+					&.bg-white {
+						&:before {
+							color: $dark;
+						}
+					}
+				}
+			}
+		}
+	}
+	& .theme-collapse-btn2 {
+		position: absolute;
+		left:-115px; //$theme-panel2-width;// rem(-30px);	//
+		//top: 60%;
+		//스타일1 위치
+		//top: 0;
+		//right: 12px;
+		//right: 10px;
+		top: 73px;
+		background: #1a2229;
+		//margin-top: rem(-15px);
+		//width: rem(30px);
+		//height: rem(30px);
+		line-height: rem(30px);
+		font-size: rem(18px);
+		color: var(--#{$prefix}component-color);
+		background: var(--#{$prefix}component-bg);
+		text-align: center;
+		border-radius: $border-radius 0 0 $border-radius;
+		box-shadow: 0 0 15px 0 rgba($black, .15);
+		z-index: 100;
+
+		@if $enable-rtl {
+			left: $theme-panel2-width; //rem(260px);	//$theme-panel2-width;
+			right: $theme-panel2-width; //$theme-panel2-width;	//rem(260px);
+			border-radius: 0 $border-radius $border-radius 0;
+		}
+		@include media-breakpoint-down(sm) {
+			//top: 35%;
+		}
+	}
+	& .theme-panel2-content {
+		background: var(--#{$prefix}component-bg);
+		padding: rem(10px);
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		overflow-x: hidden;
+		overflow-Y: auto;
+		margin: 0;
+		z-index: 10;
+	}
+	& .theme-panel2-divider {
+		height: rem(1px);
+		margin: rem(15px) 0;
+		background-color: var(--#{$prefix}component-border-color);
+	}
+	& .theme-version {
+		margin: 0 0 rem(5px);
+		margin: -2.5px;
+		display: flex;
+		flex-wrap: wrap;
+		
+		& .theme-version-item {
+			width: 50%;
+			position: relative;
+			padding-top: rem(35%);
+			
+			& .theme-version-link {
+				display: block;
+				text-decoration: none;
+				position: absolute;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				margin: 2.5px;
+				
+				& .theme-version-cover {
+					font-size: rem(14px);
+					font-weight: bold;
+					margin: 0;
+					position: absolute;
+					top: 0;
+					left: 0;
+					right: 0;
+					bottom: 0;
+					text-align: center;
+					background-size: cover;
+					background-repeat: no-repeat;
+					background-position: top left;
+				}
+				&.active,
+				&:hover {
+					&:before {
+						content: '';
+						position: absolute;
+						border: rem(12px) solid transparent;
+						border-left-color: lighten($dark, 45%);
+						border-top-color: lighten($dark, 45%);
+						left: 0;
+						top: 0;
+						z-index: 10;
+					}
+					&:after {
+						content: '\f00c';
+						position: absolute;
+						top: 0;
+						left: 0;
+						color: $white;
+						z-index: 10;
+						width: rem(16px);
+						height: rem(16px);
+						line-height: rem(16px);
+						font-size: rem(10px);
+						text-align: center;
+					
+						@include fontawesome();
+					}
+				}
+				&.active {
+					&:before {
+						border-left-color: #007aff;
+						border-top-color: #007aff;
+					}
+				}
+			}
+		}
+	}
+	&.active {
+		box-shadow: 0 5px 25px rgba($black, .3);
+
+		@if $enable-rtl {
+			right: 0;
+		} @else {
+			right: 0;
+		}
+		
+		& .theme-collapse-btn2 {
+			//right: $theme-panel2-width;
+
+			left:-30px;
+			& .fa {
+				&:before {
+					content: '\f00d';
+				}
+
+			}
+		}
+		~ .widget1 .buttons{
+			position: relative; // 위치를 조정하기 위해 position을 설정
+			right: 350px; // 원하는 만큼 위치 조정
+		}
+	}
+
+
+
+}

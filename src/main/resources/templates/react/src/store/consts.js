@@ -1,0 +1,10 @@
+export const DRAW_POLYGON = 'DRAW_POLYGON';
+export const DRAW_LINE = 'DRAW_LINE';
+export const DRAW_POINT = 'DRAW_POINT';
+export const DRAW_RESET = 'DRAW_RESET';
+export const MAP_ZOOM_IN = 'MAP_ZOOM_IN';
+export const MAP_ZOOM_OUT = 'MAP_ZOOM_OUT';
+export const MAP_CALC_DISTANCE = 'MAP_DISTANCE';
+export const MAP_CALC_AREA = 'MAP_CALC_AREA';
+export const MAP_CALC_RADIUS = 'MAP_CALC_RADIUS';
+export const MAP_RESET = 'MAP_RESET';

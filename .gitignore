@@ -1,0 +1,4 @@
+/target/
+/src/main/resources/templates/react/build/
+/src/main/resources/templates/react/node_modules/
+/.idea/

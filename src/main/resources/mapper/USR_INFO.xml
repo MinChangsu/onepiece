@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="onepiece.bounty.rush.repository.USRRepo">
+
+    <select id="SELECT_USR" parameterType="int" resultType="USRDomain">
+        SELECT usr_seq                AS usrSeq
+             , usr_id                 AS usrId
+             , eml                    AS eml
+             , usr_nm                 AS usrNm
+             , telno                  AS telno
+             , addr                   AS addr
+             , lvl                    AS lvl
+             , reg_dt                 AS regDt
+             , mdfcn_dt               AS mdfcnDt
+             , last_cntn_dt           AS lastCntnDt
+             , fail_lgn_cnt           AS failLgnCnt
+             , use_yn                 AS useYn
+             , del_yn                 AS delYn
+             , whdwl_yn               AS whdwlYn
+             , memo                   AS memo
+             , last_fail_lgn_dt       AS lastFailLgnDt
+             , whdwl_dt               AS whdwlDt
+          FROM g_usr_info
+         WHERE usr_seq = #{param}
+    </select>
+
+    <select id="SELECT_USR_NOT_PW" parameterType="int" resultType="USRDomain">
+        SELECT usr_seq                AS usrSeq
+             , usr_id                 AS usrId
+             , eml                    AS eml
+             , usr_nm                 AS usrNm
+             , telno                  AS telno
+             , addr                   AS addr
+             , lvl                    AS lvl
+             , reg_dt                 AS regDt
+             , mdfcn_dt               AS mdfcnDt
+             , last_cntn_dt           AS lastCntnDt
+             , fail_lgn_cnt           AS failLgnCnt
+             , use_yn                 AS useYn
+             , del_yn                 AS delYn
+             , whdwl_yn               AS whdwlYn
+             , memo                   AS memo
+             , last_fail_lgn_dt       AS lastFailLgnDt
+          FROM g_usr_info
+         WHERE usr_seq = #{param}
+    </select>
+
+    <select id="LIST_USRS" parameterType="USRDomain" resultType="USRDomain">
+        SELECT ROW_NUMBER() OVER(ORDER BY T.regDt) AS rowNo
+             , T.*
+          FROM (
+            SELECT usr_seq                AS usrSeq
+                 , usr_id                 AS usrId
+                 , eml                    AS eml
+                 , usr_nm                 AS usrNm
+                 , telno                  AS telno
+                 , addr                   AS addr
+                 , lvl                    AS lvl
+                 , reg_dt                 AS regDt
+                 , mdfcn_dt               AS mdfcnDt
+                 , last_cntn_dt           AS lastCntnDt
+                 , fail_lgn_cnt           AS failLgnCnt
+                 , use_yn                 AS useYn
+                 , del_yn                 AS delYn
+                 , whdwl_yn               AS whdwlYn
+                 , memo                   AS memo
+                 , last_fail_lgn_dt       AS lastFailLgnDt
+                 , whdwl_dt               AS whdwlDt
+              FROM g_usr_info
+             WHERE 1 = 1
+            <if test="@org.apache.commons.lang3.StringUtils@isNotBlank(searchWrd)">
+                AND (    usr_id  LIKE CONCAT( '%', #{ searchWrd }, '%' )
+                      OR eml     LIKE CONCAT( '%', #{ searchWrd }, '%' )
+                      OR telno   LIKE CONCAT( '%', #{ searchWrd }, '%' )
+                      OR usr_nm  LIKE CONCAT( '%', #{ searchWrd }, '%' )
+                )
+            </if>
+            ) T
+        ORDER BY rowNo DESC
+        LIMIT #{sizePerPage} OFFSET (#{page} - 1) * 1
+    </select>
+
+    <select id="SELECT_CNT_USRS" parameterType="USRDomain" resultType="int">
+        SELECT COUNT(*)
+          FROM g_usr_info
+         WHERE 1 = 1
+        <if test="@org.apache.commons.lang3.StringUtils@isNotBlank(searchWrd)">
+           AND (    usr_id  LIKE CONCAT( '%', #{ searchWrd }, '%' )
+                 OR eml     LIKE CONCAT( '%', #{ searchWrd }, '%' )
+                 OR telno   LIKE CONCAT( '%', #{ searchWrd }, '%' )
+                 OR usr_nm  LIKE CONCAT( '%', #{ searchWrd }, '%' )
+            )
+        </if>
+    </select>
+
+
+    <select id="DUP_CHECK_USR_INFO" parameterType="USRDomain" resultType="int">
+        SELECT COUNT( USR_SEQ )
+          FROM g_usr_info
+         WHERE 1 = 1
+           AND USR_ID = #{usrId}
+           AND USR_SEQ != #{usrSeq}
+    </select>
+
+    <insert id="INSERT_USR" parameterType="USRDomain">
+        INSERT INTO g_usr_info(
+               usr_id
+             , usr_pw
+             , usr_nm
+             , telno
+             , eml
+             , lvl
+             , addr
+             , use_yn
+        ) VALUES (
+                #{usrId}
+              , crypt(#{usrPw}, gen_salt('md5'))
+              , #{usrNm}
+              , #{telno}
+              , #{eml}
+              , #{lvl}
+              , #{addr}
+              , #{useYn}
+        )
+    </insert>
+
+    <update id="UPDATE_USR" parameterType="USRDomain">
+        UPDATE g_usr_info
+           SET usr_id       = #{usrId}
+             , usr_pw       = crypt(#{usrPw}, gen_salt('md5'))
+             , usr_nm       = #{usrNm}
+             , telno        = #{telno}
+             , eml          = #{eml}
+             , lvl          = #{lvl}
+             , addr         = #{addr}
+             , use_yn       = #{useYn}
+             , del_yn       = #{delYn}
+             , auth_code    = #{authCode}
+         WHERE 1 = 1
+           AND usr_seq = #{usrSeq}
+    </update>
+
+    <update id="UPDATE_USR_NOT_PW" parameterType="USRDomain">
+        UPDATE g_usr_info
+           SET usr_id       = #{usrId}
+             , usr_nm       = #{usrNm}
+             , telno        = #{telno}
+             , eml          = #{eml}
+             , lvl          = #{lvl}
+             , addr         = #{addr}
+             , use_yn       = #{useYn}
+             , del_yn       = #{delYn}
+             , auth_code    = #{authCode}
+         WHERE 1 = 1
+           AND usr_seq = #{usrSeq}
+    </update>
+
+
+    <select id="SELECT_LOGIN" parameterType="USRDomain" resultType="USRDomain">
+        SELECT usr_seq                AS usrSeq
+             , usr_id                 AS usrId
+             , usr_pw                 AS usrPw
+             , usr_nm                 AS usrNm
+             , telno                  AS telno
+             , lvl                    AS lvl
+             , last_cntn_dt           AS lastCntnDt
+             , fail_lgn_cnt           AS failLgnCnt
+             , use_yn                 AS useYn
+             , whdwl_yn               AS whdwlYn
+             , memo                   AS memo
+             , last_fail_lgn_dt       AS lastFailLgnDt
+             , whdwl_dt               AS whdwlDt
+             , auth_code              AS authCode
+          FROM g_usr_info
+         WHERE usr_id = #{ usrId }
+           AND usr_pw = crypt(#{usrPw}, usr_pw)
+           AND use_yn = 'Y'
+    </select>
+
+    <select id="SELECT_LOGIN_USR_WITH_ID" parameterType="String" resultType="USRDomain">
+        SELECT GUI.usr_id                 AS usrId
+             , GUI.usr_pw                 AS usrPw
+             , GUI.usr_nm                 AS usrNm
+             , GUI.lvl                    AS lvl
+             , GUI.last_cntn_dt           AS lastCntnDt
+             , GUI.fail_lgn_cnt           AS failLgnCnt
+             , GUI.use_yn                 AS useYn
+             , GUI.last_fail_lgn_dt       AS lastFailLgnDt
+             , GUI.whdwl_dt               AS whdwlDt
+             , GUI.auth_code              AS authCode
+          FROM g_usr_info GUI
+         WHERE GUI.usr_id = #{usrId}
+           AND GUI.use_yn = 'Y'
+    </select>
+
+    <update id="UPDATE_USR_LOGIN_FAIL_CNT" parameterType="USRDomain">
+        UPDATE g_usr_info
+           SET fail_lgn_cnt = #{failLgnCnt}
+             , last_fail_lgn_dt = NOW()
+         WHERE usr_id = #{usrId}
+    </update>
+
+    <update id="UPDATE_USR_LOGIN_FAIL_RESET" parameterType="USRDomain">
+        UPDATE g_usr_info
+           SET fail_lgn_cnt = 0
+             , last_cntn_dt = NOW()
+        WHERE usr_id = #{usrId}
+    </update>
+
+
+
+    <select id="SELECT_USRS_FOR_ENCRYPT" resultType="USRDomain">
+        SELECT usr_id                AS usrId
+             , usr_pw                AS usrNm
+             , eml                   AS eml
+             , telno                 AS telno
+        FROM g_usr_info
+    </select>
+
+    <update id="UPDATE_USR_FOR_ENCRYPT" parameterType="USRDomain">
+        UPDATE g_usr_info
+           SET usr_nm      = #{usrNm}
+             , eml         = #{eml}
+             , telno       = #{telno}
+         WHERE usr_id      = #{usrId}
+    </update>
+</mapper>

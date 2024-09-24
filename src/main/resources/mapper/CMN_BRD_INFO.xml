@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="onepiece.bounty.rush.repository.CMNBrdRepo">
+
+    <!-- 관리자용 시작 -->
+    <!-- ############################################################################################# -->
+    <!--    공지사항 시작-->
+    <!-- ############################################################################################# -->
+    <select id="SELECT_CNT_NTCS" parameterType="CMNNtcDomain" resultType="int">
+        <include refid="kr.itkor.pp.Function.chkNotEmpty" />
+        SELECT COUNT( S.seq )
+          FROM ( SELECT seq                                             AS seq
+                      , title                                           AS title
+                      , TO_CHAR( reg_dt, 'YYYY-MM-DD HH:MI:SS' )        AS regDt
+                      , TO_CHAR( mdfcn_dt, 'YYYY-MM-DD HH:MI:SS' )      AS mdfcnDt
+                      , inq_cnt                                         AS inqCnt
+                      , use_yn                                          AS useYn
+                   FROM g_ntc_brd ) S
+         WHERE 1 = 1
+        <if test="#fn=chkNotEmpty, #fn(sDate)">
+            <if test="#fn=chkNotEmpty, #fn(eDate)">
+                AND ( TO_CHAR( S.regDt, 'YYYY-MM-DD' ) BETWEEN #{ sDate } AND #{ eDate } )
+            </if>
+        </if>
+        <if test="#fn=chkNotEmpty, #fn(useYn)"> AND S.useYn = #{ useYn }</if>
+        <if test="#fn=chkNotEmpty, #fn(searchWrd)">
+            AND S.title LIKE CONCAT( '%', #{ searchWrd }, '%' )
+        </if>
+    </select>
+
+    <select id="LIST_NTCS" parameterType="CMNNtcDomain" resultType="CMNNtcDomain">
+        <include refid="kr.itkor.pp.Function.chkNotEmpty" />
+        SELECT ROW_NUMBER() OVER(ORDER BY T.regDt) AS rowNo
+             , T.*
+           FROM (SELECT S.seq
+                      , S.title
+                      , S.cn
+                      , S.regDt
+                      , S.mdfcnDt
+                      , S.inqCnt
+                      , S.useYn
+                   FROM ( SELECT seq                                            AS seq
+                               , title                                          AS title
+                               , cn                                             AS cn
+                               , TO_CHAR( reg_dt, 'YYYY-MM-DD HH:MI:SS' )       AS regDt
+                               , TO_CHAR( mdfcn_dt, 'YYYY-MM-DD HH:MI:SS' )     AS mdfcnDt
+                               , inq_cnt                                        AS inqCnt
+                               , use_yn                                         AS useYn
+                          FROM g_ntc_brd ) S
+                  WHERE 1 = 1
+                <if test="#fn=chkNotEmpty, #fn(sDate)">
+                    <if test="#fn=chkNotEmpty, #fn(eDate)">
+                        AND ( TO_CHAR( S.regDt, 'YYYY-MM-DD' ) BETWEEN #{ sDate } AND #{ eDate } )
+                    </if>
+                </if>
+                <if test="#fn=chkNotEmpty, #fn(useYn)">AND S.useYn = #{ useYn }</if>
+                <if test="#fn=chkNotEmpty, #fn(searchWrd)">
+                    AND S.title LIKE CONCAT( '%', #{ searchWrd }, '%' )
+                </if>
+                ORDER BY S.seq ) T
+        ORDER BY rowNo DESC
+        LIMIT #{sizePerPage} OFFSET (#{page} - 1) * 1
+    </select>
+
+    <insert id="INSERT_NTC" parameterType="CMNNtcDomain" useGeneratedKeys="true" keyProperty="seq">
+        INSERT INTO g_ntc_brd(
+               title
+             , cn
+             , use_yn
+        ) VALUES (
+               #{title }
+             , #{cn }
+             , #{useYn }
+        )
+    </insert>
+
+    <select id="SELECT_NTC" parameterType="CMNNtcDomain" resultType="CMNNtcDomain">
+        SELECT seq                                          AS seq
+             , title                                        AS title
+             , cn                                           AS cn
+             , TO_CHAR( reg_dt, 'YYYY-MM-DD HH:MI:SS' )     AS regDt
+             , TO_CHAR( mdfcn_dt, 'YYYY-MM-DD HH:MI:SS' )   AS mdfcnDt
+             , inq_cnt                                      AS inqCnt
+             , use_yn                                       AS useYn
+        FROM g_ntc_brd
+        WHERE seq = #{seq}
+    </select>
+
+    <select id="UPDATE_NTC" parameterType="CMNNtcDomain">
+        UPDATE g_ntc_brd
+           SET title    = #{title}
+             , cn       = #{cn}
+             , mdfcn_dt = NOW()
+             , use_yn   = #{useYn}
+         WHERE seq = #{seq}
+    </select>
+
+    <delete id="DELETE_NTC" parameterType="CMNNtcDomain">
+        DELETE FROM g_ntc_brd
+         WHERE seq = #{seq}
+    </delete>
+
+<!--공지사항 표시 여부 조회-->
+    <select id="SELECT_SITE_INFO" resultType="string">
+        SELECT main_view_board_yn
+        FROM g_site_info
+        WHERE id = 1
+    </select>
+
+<!--    공지사항 표시 여부 업데이트-->
+    <update id="UPDATE_SITE_INFO" parameterType="string">
+        UPDATE g_site_info
+        SET main_view_board_yn = #{mainViewBoardYn}
+        WHERE id = 1
+    </update>
+
+
+    <!--    자료실 시작-->
+    <!-- ############################################################################################# -->
+    <select id="SELECT_CNT_PDSS" parameterType="CMNPdsDomain" resultType="int">
+        <include refid="kr.itkor.pp.Function.chkNotEmpty" />
+        SELECT COUNT( S.seq )
+          FROM ( SELECT seq                                             AS seq
+                      , title                                           AS title
+                      , TO_CHAR( reg_dt, 'YYYY-MM-DD HH:MI:SS' )        AS regDt
+                      , TO_CHAR( mdfcn_dt, 'YYYY-MM-DD HH:MI:SS' )      AS mdfcnDt
+                      , inq_cnt                                         AS inqCnt
+                      , use_yn                                          AS useYn
+                   FROM g_pds_brd ) S
+         WHERE 1 = 1
+        <if test="#fn=chkNotEmpty, #fn(sDate)">
+            <if test="#fn=chkNotEmpty, #fn(eDate)">
+                AND ( TO_CHAR( S.regDt, 'YYYY-MM-DD' ) BETWEEN #{ sDate } AND #{ eDate } )
+            </if>
+        </if>
+        <if test="#fn=chkNotEmpty, #fn(useYn)"> AND S.useYn = #{ useYn }</if>
+        <if test="#fn=chkNotEmpty, #fn(searchWrd)">
+            AND S.title LIKE CONCAT( '%', #{ searchWrd }, '%' )
+        </if>
+    </select>
+
+    <select id="LIST_PDSS" parameterType="CMNPdsDomain" resultType="CMNNtcDomain">
+        <include refid="kr.itkor.pp.Function.chkNotEmpty" />
+        SELECT ROW_NUMBER() OVER(ORDER BY T.regDt) AS rowNo
+             , T.*
+          FROM ( SELECT S.seq
+                      , S.title
+                      , S.cn
+                      , S.regDt
+                      , S.mdfcnDt
+                      , S.inqCnt
+                      , S.useYn
+                   FROM ( SELECT seq                                            AS seq
+                               , title                                          AS title
+                               , cn                                             AS cn
+                               , TO_CHAR( reg_dt, 'YYYY-MM-DD HH:MI:SS' )       AS regDt
+                               , TO_CHAR( mdfcn_dt, 'YYYY-MM-DD HH:MI:SS' )     AS mdfcnDt
+                               , inq_cnt                                        AS inqCnt
+                               , use_yn                                         AS useYn
+                            FROM g_pds_brd ) S
+                           WHERE 1 = 1
+                        <if test="#fn=chkNotEmpty, #fn(sDate)">
+                            <if test="#fn=chkNotEmpty, #fn(eDate)">
+                                AND ( TO_CAR( S.regDt, 'YYYY-MM-DD' ) BETWEEN #{ sDate } AND #{ eDate } )
+                            </if>
+                        </if>
+                        <if test="#fn=chkNotEmpty, #fn(useYn)">AND S.useYn = #{ useYn }</if>
+                        <if test="#fn=chkNotEmpty, #fn(searchWrd)">
+                            AND S.title LIKE CONCAT( '%', #{ searchWrd }, '%' )
+                        </if>
+                ORDER BY S.seq ) T
+        ORDER BY rowNo DESC
+        LIMIT #{sizePerPage} OFFSET (#{page} - 1) * 1
+    </select>
+
+
+    <insert id="INSERT_PDS" parameterType="CMNPdsDomain" useGeneratedKeys="true" keyProperty="seq">
+        INSERT INTO g_pds_brd (
+               title
+             , cn
+             , use_yn
+        ) VALUES (
+               #{title }
+             , #{cn }
+             , #{useYn }
+        )
+    </insert>
+
+    <select id="SELECT_PDS" parameterType="CMNPdsDomain" resultType="CMNPdsDomain">
+        SELECT seq                                          AS seq
+             , title                                        AS title
+             , cn                                           AS cn
+             , TO_CHAR( reg_dt, 'YYYY-MM-DD HH:MI:SS' )     AS regDt
+             , TO_CHAR( mdfcn_dt, 'YYYY-MM-DD HH:MI:SS' )   AS mdfcnDt
+             , inq_cnt                                      AS inqCnt
+             , use_yn                                       AS useYn
+        FROM g_pds_brd
+        WHERE seq = #{seq}
+    </select>
+
+    <select id="UPDATE_PDS" parameterType="CMNPdsDomain">
+        UPDATE g_pds_brd
+           SET title = #{title}
+             , cn = #{cn}
+             , mdfcn_dt = NOW()
+             , use_yn = #{useYn}
+         WHERE seq = #{seq}
+    </select>
+
+    <delete id="DELETE_PDS" parameterType="CMNPdsDomain">
+        DELETE FROM g_pds_brd
+         WHERE seq = #{seq}
+    </delete>
+
+</mapper>

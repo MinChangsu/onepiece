@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="onepiece.bounty.rush.repository.CMNLogRepo">
+
+    <select id="SELECT_CNT_LOG" parameterType="CMNLogDomain" resultType="int">
+        <include refid="kr.itkor.pp.Function.chkNotEmpty" />
+        SELECT COUNT( X.seq )
+          FROM ( SELECT A.seq         AS seq
+                      , A.usr_id      AS usrId
+                      , B.usr_nm      AS usrNm
+                      , A.log_act     AS logAct
+                      , A.log_path    AS logPath
+                      , A.log_ip      AS logIp
+                      , A.log_hr      AS logHr
+                      , A.msg_res      AS msgRes
+                   FROM g_log_info A
+                        LEFT JOIN g_usr_info B
+                            ON A.usr_id = B.usr_id ) X
+         WHERE 1 = 1
+        <if test="#fn=chkNotEmpty, #fn(sDate)">
+            <if test="#fn=chkNotEmpty, #fn(eDate)">
+                AND ( TO_CHAR( X.logHr, 'YYYY-MM-DD' ) BETWEEN #{ sDate } AND #{ eDate } )
+            </if>
+        </if>
+        <if test="#fn=chkNotEmpty, #fn(searchWrd)">
+            AND (   ( X.usrId LIKE CONCAT( '%', #{ searchWrd }, '%' ) )
+                 OR ( X.usrNm LIKE CONCAT( '%', #{ searchWrd }, '%' ) )
+                 OR ( X.logAct LIKE CONCAT( '%', #{ searchWrd }, '%' ) )
+                 OR ( X.logPath LIKE CONCAT( '%', #{ searchWrd }, '%' ) )
+                 OR ( X.logIp LIKE CONCAT( '%', #{ searchWrd }, '%' ) )
+                )
+        </if>
+        <if test="#fn=chkNotEmpty, #fn(logAct)">
+            AND (   ( X.logAct LIKE CONCAT( '%', #{ logAct }, '%' ) )
+            )
+        </if>
+    </select>
+
+    <select id="LIST_LOG" parameterType="CMNLogDomain" resultType="CMNLogDomain">
+        <include refid="kr.itkor.pp.Function.chkNotEmpty" />
+        SELECT ROW_NUMBER() OVER(ORDER BY T.seq) AS rowNo
+             , T.*
+          FROM ( SELECT X.seq
+                      , X.usrType
+                      , X.usrId
+                      , X.usrNm
+                      , X.logType
+                      , X.logAct
+                      , X.logPath
+                      , X.logIp
+                      , X.logHr
+                      , X.msgRes
+                 FROM ( SELECT A.seq          AS seq
+                             , A.usr_type     AS usrType
+                             , A.usr_id       AS usrId
+                             , B.usr_nm       AS usrNm
+                             , A.log_type     AS logType
+                             , A.log_act      AS logAct
+                             , A.log_path     AS logPath
+                             , A.log_ip       AS logIp
+                             , A.msg_res       AS msgRes
+                             , TO_CHAR( log_hr, 'YYYY-MM-DD HH:MI:SS' )     AS logHr
+                          FROM g_log_info A
+                            LEFT JOIN g_usr_info B
+                                ON A.usr_id = B.usr_id ) X
+                         WHERE 1 = 1
+                        <if test="#fn=chkNotEmpty, #fn(sDate)">
+                            <if test="#fn=chkNotEmpty, #fn(eDate)">
+                                AND ( TO_CHAR( X.logHr, 'YYYY-MM-DD' ) BETWEEN #{ sDate } AND #{ eDate } )
+                            </if>
+                        </if>
+                        <if test="#fn=chkNotEmpty, #fn(searchWrd)">
+                            AND (   ( X.usrId LIKE CONCAT( '%', #{ searchWrd }, '%' ) )
+                                 OR ( X.usrNm LIKE CONCAT( '%', #{ searchWrd }, '%' ) )
+                                 OR ( X.logAct LIKE CONCAT( '%', #{ searchWrd }, '%' ) )
+                                 OR ( X.logPath LIKE CONCAT( '%', #{ searchWrd }, '%' ) )
+                                 OR ( X.logIp LIKE CONCAT( '%', #{ searchWrd }, '%' ) )
+                            )
+                        </if>
+                        <if test="#fn=chkNotEmpty, #fn(logAct)">
+                            AND (   ( X.logAct LIKE CONCAT( '%', #{ logAct }, '%' ) )
+                            )
+                        </if>
+                        ORDER BY X.seq DESC ) T
+        ORDER BY rowNo DESC
+        LIMIT #{sizePerPage} OFFSET (#{page} - 1) * 1
+    </select>
+
+    <insert id="INSERT_LOG" parameterType="CMNLogDomain">
+        INSERT INTO g_log_info (
+               usr_type
+             , usr_id
+             , log_type
+             , log_act
+             , log_path
+             , log_ip
+             , log_hr
+             , msg_res
+        ) VALUES (
+               #{ usrType }
+             , #{ usrId }
+             , #{ logType }
+             , #{ logAct }
+             , #{ logPath }
+             , #{ logIp }
+             , NOW()
+             , #{ msgRes }
+        )
+    </insert>
+
+</mapper>

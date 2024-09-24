@@ -1,0 +1,88 @@
+spring:
+  profiles:
+    active: prod
+---
+spring:
+  config:
+    activate:
+      on-profile: local
+  devtools:
+    livereload:
+      enabled: true
+  output:
+    ansi:
+      enabled: DETECT
+  datasource:
+    url: jdbc:mariadb://localhost:3307/mindb
+    username: root
+    password: 1234
+    driver-class-name: org.mariadb.jdbc.Driver
+  servlet:
+    multipart:
+      max-file-size: 50MB
+      max-request-size: 50MB
+  task:
+    scheduling:
+      pool:
+        size: 10
+      thread-name-prefix: itk-scheduled-task-pool
+
+custom:
+  path:
+    files: 'd:/itk_public_property_files/'
+server:
+  port: 20093
+logging:
+  file:
+    name: app
+    path: d:/00.DEV/logs/itk_public_property
+mybatis:
+  type-aliases-package: onepiece.bounty.rush.domain
+  mapper-locations: classpath:mapper/**/*.xml
+
+myapp:
+  geoserver:
+  loginFailCnt: 10
+
+---
+spring:
+  config:
+    activate:
+      on-profile: prod
+  output:
+    ansi:
+      enabled: DETECT
+  datasource:
+    url: jdbc:mariadb://localhost:3307/mindb
+    username: root
+    password: 1234
+    driver-class-name: org.mariadb.jdbc.Driver
+  servlet:
+    multipart:
+      max-file-size: 50MB
+      max-request-size: 50MB
+  task:
+    scheduling:
+      pool:
+        size: 10
+      thread-name-prefix: itk-scheduled-task-pool
+custom:
+  path:
+    #    files: '/home/itk_public_property_files/'
+    files: '/home/itk_public_property_files/'
+
+server:
+  #  port: 20093  # 개발서버
+  port: 80  # 옥천서버
+logging:
+  file:
+    name: app
+    #    path: /home/jar_home/itk_public_property/app
+    path: /home/logs
+
+mybatis:
+  type-aliases-package: onepiece.bounty.rush.domain
+  mapper-locations: classpath:mapper/**/*.xml
+
+myapp:
+  loginFailCnt: 10

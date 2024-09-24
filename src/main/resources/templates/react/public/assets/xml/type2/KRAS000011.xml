@@ -1,0 +1,228 @@
+﻿<?xml version="1.0" encoding="UTF-8"?><RESPONSE><HEADER><CODE>0000</CODE><MESSAGE>SUCCESS</MESSAGE></HEADER><BODY>
+<JIGA_LIST>
+    <JIGA>
+        <BASE_YEAR>2018</BASE_YEAR>
+        <BASE_MON>01</BASE_MON>
+        <PANN_JIGA>39600</PANN_JIGA>
+        <PANN_YMD>20180531</PANN_YMD>
+        <REMARK> </REMARK>
+        <JIGA_JIBN>535-34번지</JIGA_JIBN>
+    </JIGA>
+    <JIGA>
+        <BASE_YEAR>2017</BASE_YEAR>
+        <BASE_MON>01</BASE_MON>
+        <PANN_JIGA>38300</PANN_JIGA>
+        <PANN_YMD>20170531</PANN_YMD>
+        <REMARK> </REMARK>
+        <JIGA_JIBN>535-34번지</JIGA_JIBN>
+    </JIGA>
+    <JIGA>
+        <BASE_YEAR>2016</BASE_YEAR>
+        <BASE_MON>01</BASE_MON>
+        <PANN_JIGA>36600</PANN_JIGA>
+        <PANN_YMD>20160531</PANN_YMD>
+        <REMARK> </REMARK>
+        <JIGA_JIBN>535-34번지</JIGA_JIBN>
+    </JIGA>
+    <JIGA>
+        <BASE_YEAR>2015</BASE_YEAR>
+        <BASE_MON>01</BASE_MON>
+        <PANN_JIGA>36200</PANN_JIGA>
+        <PANN_YMD>20150529</PANN_YMD>
+        <REMARK> </REMARK>
+        <JIGA_JIBN>535-34번지</JIGA_JIBN>
+    </JIGA>
+    <JIGA>
+        <BASE_YEAR>2014</BASE_YEAR>
+        <BASE_MON>01</BASE_MON>
+        <PANN_JIGA>35800</PANN_JIGA>
+        <PANN_YMD>20140530</PANN_YMD>
+        <REMARK> </REMARK>
+        <JIGA_JIBN>535-34번지</JIGA_JIBN>
+    </JIGA>
+    <JIGA>
+        <BASE_YEAR>2013</BASE_YEAR>
+        <BASE_MON>01</BASE_MON>
+        <PANN_JIGA>36200</PANN_JIGA>
+        <PANN_YMD>20130531</PANN_YMD>
+        <REMARK> </REMARK>
+        <JIGA_JIBN>535-34번지</JIGA_JIBN>
+    </JIGA>
+    <JIGA>
+        <BASE_YEAR>2012</BASE_YEAR>
+        <BASE_MON>01</BASE_MON>
+        <PANN_JIGA>36200</PANN_JIGA>
+        <PANN_YMD>20120531</PANN_YMD>
+        <REMARK> </REMARK>
+        <JIGA_JIBN>535-34번지</JIGA_JIBN>
+    </JIGA>
+    <JIGA>
+        <BASE_YEAR>2011</BASE_YEAR>
+        <BASE_MON>01</BASE_MON>
+        <PANN_JIGA>34500</PANN_JIGA>
+        <PANN_YMD>20110531</PANN_YMD>
+        <REMARK> </REMARK>
+        <JIGA_JIBN>535-34번지</JIGA_JIBN>
+    </JIGA>
+    <JIGA>
+        <BASE_YEAR>2010</BASE_YEAR>
+        <BASE_MON>01</BASE_MON>
+        <PANN_JIGA>34500</PANN_JIGA>
+        <PANN_YMD>20100531</PANN_YMD>
+        <REMARK> </REMARK>
+        <JIGA_JIBN>535-34번지</JIGA_JIBN>
+    </JIGA>
+    <JIGA>
+        <BASE_YEAR>2009</BASE_YEAR>
+        <BASE_MON>01</BASE_MON>
+        <PANN_JIGA>34500</PANN_JIGA>
+        <PANN_YMD>20090529</PANN_YMD>
+        <REMARK> </REMARK>
+        <JIGA_JIBN>535-34번지</JIGA_JIBN>
+    </JIGA>
+    <JIGA>
+        <BASE_YEAR>2008</BASE_YEAR>
+        <BASE_MON>01</BASE_MON>
+        <PANN_JIGA>34900</PANN_JIGA>
+        <PANN_YMD>20080531</PANN_YMD>
+        <REMARK> </REMARK>
+        <JIGA_JIBN>535-34번지</JIGA_JIBN>
+    </JIGA>
+    <JIGA>
+        <BASE_YEAR>2007</BASE_YEAR>
+        <BASE_MON>01</BASE_MON>
+        <PANN_JIGA>34500</PANN_JIGA>
+        <PANN_YMD>20070531</PANN_YMD>
+        <REMARK> </REMARK>
+        <JIGA_JIBN>535-34번지</JIGA_JIBN>
+    </JIGA>
+    <JIGA>
+        <BASE_YEAR>2005</BASE_YEAR>
+        <BASE_MON>01</BASE_MON>
+        <PANN_JIGA>30200</PANN_JIGA>
+        <PANN_YMD>20050531</PANN_YMD>
+        <REMARK> </REMARK>
+        <JIGA_JIBN>535-34번지</JIGA_JIBN>
+    </JIGA>
+    <JIGA>
+        <BASE_YEAR>2004</BASE_YEAR>
+        <BASE_MON>01</BASE_MON>
+        <PANN_JIGA>24100</PANN_JIGA>
+        <PANN_YMD>20040630</PANN_YMD>
+        <REMARK> </REMARK>
+        <JIGA_JIBN>535-34번지</JIGA_JIBN>
+    </JIGA>
+    <JIGA>
+        <BASE_YEAR>2003</BASE_YEAR>
+        <BASE_MON>01</BASE_MON>
+        <PANN_JIGA>22700</PANN_JIGA>
+        <PANN_YMD>20030630</PANN_YMD>
+        <REMARK> </REMARK>
+        <JIGA_JIBN>535-34번지</JIGA_JIBN>
+    </JIGA>
+    <JIGA>
+        <BASE_YEAR>2002</BASE_YEAR>
+        <BASE_MON>01</BASE_MON>
+        <PANN_JIGA>22700</PANN_JIGA>
+        <PANN_YMD>20020629</PANN_YMD>
+        <REMARK> </REMARK>
+        <JIGA_JIBN>535-34번지</JIGA_JIBN>
+    </JIGA>
+    <JIGA>
+        <BASE_YEAR>2001</BASE_YEAR>
+        <BASE_MON>01</BASE_MON>
+        <PANN_JIGA>22700</PANN_JIGA>
+        <PANN_YMD>20010630</PANN_YMD>
+        <REMARK> </REMARK>
+        <JIGA_JIBN>535-34번지</JIGA_JIBN>
+    </JIGA>
+    <JIGA>
+        <BASE_YEAR>2000</BASE_YEAR>
+        <BASE_MON>01</BASE_MON>
+        <PANN_JIGA>22700</PANN_JIGA>
+        <PANN_YMD>20000630</PANN_YMD>
+        <REMARK> </REMARK>
+        <JIGA_JIBN>535-34번지</JIGA_JIBN>
+    </JIGA>
+    <JIGA>
+        <BASE_YEAR>1999</BASE_YEAR>
+        <BASE_MON>01</BASE_MON>
+        <PANN_JIGA>19500</PANN_JIGA>
+        <PANN_YMD>19990630</PANN_YMD>
+        <REMARK> </REMARK>
+        <JIGA_JIBN>535-34번지</JIGA_JIBN>
+    </JIGA>
+    <JIGA>
+        <BASE_YEAR>1998</BASE_YEAR>
+        <BASE_MON>01</BASE_MON>
+        <PANN_JIGA>19500</PANN_JIGA>
+        <PANN_YMD>19980630</PANN_YMD>
+        <REMARK> </REMARK>
+        <JIGA_JIBN>535-34번지</JIGA_JIBN>
+    </JIGA>
+    <JIGA>
+        <BASE_YEAR>1997</BASE_YEAR>
+        <BASE_MON>01</BASE_MON>
+        <PANN_JIGA>20200</PANN_JIGA>
+        <PANN_YMD>19970630</PANN_YMD>
+        <REMARK> </REMARK>
+        <JIGA_JIBN>535-34번지</JIGA_JIBN>
+    </JIGA>
+    <JIGA>
+        <BASE_YEAR>1996</BASE_YEAR>
+        <BASE_MON>01</BASE_MON>
+        <PANN_JIGA>17600</PANN_JIGA>
+        <PANN_YMD>19960629</PANN_YMD>
+        <REMARK> </REMARK>
+        <JIGA_JIBN>535-34번지</JIGA_JIBN>
+    </JIGA>
+    <JIGA>
+        <BASE_YEAR>1995</BASE_YEAR>
+        <BASE_MON>01</BASE_MON>
+        <PANN_JIGA>15500</PANN_JIGA>
+        <PANN_YMD>19950630</PANN_YMD>
+        <REMARK> </REMARK>
+        <JIGA_JIBN>535-34번지</JIGA_JIBN>
+    </JIGA>
+    <JIGA>
+        <BASE_YEAR>1994</BASE_YEAR>
+        <BASE_MON>01</BASE_MON>
+        <PANN_JIGA>17800</PANN_JIGA>
+        <PANN_YMD>19940630</PANN_YMD>
+        <REMARK> </REMARK>
+        <JIGA_JIBN>535-34번지</JIGA_JIBN>
+    </JIGA>
+    <JIGA>
+        <BASE_YEAR>1993</BASE_YEAR>
+        <BASE_MON>01</BASE_MON>
+        <PANN_JIGA>19000</PANN_JIGA>
+        <PANN_YMD>19930522</PANN_YMD>
+        <REMARK> </REMARK>
+        <JIGA_JIBN>535-34번지</JIGA_JIBN>
+    </JIGA>
+    <JIGA>
+        <BASE_YEAR>1992</BASE_YEAR>
+        <BASE_MON>01</BASE_MON>
+        <PANN_JIGA>19000</PANN_JIGA>
+        <PANN_YMD>19920601</PANN_YMD>
+        <REMARK> </REMARK>
+        <JIGA_JIBN>535-34번지</JIGA_JIBN>
+    </JIGA>
+    <JIGA>
+        <BASE_YEAR>1991</BASE_YEAR>
+        <BASE_MON>01</BASE_MON>
+        <PANN_JIGA>14000</PANN_JIGA>
+        <PANN_YMD>19910629</PANN_YMD>
+        <REMARK> </REMARK>
+        <JIGA_JIBN>535-34번지</JIGA_JIBN>
+    </JIGA>
+    <JIGA>
+        <BASE_YEAR>1990</BASE_YEAR>
+        <BASE_MON>01</BASE_MON>
+        <PANN_JIGA>8000</PANN_JIGA>
+        <PANN_YMD>19900830</PANN_YMD>
+        <REMARK> </REMARK>
+        <JIGA_JIBN>535-34번지</JIGA_JIBN>
+    </JIGA>
+</JIGA_LIST>
+</BODY></RESPONSE>

@@ -1,0 +1,274 @@
+﻿<?xml version="1.0" encoding="UTF-8"?><RESPONSE><HEADER><CODE>0000</CODE><MESSAGE>SUCCESS</MESSAGE></HEADER><BODY>
+<JIGA_CNT_LIST>
+    <JIGA_CNF_BASE>
+        <ISS_NO>0000</ISS_NO>
+        <SEQNO>0000</SEQNO>
+        <ADM_SECT_HEAD>충청남도 금산군수</ADM_SECT_HEAD>
+        <ISS_DATE>2019-04-23</ISS_DATE>
+        <ACC_NO>0000</ACC_NO>
+        <SEAL_IMG></SEAL_IMG>
+        <STAMP_IMG></STAMP_IMG>
+    </JIGA_CNF_BASE>
+    <JIGA_CNF_LIST>
+        <BASE_YEAR>2018</BASE_YEAR>
+        <BASE_MON>01</BASE_MON>
+        <PANN_JIGA>3490</PANN_JIGA>
+        <LAND_LOC_NM>충청남도 금산군 금산읍 계진리</LAND_LOC_NM>
+        <JIBUN>3-1번지</JIBUN>
+        <PANN_YMD>20180531</PANN_YMD>
+        <REMARK> </REMARK>
+    </JIGA_CNF_LIST>
+    <JIGA_CNF_LIST>
+        <BASE_YEAR>2017</BASE_YEAR>
+        <BASE_MON>01</BASE_MON>
+        <PANN_JIGA>3150</PANN_JIGA>
+        <LAND_LOC_NM>충청남도 금산군 금산읍 계진리</LAND_LOC_NM>
+        <JIBUN>3-1번지</JIBUN>
+        <PANN_YMD>20170531</PANN_YMD>
+        <REMARK> </REMARK>
+    </JIGA_CNF_LIST>
+    <JIGA_CNF_LIST>
+        <BASE_YEAR>2016</BASE_YEAR>
+        <BASE_MON>01</BASE_MON>
+        <PANN_JIGA>2890</PANN_JIGA>
+        <LAND_LOC_NM>충청남도 금산군 금산읍 계진리</LAND_LOC_NM>
+        <JIBUN>3-1번지</JIBUN>
+        <PANN_YMD>20160531</PANN_YMD>
+        <REMARK> </REMARK>
+    </JIGA_CNF_LIST>
+    <JIGA_CNF_LIST>
+        <BASE_YEAR>2015</BASE_YEAR>
+        <BASE_MON>01</BASE_MON>
+        <PANN_JIGA>2650</PANN_JIGA>
+        <LAND_LOC_NM>충청남도 금산군 금산읍 계진리</LAND_LOC_NM>
+        <JIBUN>3-1번지</JIBUN>
+        <PANN_YMD>20150529</PANN_YMD>
+        <REMARK> </REMARK>
+    </JIGA_CNF_LIST>
+    <JIGA_CNF_LIST>
+        <BASE_YEAR>2014</BASE_YEAR>
+        <BASE_MON>01</BASE_MON>
+        <PANN_JIGA>2530</PANN_JIGA>
+        <LAND_LOC_NM>충청남도 금산군 금산읍 계진리</LAND_LOC_NM>
+        <JIBUN>3-1번지</JIBUN>
+        <PANN_YMD>20140530</PANN_YMD>
+        <REMARK> </REMARK>
+    </JIGA_CNF_LIST>
+    <JIGA_CNF_LIST>
+        <BASE_YEAR>2013</BASE_YEAR>
+        <BASE_MON>01</BASE_MON>
+        <PANN_JIGA>2410</PANN_JIGA>
+        <LAND_LOC_NM>충청남도 금산군 금산읍 계진리</LAND_LOC_NM>
+        <JIBUN>3-1번지</JIBUN>
+        <PANN_YMD>20130531</PANN_YMD>
+        <REMARK> </REMARK>
+    </JIGA_CNF_LIST>
+    <JIGA_CNF_LIST>
+        <BASE_YEAR>2012</BASE_YEAR>
+        <BASE_MON>01</BASE_MON>
+        <PANN_JIGA>2520</PANN_JIGA>
+        <LAND_LOC_NM>충청남도 금산군 금산읍 계진리</LAND_LOC_NM>
+        <JIBUN>3-1번지</JIBUN>
+        <PANN_YMD>20120531</PANN_YMD>
+        <REMARK> </REMARK>
+    </JIGA_CNF_LIST>
+    <JIGA_CNF_LIST>
+        <BASE_YEAR>2011</BASE_YEAR>
+        <BASE_MON>01</BASE_MON>
+        <PANN_JIGA>1940</PANN_JIGA>
+        <LAND_LOC_NM>충청남도 금산군 금산읍 계진리</LAND_LOC_NM>
+        <JIBUN>3-1번지</JIBUN>
+        <PANN_YMD>20110531</PANN_YMD>
+        <REMARK> </REMARK>
+    </JIGA_CNF_LIST>
+    <JIGA_CNF_LIST>
+        <BASE_YEAR>2010</BASE_YEAR>
+        <BASE_MON>01</BASE_MON>
+        <PANN_JIGA>1840</PANN_JIGA>
+        <LAND_LOC_NM>충청남도 금산군 금산읍 계진리</LAND_LOC_NM>
+        <JIBUN>3-1번지</JIBUN>
+        <PANN_YMD>20100531</PANN_YMD>
+        <REMARK> </REMARK>
+    </JIGA_CNF_LIST>
+    <JIGA_CNF_LIST>
+        <BASE_YEAR>2009</BASE_YEAR>
+        <BASE_MON>01</BASE_MON>
+        <PANN_JIGA>1840</PANN_JIGA>
+        <LAND_LOC_NM>충청남도 금산군 금산읍 계진리</LAND_LOC_NM>
+        <JIBUN>3-1번지</JIBUN>
+        <PANN_YMD>20090529</PANN_YMD>
+        <REMARK> </REMARK>
+    </JIGA_CNF_LIST>
+    <JIGA_CNF_LIST>
+        <BASE_YEAR>2008</BASE_YEAR>
+        <BASE_MON>01</BASE_MON>
+        <PANN_JIGA>1620</PANN_JIGA>
+        <LAND_LOC_NM>충청남도 금산군 금산읍 계진리</LAND_LOC_NM>
+        <JIBUN>3-1번지</JIBUN>
+        <PANN_YMD>20080531</PANN_YMD>
+        <REMARK> </REMARK>
+    </JIGA_CNF_LIST>
+    <JIGA_CNF_LIST>
+        <BASE_YEAR>2007</BASE_YEAR>
+        <BASE_MON>01</BASE_MON>
+        <PANN_JIGA>1620</PANN_JIGA>
+        <LAND_LOC_NM>충청남도 금산군 금산읍 계진리</LAND_LOC_NM>
+        <JIBUN>3-1번지</JIBUN>
+        <PANN_YMD>20070531</PANN_YMD>
+        <REMARK> </REMARK>
+    </JIGA_CNF_LIST>
+    <JIGA_CNF_LIST>
+        <BASE_YEAR>2006</BASE_YEAR>
+        <BASE_MON>01</BASE_MON>
+        <PANN_JIGA>1740</PANN_JIGA>
+        <LAND_LOC_NM>충청남도 금산군 금산읍 계진리</LAND_LOC_NM>
+        <JIBUN>3-1번지</JIBUN>
+        <PANN_YMD>20060531</PANN_YMD>
+        <REMARK> </REMARK>
+    </JIGA_CNF_LIST>
+    <JIGA_CNF_LIST>
+        <BASE_YEAR>2005</BASE_YEAR>
+        <BASE_MON>01</BASE_MON>
+        <PANN_JIGA>1960</PANN_JIGA>
+        <LAND_LOC_NM>충청남도 금산군 금산읍 계진리</LAND_LOC_NM>
+        <JIBUN>3-1번지</JIBUN>
+        <PANN_YMD>20050531</PANN_YMD>
+        <REMARK> </REMARK>
+    </JIGA_CNF_LIST>
+    <JIGA_CNF_LIST>
+        <BASE_YEAR>2004</BASE_YEAR>
+        <BASE_MON>01</BASE_MON>
+        <PANN_JIGA>1960</PANN_JIGA>
+        <LAND_LOC_NM>충청남도 금산군 금산읍 계진리</LAND_LOC_NM>
+        <JIBUN>3-1번지</JIBUN>
+        <PANN_YMD>20040630</PANN_YMD>
+        <REMARK> </REMARK>
+    </JIGA_CNF_LIST>
+    <JIGA_CNF_LIST>
+        <BASE_YEAR>2003</BASE_YEAR>
+        <BASE_MON>01</BASE_MON>
+        <PANN_JIGA>1960</PANN_JIGA>
+        <LAND_LOC_NM>충청남도 금산군 금산읍 계진리</LAND_LOC_NM>
+        <JIBUN>3-1번지</JIBUN>
+        <PANN_YMD>20030630</PANN_YMD>
+        <REMARK> </REMARK>
+    </JIGA_CNF_LIST>
+    <JIGA_CNF_LIST>
+        <BASE_YEAR>2002</BASE_YEAR>
+        <BASE_MON>01</BASE_MON>
+        <PANN_JIGA>1960</PANN_JIGA>
+        <LAND_LOC_NM>충청남도 금산군 금산읍 계진리</LAND_LOC_NM>
+        <JIBUN>3-1번지</JIBUN>
+        <PANN_YMD>20020629</PANN_YMD>
+        <REMARK> </REMARK>
+    </JIGA_CNF_LIST>
+    <JIGA_CNF_LIST>
+        <BASE_YEAR>2001</BASE_YEAR>
+        <BASE_MON>01</BASE_MON>
+        <PANN_JIGA>1960</PANN_JIGA>
+        <LAND_LOC_NM>충청남도 금산군 금산읍 계진리</LAND_LOC_NM>
+        <JIBUN>3-1번지</JIBUN>
+        <PANN_YMD>20010630</PANN_YMD>
+        <REMARK> </REMARK>
+    </JIGA_CNF_LIST>
+    <JIGA_CNF_LIST>
+        <BASE_YEAR>2000</BASE_YEAR>
+        <BASE_MON>01</BASE_MON>
+        <PANN_JIGA>1960</PANN_JIGA>
+        <LAND_LOC_NM>충청남도 금산군 금산읍 계진리</LAND_LOC_NM>
+        <JIBUN>3-1번지</JIBUN>
+        <PANN_YMD>20000630</PANN_YMD>
+        <REMARK> </REMARK>
+    </JIGA_CNF_LIST>
+    <JIGA_CNF_LIST>
+        <BASE_YEAR>1999</BASE_YEAR>
+        <BASE_MON>01</BASE_MON>
+        <PANN_JIGA>1960</PANN_JIGA>
+        <LAND_LOC_NM>충청남도 금산군 금산읍 계진리</LAND_LOC_NM>
+        <JIBUN>3-1번지</JIBUN>
+        <PANN_YMD>19990630</PANN_YMD>
+        <REMARK> </REMARK>
+    </JIGA_CNF_LIST>
+    <JIGA_CNF_LIST>
+        <BASE_YEAR>1998</BASE_YEAR>
+        <BASE_MON>01</BASE_MON>
+        <PANN_JIGA>2380</PANN_JIGA>
+        <LAND_LOC_NM>충청남도 금산군 금산읍 계진리</LAND_LOC_NM>
+        <JIBUN>3-1번지</JIBUN>
+        <PANN_YMD>19980630</PANN_YMD>
+        <REMARK> </REMARK>
+    </JIGA_CNF_LIST>
+    <JIGA_CNF_LIST>
+        <BASE_YEAR>1997</BASE_YEAR>
+        <BASE_MON>01</BASE_MON>
+        <PANN_JIGA>3230</PANN_JIGA>
+        <LAND_LOC_NM>충청남도 금산군 금산읍 계진리</LAND_LOC_NM>
+        <JIBUN>3-1번지</JIBUN>
+        <PANN_YMD>19970630</PANN_YMD>
+        <REMARK> </REMARK>
+    </JIGA_CNF_LIST>
+    <JIGA_CNF_LIST>
+        <BASE_YEAR>1996</BASE_YEAR>
+        <BASE_MON>01</BASE_MON>
+        <PANN_JIGA>2000</PANN_JIGA>
+        <LAND_LOC_NM>충청남도 금산군 금산읍 계진리</LAND_LOC_NM>
+        <JIBUN>3-1번지</JIBUN>
+        <PANN_YMD>19960629</PANN_YMD>
+        <REMARK> </REMARK>
+    </JIGA_CNF_LIST>
+    <JIGA_CNF_LIST>
+        <BASE_YEAR>1995</BASE_YEAR>
+        <BASE_MON>01</BASE_MON>
+        <PANN_JIGA>2000</PANN_JIGA>
+        <LAND_LOC_NM>충청남도 금산군 금산읍 계진리</LAND_LOC_NM>
+        <JIBUN>3-1번지</JIBUN>
+        <PANN_YMD>19950630</PANN_YMD>
+        <REMARK> </REMARK>
+    </JIGA_CNF_LIST>
+    <JIGA_CNF_LIST>
+        <BASE_YEAR>1994</BASE_YEAR>
+        <BASE_MON>01</BASE_MON>
+        <PANN_JIGA>2000</PANN_JIGA>
+        <LAND_LOC_NM>충청남도 금산군 금산읍 계진리</LAND_LOC_NM>
+        <JIBUN>3-1번지</JIBUN>
+        <PANN_YMD>19940630</PANN_YMD>
+        <REMARK> </REMARK>
+    </JIGA_CNF_LIST>
+    <JIGA_CNF_LIST>
+        <BASE_YEAR>1993</BASE_YEAR>
+        <BASE_MON>01</BASE_MON>
+        <PANN_JIGA>2360</PANN_JIGA>
+        <LAND_LOC_NM>충청남도 금산군 금산읍 계진리</LAND_LOC_NM>
+        <JIBUN>3-1번지</JIBUN>
+        <PANN_YMD>19930522</PANN_YMD>
+        <REMARK> </REMARK>
+    </JIGA_CNF_LIST>
+    <JIGA_CNF_LIST>
+        <BASE_YEAR>1992</BASE_YEAR>
+        <BASE_MON>01</BASE_MON>
+        <PANN_JIGA>2000</PANN_JIGA>
+        <LAND_LOC_NM>충청남도 금산군 금산읍 계진리</LAND_LOC_NM>
+        <JIBUN>3-1번지</JIBUN>
+        <PANN_YMD>19920601</PANN_YMD>
+        <REMARK> </REMARK>
+    </JIGA_CNF_LIST>
+    <JIGA_CNF_LIST>
+        <BASE_YEAR>1991</BASE_YEAR>
+        <BASE_MON>01</BASE_MON>
+        <PANN_JIGA>2000</PANN_JIGA>
+        <LAND_LOC_NM>충청남도 금산군 금산읍 계진리</LAND_LOC_NM>
+        <JIBUN>3-1번지</JIBUN>
+        <PANN_YMD>19910629</PANN_YMD>
+        <REMARK> </REMARK>
+    </JIGA_CNF_LIST>
+    <JIGA_CNF_LIST>
+        <BASE_YEAR>1990</BASE_YEAR>
+        <BASE_MON>01</BASE_MON>
+        <PANN_JIGA>2000</PANN_JIGA>
+        <LAND_LOC_NM>충청남도 금산군 금산읍 계진리</LAND_LOC_NM>
+        <JIBUN>3-1번지</JIBUN>
+        <PANN_YMD>19900830</PANN_YMD>
+        <REMARK> </REMARK>
+    </JIGA_CNF_LIST>
+</JIGA_CNT_LIST>
+</BODY></RESPONSE>
