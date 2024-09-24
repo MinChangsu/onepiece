@@ -22,7 +22,7 @@
 			}
 		}
 		@include media-breakpoint-down(lg) {
-			//padding-top: rem(100px);
+			padding-top: rem(100px);
 		}
 	}
 	&.pos-with-sidebar {
@@ -79,13 +79,13 @@
 		position: fixed;
 		top: 0;
 		z-index: 10;
-
+		
 		@include media-breakpoint-up(lg) {
 			display: flex;
 			width: $pos-menu-width;
 			flex-direction: column;
 			bottom: 0;
-
+			
 			@if ($enable-rtl) {
 				right: 0;
 				padding-right: $spacer;
@@ -101,7 +101,7 @@
 			bottom: auto;
 			border-bottom: 1px solid var(--#{$prefix}border-color);
 		}
-
+		
 		& .logo {
 			display: flex;
 			align-items: center;
@@ -153,9 +153,8 @@
 			}
 		}
 		& .nav-container {
-			z-index: 9;
-
-
+			flex: 1;
+		
 			@include media-breakpoint-up(lg) {
 				overflow: hidden;
 				padding: 0;

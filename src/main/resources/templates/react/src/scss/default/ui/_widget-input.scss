@@ -17,6 +17,7 @@
 		
 		& .form-control {
 			border-color: var(--#{$prefix}light);
+			background: var(--#{$prefix}light);
 			border-radius: $border-radius * 10;
 			
 			&:focus {

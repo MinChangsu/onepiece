@@ -1,21 +1,20 @@
-$theme-panel-width: rem(350px);
+$theme-panel-width: rem(260px);
 
 .theme-panel {
 	position: fixed;
 	width: $theme-panel-width;
-	left: -$theme-panel-width;
-	//right: -$theme-panel-width;
+	right: -$theme-panel-width;
 	top: 0;
 	bottom: 0;
 	z-index: $app-theme-panel-zindex;
 	background: var(--#{$prefix}component-bg);
-	transition: left .2s linear;
-	border-radius: 0 $border-radius $border-radius 0;
+	transition: right .2s linear;
+	border-radius: $border-radius 0 0 $border-radius;
 	
 	@if $enable-rtl {
-		left: -$theme-panel-width;
 		right: auto;
-		transition: right .2s linear;
+		left: -$theme-panel-width;
+		transition: left .2s linear;
 	}
 	
 	& .theme-list {
@@ -78,7 +77,7 @@ $theme-panel-width: rem(350px);
 	}
 	& .theme-collapse-btn {
 		position: absolute;
-		right: rem(-30px); //$theme-panel-width;// rem(-30px);	//
+		left: rem(-30px);
 		top: 30%;
 		margin-top: rem(-15px);
 		width: rem(30px);
@@ -88,12 +87,12 @@ $theme-panel-width: rem(350px);
 		color: var(--#{$prefix}component-color);
 		background: var(--#{$prefix}component-bg);
 		text-align: center;
-		border-radius: 0 $border-radius $border-radius 0;
+		border-radius: $border-radius 0 0 $border-radius;
 		box-shadow: 0 0 15px 0 rgba($black, .15);
 		
 		@if $enable-rtl {
-			left: $theme-panel-width; //rem(260px);	//$theme-panel-width;
-			right: $theme-panel-width; //$theme-panel-width;	//rem(260px);
+			left: auto;
+			right: rem(-30px);
 			border-radius: 0 $border-radius $border-radius 0;
 		}
 		@include media-breakpoint-down(sm) {
@@ -102,7 +101,7 @@ $theme-panel-width: rem(350px);
 	}
 	& .theme-panel-content {
 		background: var(--#{$prefix}component-bg);
-		padding: rem(10px);
+		padding: rem(20px);
 		position: absolute;
 		top: 0;
 		left: 0;
@@ -191,10 +190,11 @@ $theme-panel-width: rem(350px);
 	}
 	&.active {
 		box-shadow: 0 5px 25px rgba($black, .3);
+		
 		@if $enable-rtl {
-			right: 0;
+			left: 0;
 		} @else {
-			left: 0px;
+			right: 0;
 		}
 		
 		& .theme-collapse-btn {

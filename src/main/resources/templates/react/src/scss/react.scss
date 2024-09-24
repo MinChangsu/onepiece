@@ -845,7 +845,7 @@ body {
 				border-bottom: 1px solid var(--#{$prefix}component-border-color);
 			}
 			&:last-child {
-				//margin-bottom: -1px;
+				margin-bottom: -1px;
 			}
 			
 			& > div + div {

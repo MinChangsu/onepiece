@@ -353,7 +353,7 @@ const App: React.FC = () => {
             >
               <Header />
               {/*<SidebarRight />*/}
-              {/*<Sidebar />*/}
+              <Sidebar />
               {/*<SidebarRight />*/}
               {/*{!appHeaderNone && <SideHeader />}*/}
               {/*{!appSidebarNone && <Sidebar />}*/}
