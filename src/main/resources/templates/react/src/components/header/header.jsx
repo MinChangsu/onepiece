@@ -27,7 +27,8 @@ function Header() {
               </button>
             )}
             <Link to='/' className='navbar-brand'>
-              <span className='navbar-logo'></span> <b>OnePiece</b> BountyRush
+              <img className='me-1' src='/assets/img/logo.png' alt='f'/>
+              <b>OnePiece</b> BountyRush
             </Link>
 
             {appHeaderMegaMenu && (
@@ -58,13 +59,12 @@ function Header() {
                 <span className='icon-bar'></span>
               </button>
             )}
-            {appSidebarNone && (
               <button type='button' className='navbar-mobile-toggler' onClick={toggleAppSidebarMobile}>
                 <span className='icon-bar'></span>
                 <span className='icon-bar'></span>
                 <span className='icon-bar'></span>
               </button>
-            )}
+
           </div>
           <div className='navbar-nav'>
             {/*<DropdownNotification />*/}

@@ -29,7 +29,7 @@ function SidebarProfile() {
 				<div className="menu">
 					<div className="menu-profile">
 						<Link to="/" onClick={handleProfileExpand} className="menu-profile-link">
-							<div className="menu-profile-cover with-shadow"></div>
+							<div style={{ backgroundImage: 'url(/assets/img/logo.png)' }} className="menu-profile-cover with-shadow"></div>
 							<div className="menu-profile-image">
 								<img src="../assets/img/user/user-13.jpg" alt="" />
 							</div>
@@ -41,7 +41,6 @@ function SidebarProfile() {
 									{/*<div className="menu-caret ms-auto"></div>*/}
 								</div>
 								<small>공략홈페이지</small>
-								<img src={'url(/assets/img/login-bg/login-bg3.jpeg)'} alt="d"/>
 							</div>
 						</Link>
 					</div>

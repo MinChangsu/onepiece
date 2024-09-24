@@ -23,10 +23,10 @@ function App() {
 
 root.render(
   <RecoilRoot>
-    {/*<BrowserRouter>*/}
-    <HashRouter>
+    <BrowserRouter>
+    {/*<HashRouter>*/}
       <App />
-    </HashRouter>
-    {/*</BrowserRouter>*/}
+    {/*</HashRouter>*/}
+    </BrowserRouter>
   </RecoilRoot>,
 );

@@ -14,11 +14,12 @@ import { useRecoilState } from 'recoil';
 import loginState from './store/loginState';
 import SideHeader from "./components/header/sideHeader";
 import SidebarRight from "./components/sidebar-right/sidebar-right";
+import Footer from "./components/custom/footer";
 
 
 const App: React.FC = () => {
   const [appTheme] = useState('');
-  const [appDarkMode, setAppDarkMode] = useState(false);
+  const [appDarkMode, setAppDarkMode] = useState(true);
   const [appGradientEnabled, setAppGradientEnabled] = useState(false);
   const [appHeaderNone, setAppHeaderNone] = useState(false);
   const [appSysHeaderNone, setAppSysHeaderNone] = useState(true);
@@ -27,7 +28,7 @@ const App: React.FC = () => {
   const [appHeaderMegaMenu, setAppHeaderMegaMenu] = useState(false);
   const [appHeaderLanguageBar, setAppHeaderLanguageBar] = useState(false);
   const [hasScroll, setHasScroll] = useState(false);
-  const [appSidebarNone, setAppSidebarNone] = useState(true);
+  const [appSidebarNone, setAppSidebarNone] = useState(false);
   const [appSidebarWide, setAppSidebarWide] = useState(false);
   const [appSidebarLight, setAppSidebarLight] = useState(false);
   const [appSidebarMinify, setAppSidebarMinify] = useState(false);
@@ -255,15 +256,15 @@ const App: React.FC = () => {
   }, [appTheme, appDarkMode]);
 
   //<--뒤로가기시 관리자페이지 헤더나오는 오류 수정 시작(09.04)
-  useLayoutEffect(() => {
-    // /#인 경우 남아있는 오류 수정 추가
-    if(location.pathname === '/'  || location.pathname === '/' &&  location.hash === '#' ){
-      handleSetAppHeaderNone(false)
-      handleSetAppThemePanelNone(false);
-      handleSetAppSysHeaderNone(true);
-      handleSetAppSidebarNone(true);
-    }
-  }, [location.pathname, location.hash ]);
+  // useLayoutEffect(() => {
+  //   // /#인 경우 남아있는 오류 수정 추가
+  //   if(location.pathname === '/'  || location.pathname === '/' &&  location.hash === '#' ){
+  //     handleSetAppHeaderNone(false)
+  //     handleSetAppThemePanelNone(false);
+  //     handleSetAppSysHeaderNone(true);
+  //     handleSetAppSidebarNone(true);
+  //   }
+  // }, [location.pathname, location.hash ]);
   //뒤로가기시 관리자페이지 헤더나오는 오류 수정 끝 (09.04)  -->
 
 
@@ -351,15 +352,11 @@ const App: React.FC = () => {
                 (hasScroll ? 'has-scroll ' : '')
               }
             >
-              <Header />
-              {/*<SidebarRight />*/}
-              {/*{!appHeaderNone && <SideHeader />}*/}
-              {appSidebarNone && <Sidebar />}
-              {/*{appSidebarTwo && <SidebarRight />}*/}
-              {appTopMenu && <TopMenu />}
-
-              {!appContentNone && <Content />}
-              {!appThemePanelNone && <ThemePanel />}
+                {!appHeaderNone && <Header />}
+                {!appSidebarNone && <Sidebar />}
+                {appTopMenu && <TopMenu />}
+                {!appContentNone && <Content />}
+                {/*<Footer/>*/}
 
             </div>
           </AppSettings.Provider>

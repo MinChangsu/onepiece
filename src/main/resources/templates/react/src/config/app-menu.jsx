@@ -33,23 +33,23 @@ const Menu = [
   },*/
 
   {
-    path: '/d',
+    path: '/character',
     icon: 'fa fa-user',
     title: '캐릭터 정보',
   },
   {
-    path: '/a',
-    icon: 'fa fa-user',
+    path: '/surpot',
+    icon: 'fa fa-plus',
     title: '서포터 맞추기',
   },
   {
-    path: '/b',
-    icon: 'fa fa-user',
+    path: '/medal',
+    icon: 'fa fa-circle',
     title: '매달 정보',
   },
   {
-    path: '/c',
-    icon: 'fa fa-user',
+    path: '/board',
+    icon: 'fa fa-pen',
     title: '게시판',
   },
   // {

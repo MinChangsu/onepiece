@@ -17,6 +17,7 @@ function NavItem({ menu, ...props }: LinkProps) {
 	let badge = menu.badge && <div className="menu-badge">{menu.badge}</div>;
 	let highlight = menu.highlight && <i className="fa fa-paper-plane text-theme"></i>;
 	let title = menu.title && <div className="menu-text">{menu.title} {label} {highlight}</div>;
+	console.log(menu)
 	
 	return (
     <div className={'menu-item' + ((match || match2) ? ' active' : '') + (menu.children ? ' has-sub' : '')}>
@@ -151,7 +152,6 @@ function SidebarNav() {
 					<input type="text" className="form-control" placeholder="Sidebar menu filter..." onKeyUp={handleSidebarSearch} />
 				</div>
 			)}
-			<div className="menu-header">Navigation</div>
 			{menus.map((menu, i) => (
 				<NavItem key={i} menu={menu} />
 			))}
