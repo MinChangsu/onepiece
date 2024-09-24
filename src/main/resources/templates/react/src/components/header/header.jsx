@@ -1,9 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import DropdownNotification from './dropdown/notification.jsx';
-import DropdownLanguage from './dropdown/language.jsx';
-import DropdownProfile from './dropdown/profile.jsx';
-
 import { AppSettings } from '../../config/app-settings';
 
 function Header() {
@@ -62,7 +58,7 @@ function Header() {
                 <span className='icon-bar'></span>
               </button>
             )}
-            {!appSidebarNone && (
+            {appSidebarNone && (
               <button type='button' className='navbar-mobile-toggler' onClick={toggleAppSidebarMobile}>
                 <span className='icon-bar'></span>
                 <span className='icon-bar'></span>
@@ -70,23 +66,23 @@ function Header() {
               </button>
             )}
           </div>
-          {/*<div className='navbar-nav'>*/}
-          {/*  <DropdownNotification />*/}
+          <div className='navbar-nav'>
+            {/*<DropdownNotification />*/}
 
-          {/*  {appHeaderLanguageBar && <DropdownLanguage />}*/}
+            {/*{appHeaderLanguageBar && <DropdownLanguage />}*/}
 
-          {/*  <DropdownProfile />*/}
+            {/*<DropdownProfile />*/}
 
-          {/*  {appSidebarTwo && <div className='navbar-divider d-none d-md-block'></div>}*/}
+            {appSidebarTwo && <div className='navbar-divider d-none d-md-block'></div>}
 
-          {/*  {appSidebarTwo && (*/}
-          {/*    <div className='navbar-item d-none d-md-block'>*/}
-          {/*      <Link to='/' onClick={toggleAppSidebarEnd} className='navbar-link icon'>*/}
-          {/*        <i className='fa fa-th'></i>*/}
-          {/*      </Link>*/}
-          {/*    </div>*/}
-          {/*  )}*/}
-          {/*</div>*/}
+            {appSidebarTwo && (
+              <div className='navbar-item d-none d-md-block'>
+                <Link to='/' onClick={toggleAppSidebarEnd} className='navbar-link icon'>
+                  <i className='fa fa-th'></i>
+                </Link>
+              </div>
+            )}
+          </div>
         </div>
       )}
     </AppSettings.Consumer>

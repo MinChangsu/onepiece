@@ -1,9 +1,9 @@
 import React, { useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import PerfectScrollbar from 'react-perfect-scrollbar';
-import { AppSettings } from './../../config/app-settings.js';
-import { slideUp } from './../../composables/slideUp.js';
-import { slideToggle } from './../../composables/slideToggle.js';
+import { AppSettings } from '../../config/app-settings';
+import { slideUp } from '../../composables/slideUp';
+import { slideToggle } from '../../composables/slideToggle';
 import SidebarMinifyBtn from './sidebar-minify-btn.jsx';
 import SidebarProfile from './sidebar-profile.jsx';
 import SidebarNav from './sidebar-nav.jsx';
