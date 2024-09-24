@@ -36,35 +36,36 @@ function SidebarProfile() {
 							<div className="menu-profile-info">
 								<div className="d-flex align-items-center">
 									<div className="flex-grow-1">
-										Sean Ngu
+										원피스바운티러쉬
 									</div>
-									<div className="menu-caret ms-auto"></div>
+									{/*<div className="menu-caret ms-auto"></div>*/}
 								</div>
-								<small>Front end developer</small>
+								<small>공략홈페이지</small>
+								<img src={'url(/assets/img/login-bg/login-bg3.jpeg)'} alt="d"/>
 							</div>
 						</Link>
 					</div>
-					<div id="appSidebarProfileMenu" className="collapse">
-						<div className="menu-item pt-5px">
-							<Link to="/" className="menu-link">
-								<div className="menu-icon"><i className="fa fa-cog"></i></div>
-								<div className="menu-text">Settings</div>
-							</Link>
-						</div>
-						<div className="menu-item">
-							<Link to="/" className="menu-link">
-								<div className="menu-icon"><i className="fa fa-pencil-alt"></i></div>
-								<div className="menu-text"> Send Feedback</div>
-							</Link>
-						</div>
-						<div className="menu-item pb-5px">
-							<Link to="/" className="menu-link">
-								<div className="menu-icon"><i className="fa fa-question-circle"></i></div>
-								<div className="menu-text"> Helps</div>
-							</Link>
-						</div>
-						<div className="menu-divider m-0"></div>
-					</div>
+					{/*<div id="appSidebarProfileMenu" className="collapse">*/}
+					{/*	<div className="menu-item pt-5px">*/}
+					{/*		<Link to="/" className="menu-link">*/}
+					{/*			<div className="menu-icon"><i className="fa fa-cog"></i></div>*/}
+					{/*			<div className="menu-text">Settings</div>*/}
+					{/*		</Link>*/}
+					{/*	</div>*/}
+					{/*	<div className="menu-item">*/}
+					{/*		<Link to="/" className="menu-link">*/}
+					{/*			<div className="menu-icon"><i className="fa fa-pencil-alt"></i></div>*/}
+					{/*			<div className="menu-text"> Send Feedback</div>*/}
+					{/*		</Link>*/}
+					{/*	</div>*/}
+					{/*	<div className="menu-item pb-5px">*/}
+					{/*		<Link to="/" className="menu-link">*/}
+					{/*			<div className="menu-icon"><i className="fa fa-question-circle"></i></div>*/}
+					{/*			<div className="menu-text"> Helps</div>*/}
+					{/*		</Link>*/}
+					{/*	</div>*/}
+					{/*	<div className="menu-divider m-0"></div>*/}
+					{/*</div>*/}
 				</div>
 			)}
 		</AppSettings.Consumer>

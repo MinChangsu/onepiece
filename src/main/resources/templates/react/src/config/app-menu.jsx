@@ -33,47 +33,62 @@ const Menu = [
   },*/
 
   {
-    path: '/sys/usr',
+    path: '/d',
     icon: 'fa fa-user',
-    title: '사용자 관리',
+    title: '캐릭터 정보',
   },
   {
-    path: '/sys/cmn',
-    icon: 'fa fa-gear',
-    title: '기본 관리',
-    children: [
-      { path: '/sys/cmn/CMNStdcd', title: '공통코드 관리' },
-      { path: '/sys/cmn/CMNNtc', title: '공지사항 관리' },
-      { path: '/sys/cmn/CMNPds', title: '자료실 관리' },
-      { path: '/sys/cmn/CMNLog', title: '이력 관리' },
-      // { path: '/sys/cmn/CMNHist', title: '업무이력 관리' },
-    ],
+    path: '/a',
+    icon: 'fa fa-user',
+    title: '서포터 맞추기',
   },
   {
-    path: '/sys/LayerMng',
-    icon: 'fa-solid fa-layer-group',
-    title: '레이어 관리',
+    path: '/b',
+    icon: 'fa fa-user',
+    title: '매달 정보',
   },
   {
-    path: '/sys/property/propertyMng',
-    icon: 'fa fa-money-check',
-    title: '재산정보 업로드',
+    path: '/c',
+    icon: 'fa fa-user',
+    title: '게시판',
   },
-  {
-    path: '/sys/site/siteMng',
-    icon: 'fa-solid fa-list-check',
-    title: '사이트 관리',
-  },
-  {
-    path: '/sys/conn/CONNMng',
-    icon: 'fa fa-cloud',
-    title: '연계 관리',
-  },
-  {
-    path: '/sys/stat/STATMng',
-    icon: 'fa fa-chart-bar',
-    title: '통계 관리',
-  },
+  // {
+  //   path: '/sys/cmn',
+  //   icon: 'fa fa-gear',
+  //   title: '기본 관리',
+  //   children: [
+  //     { path: '/sys/cmn/CMNStdcd', title: '공통코드 관리' },
+  //     { path: '/sys/cmn/CMNNtc', title: '공지사항 관리' },
+  //     { path: '/sys/cmn/CMNPds', title: '자료실 관리' },
+  //     { path: '/sys/cmn/CMNLog', title: '이력 관리' },
+  //     // { path: '/sys/cmn/CMNHist', title: '업무이력 관리' },
+  //   ],
+  // },
+  // {
+  //   path: '/sys/LayerMng',
+  //   icon: 'fa-solid fa-layer-group',
+  //   title: '레이어 관리',
+  // },
+  // {
+  //   path: '/sys/property/propertyMng',
+  //   icon: 'fa fa-money-check',
+  //   title: '재산정보 업로드',
+  // },
+  // {
+  //   path: '/sys/site/siteMng',
+  //   icon: 'fa-solid fa-list-check',
+  //   title: '사이트 관리',
+  // },
+  // {
+  //   path: '/sys/conn/CONNMng',
+  //   icon: 'fa fa-cloud',
+  //   title: '연계 관리',
+  // },
+  // {
+  //   path: '/sys/stat/STATMng',
+  //   icon: 'fa fa-chart-bar',
+  //   title: '통계 관리',
+  // },
 ];
 
 export default Menu;
