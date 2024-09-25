@@ -15,6 +15,7 @@ import loginState from './store/loginState';
 import SideHeader from "./components/header/sideHeader";
 import SidebarRight from "./components/sidebar-right/sidebar-right";
 import Footer from "./components/custom/footer";
+import DropdownMegaMenu from "./components/header/dropdown/mega";
 
 
 const App: React.FC = () => {
@@ -25,10 +26,10 @@ const App: React.FC = () => {
   const [appSysHeaderNone, setAppSysHeaderNone] = useState(true);
   const [appHeaderFixed, setAppHeaderFixed] = useState(true);
   const [appHeaderInverse, setAppHeaderInverse] = useState(false);
-  const [appHeaderMegaMenu, setAppHeaderMegaMenu] = useState(false);
+  const [appHeaderMegaMenu, setAppHeaderMegaMenu] = useState(true);
   const [appHeaderLanguageBar, setAppHeaderLanguageBar] = useState(false);
   const [hasScroll, setHasScroll] = useState(false);
-  const [appSidebarNone, setAppSidebarNone] = useState(false);
+  const [appSidebarNone, setAppSidebarNone] = useState(true);
   const [appSidebarWide, setAppSidebarWide] = useState(false);
   const [appSidebarLight, setAppSidebarLight] = useState(false);
   const [appSidebarMinify, setAppSidebarMinify] = useState(false);
@@ -331,6 +332,7 @@ const App: React.FC = () => {
               handleSetAppSysHeaderNone,
             }}
       >
+          {!appHeaderNone && <Header />}
             <div
               className={
                 'app ' +
@@ -352,7 +354,7 @@ const App: React.FC = () => {
                 (hasScroll ? 'has-scroll ' : '')
               }
             >
-                {!appHeaderNone && <Header />}
+
                 {!appSidebarNone && <Sidebar />}
                 {appTopMenu && <TopMenu />}
                 {!appContentNone && <Content />}

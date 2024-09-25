@@ -14,7 +14,8 @@
 	z-index: $app-header-zindex;
 	margin-bottom: 0;
 	padding: 0;
-	background: var(--#{$prefix}app-header-bg);
+	//background: var(--#{$prefix}app-header-bg);
+	background: #171717;
 	box-shadow: var(--#{$prefix}app-header-box-shadow);
 	transition: box-shadow .2s linear;
 	display: flex;
@@ -68,7 +69,7 @@
 	& .navbar-header {
 		display: flex;
 		align-items: center;
-		
+
 		@include media-breakpoint-up(md) {
 			width: $app-sidebar-width;
 		}
@@ -186,7 +187,7 @@
 			&:last-child {
 				& .navbar-link {
 					@include media-breakpoint-down(md) {
-						padding-right: 0;
+						//padding-right: 0;
 					
 						@if $enable-rtl {
 							padding-right: 20px;

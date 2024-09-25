@@ -35,17 +35,17 @@ const Menu = [
   {
     path: '/character',
     icon: 'fa fa-user',
-    title: '캐릭터 정보',
+    title: '캐릭터',
   },
   {
     path: '/surpot',
     icon: 'fa fa-plus',
-    title: '서포터 맞추기',
+    title: '서포터',
   },
   {
     path: '/medal',
     icon: 'fa fa-circle',
-    title: '매달 정보',
+    title: '매달',
   },
   {
     path: '/board',

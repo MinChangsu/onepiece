@@ -67,8 +67,8 @@ spring:
       thread-name-prefix: itk-scheduled-task-pool
 custom:
   path:
-#    files: 'c:/one/'
-    files: '/Users/hwanh/onepiece_log/'
+    files: 'c:/one/'
+#    files: '/Users/hwanh/onepiece_log/'
 
 server:
   #  port: 20093  # 개발서버
@@ -76,8 +76,8 @@ server:
 logging:
   file:
     name: app
-#    path: 'c:/one/files'
-    path: '/Users/hwanh/onepiece_log/'
+    path: 'c:/one/files'
+#    path: '/Users/hwanh/onepiece_log/'
 
 mybatis:
   type-aliases-package: onepiece.bounty.rush.domain

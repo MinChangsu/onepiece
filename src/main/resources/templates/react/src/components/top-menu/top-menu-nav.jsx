@@ -3,6 +3,7 @@ import { useResolvedPath, useMatch, useLocation, matchPath, Link, NavLink } from
 import menus from './../../config/app-menu.jsx';
 import { slideUp } from './../../composables/slideUp.js';
 import { slideToggle } from './../../composables/slideToggle.js';
+import {LinkProps} from "react-router-dom";
 
 function NavItem({ menu, ...props }: LinkProps) {
 	let resolved = useResolvedPath(menu.path);

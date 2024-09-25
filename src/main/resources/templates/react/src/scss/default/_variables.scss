@@ -547,8 +547,8 @@ $btn-scroll-to-top-zindex:             1020 !default;
 // 18.0 App - Header
 
 $app-header-bg:                     $white !default;
-$app-header-height:                 rem(50px) !default;
-$app-header-height-sm:              rem(50px) !default;
+$app-header-height:                 rem(80px) !default;
+$app-header-height-sm:              rem(80px) !default;
 $app-header-box-shadow:             none !default;
 $app-header-box-shadow-scroll:      0 0 16px rgba($black, .15) !default;
 $app-header-color:                  $gray-900 !default;
@@ -1141,6 +1141,7 @@ $navbar-padding-x:                  null !default;
 $navbar-nav-link-padding-x:         .5rem !default;
 $navbar-brand-font-size:            $font-size-lg !default;
 $navbar-brand-height:               $navbar-brand-font-size * $line-height-base !default;
+//$navbar-brand-height:               rem(80px);
 $navbar-brand-padding-y:            ($nav-link-height - $navbar-brand-height) * .5 !default;
 $navbar-brand-margin-end:           1rem !default;
 $navbar-toggler-padding-y:          .25rem !default;
