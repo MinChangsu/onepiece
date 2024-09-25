@@ -33,7 +33,7 @@
     <springProfile name="prod">
         <include resource="appenders/appender-file.xml" />
 
-        <logger name="kr.itkor.pp" level="DEBUG" additivity="false">
+        <logger name="onepiece.bounty.rush" level="DEBUG" additivity="false">
             <appender-ref ref="FILE" />
         </logger>
         <logger name="jdbc.sqlonly" level="DEBUG" additivity="false">

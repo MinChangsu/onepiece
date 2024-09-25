@@ -4,7 +4,7 @@
 <mapper namespace="onepiece.bounty.rush.repository.CMNLogRepo">
 
     <select id="SELECT_CNT_LOG" parameterType="CMNLogDomain" resultType="int">
-        <include refid="kr.itkor.pp.Function.chkNotEmpty" />
+        <include refid="onepiece.bounty.rush.Function.chkNotEmpty" />
         SELECT COUNT( X.seq )
           FROM ( SELECT A.seq         AS seq
                       , A.usr_id      AS usrId
@@ -38,7 +38,7 @@
     </select>
 
     <select id="LIST_LOG" parameterType="CMNLogDomain" resultType="CMNLogDomain">
-        <include refid="kr.itkor.pp.Function.chkNotEmpty" />
+        <include refid="onepiece.bounty.rush.Function.chkNotEmpty" />
         SELECT ROW_NUMBER() OVER(ORDER BY T.seq) AS rowNo
              , T.*
           FROM ( SELECT X.seq

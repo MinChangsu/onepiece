@@ -8,7 +8,7 @@
     <!--    공지사항 시작-->
     <!-- ############################################################################################# -->
     <select id="SELECT_CNT_NTCS" parameterType="CMNNtcDomain" resultType="int">
-        <include refid="kr.itkor.pp.Function.chkNotEmpty" />
+        <include refid="onepiece.bounty.rush.Function.chkNotEmpty" />
         SELECT COUNT( S.seq )
           FROM ( SELECT seq                                             AS seq
                       , title                                           AS title
@@ -30,7 +30,7 @@
     </select>
 
     <select id="LIST_NTCS" parameterType="CMNNtcDomain" resultType="CMNNtcDomain">
-        <include refid="kr.itkor.pp.Function.chkNotEmpty" />
+        <include refid="onepiece.bounty.rush.Function.chkNotEmpty" />
         SELECT ROW_NUMBER() OVER(ORDER BY T.regDt) AS rowNo
              , T.*
            FROM (SELECT S.seq
@@ -119,7 +119,7 @@
     <!--    자료실 시작-->
     <!-- ############################################################################################# -->
     <select id="SELECT_CNT_PDSS" parameterType="CMNPdsDomain" resultType="int">
-        <include refid="kr.itkor.pp.Function.chkNotEmpty" />
+        <include refid="onepiece.bounty.rush.Function.chkNotEmpty" />
         SELECT COUNT( S.seq )
           FROM ( SELECT seq                                             AS seq
                       , title                                           AS title
@@ -141,7 +141,7 @@
     </select>
 
     <select id="LIST_PDSS" parameterType="CMNPdsDomain" resultType="CMNNtcDomain">
-        <include refid="kr.itkor.pp.Function.chkNotEmpty" />
+        <include refid="onepiece.bounty.rush.Function.chkNotEmpty" />
         SELECT ROW_NUMBER() OVER(ORDER BY T.regDt) AS rowNo
              , T.*
           FROM ( SELECT S.seq
