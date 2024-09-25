@@ -29,7 +29,7 @@ spring:
 
 custom:
   path:
-    files: 'd:/itk_public_property_files/'
+    files: /home/jar_home/onepiece/files/
 server:
   port: 80
 logging:
@@ -52,9 +52,9 @@ spring:
     ansi:
       enabled: DETECT
   datasource:
-    url: jdbc:mariadb://localhost:3307/onepiece
+    url: jdbc:mariadb://43.200.83.147:13306/onepiece
     username: root
-    password: 1234
+    password: 81fa30619
     driver-class-name: org.mariadb.jdbc.Driver
   servlet:
     multipart:
@@ -67,8 +67,7 @@ spring:
       thread-name-prefix: itk-scheduled-task-pool
 custom:
   path:
-    #    files: '/home/itk_public_property_files/'
-    files: '/home/itk_public_property_files/'
+    files: 'c:/one/'
 
 server:
   #  port: 20093  # 개발서버
@@ -76,8 +75,7 @@ server:
 logging:
   file:
     name: app
-    #    path: /home/jar_home/itk_public_property/app
-    path: /home/logs
+    path: 'c:/one/files'
 
 mybatis:
   type-aliases-package: onepiece.bounty.rush.domain
