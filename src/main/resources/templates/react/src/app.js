@@ -336,7 +336,7 @@ const App: React.FC = () => {
 
             <div
               className={
-                'app ' +
+                'app app-content-full-height ' +
                 (appGradientEnabled ? 'app-gradient-enabled ' : '') +
                 (appHeaderNone ? 'app-without-header ' : '') +
                 (appSysHeaderNone ? 'app-without-header ' : '') +
