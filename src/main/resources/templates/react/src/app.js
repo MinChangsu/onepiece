@@ -16,6 +16,7 @@ import SideHeader from "./components/header/sideHeader";
 import SidebarRight from "./components/sidebar-right/sidebar-right";
 import Footer from "./components/custom/footer";
 import DropdownMegaMenu from "./components/header/dropdown/mega";
+import PageWithFooter from "./components/footer/footer";
 
 
 const App: React.FC = () => {
@@ -332,7 +333,7 @@ const App: React.FC = () => {
               handleSetAppSysHeaderNone,
             }}
       >
-          {!appHeaderNone && <Header />}
+
             <div
               className={
                 'app ' +
@@ -355,6 +356,7 @@ const App: React.FC = () => {
               }
             >
 
+                {!appHeaderNone && <Header />}
                 {!appSidebarNone && <Sidebar />}
                 {appTopMenu && <TopMenu />}
                 {!appContentNone && <Content />}
