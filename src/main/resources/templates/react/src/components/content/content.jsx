@@ -10,7 +10,7 @@ function Content() {
 			{({appContentClass}) => (<>
 				<div className={'app-content'+ appContentClass} style={{backgroundImage:'url(/assets/img/cmm/bodyline.png), url(/assets/img/cmm/bodybg.png)',backgroundSize: 'cover, cover'}}>
 					<div className="h-100 d-flex flex-column">
-					<PerfectScrollbar className="app-content-padding flex-grow-1 overflow-hidden" options={{ suppressScrollX: true }}>
+					<PerfectScrollbar className="app-content-padding overflow-hidden flex-grow-1" options={{ suppressScrollX: true }}>
 						<Outlet/>
 					</PerfectScrollbar>
 
