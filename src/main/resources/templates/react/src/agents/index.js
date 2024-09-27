@@ -43,7 +43,7 @@ const handleErrors = (err) => {
 
 const requests = {
   del: (url) => superagent.del(`${API_ROOT}${url}`).use(tokenPlugin).end(handleErrors).then(responseBody),
-  get: (url) => superagent.get(`${API_ROOT}${url}`).use(tokenPlugin).end(handleErrors).then(responseBody),
+  get: (url) => superagent.get(`${API_ROOT}${url}`).end(handleErrors).then(responseBody),
   put: (url, body) => superagent.put(`${API_ROOT}${url}`, body).use(tokenPlugin).end(handleErrors).then(body),
   post: (url, body) => superagent.post(`${API_ROOT}${url}`, body).use(tokenPlugin).end(handleErrors).then(body),
   upload: (url, body) => superagent.post(`${API_ROOT}${url}`, body).use(tokenPlugin).end(handleErrors).then(body),
@@ -119,6 +119,19 @@ const LoanInfo = {
     requests.get(
       [`/doc/loanHists?`, `&pnu=${values.pnu}`, `&page=${values.page}`, `&sizePerPage=${values.sizePerPage}`].join(''),
     ),
+};
+
+const CharacterInfo = {
+    postLoan: (obj) => requests.post(`/doc/loan?`, obj),
+    fetchLoan: (values = {}) => requests.get([`/doc/loan?`, `pnu=${values.pnu}`].join('')),
+    deleteLoan: (pnu) => requests.del(`/doc/loan?pnu=${pnu}`),
+    postLoanHist: (obj) => requests.post(`/doc/loanHist?`, obj),
+    fetchLoanHist: (seq) => requests.get(`/doc/loanHist?seq=${seq}`),
+    deleteLoanHist: (seq) => requests.del(`/doc/loanHist?seq=${seq}`),
+    fetchLoanHists: (values = {}) =>
+        requests.get(
+            [`/doc/loanHists?`, `&pnu=${values.pnu}`, `&page=${values.page}`, `&sizePerPage=${values.sizePerPage}`].join(''),
+        ),
 };
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

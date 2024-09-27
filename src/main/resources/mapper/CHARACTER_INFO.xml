@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="onepiece.bounty.rush.repository.CharacterRepo">
+
+
+    <!-- ############################################################################################# -->
+    <!--    캐릭터 시작-->
+    <!-- ############################################################################################# -->
+    <select id="LIST_CNT_CHARACTERS" parameterType="CharacterDomain" resultType="int">
+        <include refid="onepiece.bounty.rush.Function.chkNotEmpty" />
+        SELECT CONUT(*)
+          FROM character C
+         WHERE 1 = 1
+        <if test="#fn=chkNotEmpty, #fn(searchWrd)">
+            AND (    nick_nm  LIKE CONCAT( '%', #{ searchWrd }, '%' )
+            OR name     LIKE CONCAT( '%', #{ searchWrd }, '%' )
+            OR color    LIKE CONCAT( '%', #{ searchWrd }, '%' )
+            OR type     LIKE CONCAT( '%', #{ searchWrd }, '%' ))
+        </if>
+    </select>
+
+    <select id="LIST_CHARACTERS" parameterType="CharacterDomain" resultType="CharacterDomain">
+        <include refid="onepiece.bounty.rush.Function.chkNotEmpty" />
+        SELECT seq						    AS	seq
+             , lv						    AS	lv
+             , nick_nm					    AS	nickNm
+             , name						    AS	name
+             , color						AS	color
+             , type					    	AS	type
+             , skill1_nm					AS	skill1Nm
+             , skill1_effect				AS	skill1Effect
+             , skill1_dtl				    AS	skill1Dtl
+             , skill1_2_nm				    AS	skill1_2Nm
+             , skill1_2_effect			    AS	skill1_2Effect
+             , skill1_2_dtl			    	AS	skill1_2Dtl
+             , skill2_nm					AS	skill2Nm
+             , skill2_effect				AS	skill2Effect
+             , skill2_dtl				    AS	skill2Dtl
+             , skill2_2_nm				    AS	skill2_2Nm
+             , skill2_2_effect			    AS	skill2_2Effect
+             , skill2_2_dtl				    AS	skill2_2Dtl
+             , team_bu					    AS	team_bu
+             , basic_special				AS	basic_special
+             , special1				    	AS	special1
+             , special2				    	AS	special2
+             , bu_special			    	AS	bu_special
+             , big_special			    	AS	big_special
+          FROM character C
+          WHERE 1 = 1
+        <if test="#fn=chkNotEmpty, #fn(searchWrd)">
+            AND (    nick_nm  LIKE CONCAT( '%', #{ searchWrd }, '%' )
+                  OR name     LIKE CONCAT( '%', #{ searchWrd }, '%' )
+                  OR color    LIKE CONCAT( '%', #{ searchWrd }, '%' )
+                  OR type     LIKE CONCAT( '%', #{ searchWrd }, '%' ))
+        </if>
+    </select>
+
+</mapper>
