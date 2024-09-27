@@ -1,4 +1,4 @@
-.gallery {
+.character {
 	margin: $spacer * -.333;
 	
 	& .image {
@@ -45,14 +45,15 @@
 			position: absolute;
 			top: $spacer;
 			left: 0;
-			background: rgba($gray-900, .85);
+			//background: rgba($gray-900, .85);
 			color: $white;
 			font-weight: $font-weight-bold;
 			padding: $spacer * .333 $spacer;
 			margin: 0;
 		}
 		& .image-info {
-			background: var(--#{$prefix}component-bg);
+			background: #15181c;
+			//background: var(--#{$prefix}component-bg);
 			padding: $spacer;
 			color: rgba(var(--#{$prefix}component-color-rgb), .75);
 			border-radius: 0 0 $border-radius $border-radius;

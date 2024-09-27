@@ -13,6 +13,10 @@ import './index.css';
 import './scss/font.scss';
 import './scss/react.scss';
 import './scss/custom.scss';
+// import './scss/default/pages/_gallery.scss';
+// import './scss/default/_variables-dark.scss';
+// import './scss/default/_variables.scss';
+// import './scss/default/pages/_gallery-v2.scss';
 import { RecoilRoot } from 'recoil';
 
 const container = document.getElementById('root');

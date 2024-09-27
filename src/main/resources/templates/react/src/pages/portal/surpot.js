@@ -2,12 +2,12 @@ import React, { useCallback, useEffect, useRef, useState } from 'react';
 import 'ol/ol.css';
 import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
 import { useCookies } from 'react-cookie';
-import {Panel} from "../../../components/panel/panel";
+import {Panel} from "../../components/panel/panel";
 
-function Board() {
+function Surpot() {
   const [cookies, setCookie, removeCookie] = useCookies(['gis-pos']);
 
-  return <Panel>게시판</Panel>;
+  return <Panel>서포터정보</Panel>;
 }
 
-export default Board;
+export default Surpot;

@@ -7,8 +7,8 @@ function DropdownMegaMenu(){
 		<div className="collapse d-md-block me-auto" id="top-navbar">
 			<div className="navbar-nav" style={{height:'100%'}}>
 				{Menu.map((item, index) => (
-					<div className="navBox d-flex align-items-center" style={{height:'100%'}}>
-						<div key={index} className="navbar-item align-items-center justify-content-center" >
+					<div key={index} className="navBox d-flex align-items-center" style={{height:'100%'}}>
+						<div  className="navbar-item align-items-center justify-content-center" >
 							<NavLink to={item.path} className="navbar-link d-flex align-items-center">
 								<span style={{fontSize:'1.1rem',fontWeight:'bold'}}>{item.title}</span>
 							</NavLink>
@@ -20,4 +20,4 @@ function DropdownMegaMenu(){
 			);
 			}
 
-			export default DropdownMegaMenu;
+export default DropdownMegaMenu;

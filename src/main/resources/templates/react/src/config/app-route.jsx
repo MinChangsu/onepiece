@@ -1,6 +1,6 @@
 import React from 'react';
 import App from '../app.js';
-import Home from '../pages/gis/home/home.js';
+import Home from '../pages/portal/home.js';
 import CmnNtc from '../pages/sys/cmn/cmnNtc';
 import { Outlet } from 'react-router-dom';
 import CmnPds from '../pages/sys/cmn/cmnPds';
@@ -8,10 +8,10 @@ import Usr from '../pages/sys/usr/usr';
 import CmnStdCd from '../pages/sys/cmn/cmnStdCd';
 import CMNLog from '../pages/sys/cmn/cmnLog';
 import SiteMng from '../pages/sys/site/siteMng';
-import Surpot from "../pages/gis/home/surpot";
-import Medal from "../pages/gis/home/medal";
-import Character from "../pages/gis/home/character";
-import Board from "../pages/gis/home/board";
+import Surpot from "../pages/portal/surpot";
+import Medal from "../pages/portal/medal";
+import Character from "../pages/portal/character";
+import Board from "../pages/portal/board";
 
 const AppRoute = [
   {
