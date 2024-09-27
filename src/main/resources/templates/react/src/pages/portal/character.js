@@ -100,7 +100,7 @@ function Character() {
 
 
             <div id="character" className="character row gx-0">
-              <div className={'col-lg-3 col-md-2 ' + (character.공격수 || character.전체 ? '' : 'd-none ')}>
+              <div className={'col-lg-2 col-md-2 ' + (character.공격수 || character.전체 ? '' : 'd-none ')}>
                 <div className="image w-100">
                   <div className="image-inner">
                     <Link to="/character">
@@ -118,7 +118,7 @@ function Character() {
                   </div>
                 </div>
               </div>
-              <div className={'col-lg-3 col-md-2 ' + (character.공격수 || character.전체 ? '' : 'd-none ')}>
+              <div className={'col-lg-2 col-md-2 ' + (character.공격수 || character.전체 ? '' : 'd-none ')}>
                 <div className="image w-100">
                   <div className="image-inner">
                     <Link to="/character">
@@ -136,7 +136,7 @@ function Character() {
                   </div>
                 </div>
               </div>
-              <div className={'col-lg-3 col-md-2 ' + (character.득점자 || character.전체 ? '' : 'd-none ')}>
+              <div className={'col-lg-2 col-md-2 ' + (character.득점자 || character.전체 ? '' : 'd-none ')}>
                 <div className="image w-100">
                   <div className="image-inner">
                     <Link to="/character">
