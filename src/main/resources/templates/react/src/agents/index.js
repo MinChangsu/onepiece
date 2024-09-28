@@ -1,11 +1,9 @@
 import superagentPromise from 'superagent-promise';
 import _superagent from 'superagent';
 
-// export const CONTEXT_ROOT = 'http://118.217.247.240:20093'; // 개발서버
-export const CONTEXT_ROOT = 'http://192.168.230.136'; // 옥천 테스트 서버
-// export const CONTEXT_ROOT = 'http://localhost:20093'; // 로컬서버
-
-const API_ROOT = CONTEXT_ROOT + '/api';
+// export const CONTEXT_ROOT = 'http://localhost:15271'; // 로컬서버
+export const CONTEXT_ROOT = 'http://43.200.83.147'; // 실서버
+const API_ROOT = CONTEXT_ROOT;
 const superagent = superagentPromise(_superagent, global.Promise);
 const agent = _superagent.agent();
 const responseBody = (res) => res.body;
@@ -122,16 +120,8 @@ const LoanInfo = {
 };
 
 const CharacterInfo = {
-    postLoan: (obj) => requests.post(`/doc/loan?`, obj),
-    fetchLoan: (values = {}) => requests.get([`/doc/loan?`, `pnu=${values.pnu}`].join('')),
-    deleteLoan: (pnu) => requests.del(`/doc/loan?pnu=${pnu}`),
-    postLoanHist: (obj) => requests.post(`/doc/loanHist?`, obj),
-    fetchLoanHist: (seq) => requests.get(`/doc/loanHist?seq=${seq}`),
-    deleteLoanHist: (seq) => requests.del(`/doc/loanHist?seq=${seq}`),
-    fetchLoanHists: (values = {}) =>
-        requests.get(
-            [`/doc/loanHists?`, `&pnu=${values.pnu}`, `&page=${values.page}`, `&sizePerPage=${values.sizePerPage}`].join(''),
-        ),
+    fetchCharacters: (values = {}) => requests.get([`/characters?`, `searchWrd=${values.searchWrd}`].join('')),
+
 };
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -370,4 +360,5 @@ export default {
   IllegalInfo,
   LayerInfo,
   LayerMngInfo,
+  CharacterInfo
 };
