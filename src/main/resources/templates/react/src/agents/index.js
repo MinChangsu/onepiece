@@ -1,8 +1,8 @@
 import superagentPromise from 'superagent-promise';
 import _superagent from 'superagent';
 
-export const CONTEXT_ROOT = 'http://localhost:15271'; // 로컬서버
-// export const CONTEXT_ROOT = 'http://43.200.83.147'; // 실서버
+// export const CONTEXT_ROOT = 'http://localhost:15271'; // 로컬서버
+export const CONTEXT_ROOT = 'http://43.200.83.147'; // 실서버
 const API_ROOT = CONTEXT_ROOT;
 const superagent = superagentPromise(_superagent, global.Promise);
 const agent = _superagent.agent();

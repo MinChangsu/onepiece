@@ -54,6 +54,10 @@ const CharacterInfoModal = ({ show ,toggleShow,character}) => {
   const handleClose = async () => {
     toggleShow();
   };
+  let characterImgPath = "/assets/img/character/ov/"+character.enNm+"_ov.png";
+  if(character.color==="녹" || character.color==="어둠" || character.color==="빛"){
+    characterImgPath = "/assets/img/character/ill/"+character.enNm+".png";
+  }
 
 
   return (
@@ -100,7 +104,7 @@ const CharacterInfoModal = ({ show ,toggleShow,character}) => {
                 <div className="character">
                   <div className="image w-100">
                     <div className="image-inner">
-                      <img src={"/assets/img/character/ov/"+character.enNm+"_ov.png"} alt={character.name}/>
+                      <img src={characterImgPath} alt={character.name}/>
                       <p className="image-caption">
                         <img style={{width: '30px', height: '30px'}} src={"/assets/img/cmm/"+character.enStyle+".png"} alt=""/>
                       </p>

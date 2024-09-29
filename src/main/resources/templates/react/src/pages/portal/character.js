@@ -46,8 +46,8 @@ function Character() {
         updatedFilter[key] = key === '전체';
       });
     } else {
-      updatedFilter["전체"] = false;
       updatedFilter[value] = !updatedFilter[value];
+      updatedFilter["전체"] = false;
     }
     setCharacterFilter(updatedFilter);
   };
@@ -150,6 +150,11 @@ function Character() {
                 // 모든 필터 조건이 tagList에 포함되어 있는지 확인 (AND 조건)
                 const isVisible = activeFilters.every(filter => tagList.includes(filter)) || characterFilter['전체'];
 
+                let characterImgPath = "/assets/img/character/zoro.png";
+                if(character.color==="녹" || character.color==="어둠" || character.color==="빛"){
+                  characterImgPath = "/assets/img/character/ill/"+character.enNm+".png";
+                }
+
                 console.log(tagList,isVisible)
                 return(
                   <div
@@ -160,7 +165,7 @@ function Character() {
                     <div className="image w-100">
                       <div className="image-inner">
                         <Link to="/character">
-                          <img src="/assets/img/character/zoro.png" alt={character.name} />
+                          <img src={characterImgPath} alt={character.name} />
                         </Link>
                         <p className="image-caption">
                           <img style={{width: '30px', height: '30px'}} src={"/assets/img/cmm/"+character.enStyle+".png"} alt=""/>
