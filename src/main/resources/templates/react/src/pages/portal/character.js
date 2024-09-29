@@ -11,7 +11,7 @@ import CharacterInfoModal from "../modal/CharacterInfoModal";
 function Character() {
   const [cookies, setCookie, removeCookie] = useCookies(['gis-pos']);
   const [characterList, setCharacterList] = useState([]);
-  const [filterItems, setFilterItems] = useState(['전체', '공격수', '수비수', '득점자']);
+  const [filterItems, setFilterItems] = useState(['전체', '공격수', '수비수', '득점자','적','청','녹','빛','어둠','선장','자연계 능력자','초인계 능력자','동물계 능력자', '혁명군','코즈키 가문/코즈키 가문 가신','돈기호테 패밀리','이스트 블루','흰 수염 해적단','밀짚모자 일당','로저 해적단/전 로저 해적단','백수 해적단','샬롯 가','최악의 세대','그랜드 라인','어인','해군','신세계','칠무해','원거리 일반 공격','버기즈 딜리버리','바로크 워크스','사이퍼 폴','능력자','검은 수염 해적단','빨간 머리 해적단','구사 해적단','제르마 66','닌자','알라바스타 왕국','샴블즈','밍크족']);
   const [characterFilter, setCharacterFilter] = useState({});
   const [searchWrd, setSearchWrd] = useState("");
 
@@ -40,22 +40,16 @@ function Character() {
 
   const toggle = (value) => {
 
-    setCharacterFilter((prevFilter) => {
-      const updatedFilter = { ...prevFilter };
-
-      if (value === '전체') {
-        // '전체'를 선택하면 나머지를 모두 false로
-        Object.keys(updatedFilter).forEach((key) => {
-          updatedFilter[key] = key === '전체'; // 전체만 true, 나머지 false
-        });
-      } else {
-        Object.keys(updatedFilter).forEach((key) => {
-          updatedFilter[key] = key === value; // 전체만 true, 나머지 false
-        });
-      }
-
-      return updatedFilter;
-    });
+    const updatedFilter = { ...characterFilter };
+    if (value === '전체') {
+      Object.keys(updatedFilter).forEach((key) => {
+        updatedFilter[key] = key === '전체';
+      });
+    } else {
+      updatedFilter["전체"] = false;
+      updatedFilter[value] = !updatedFilter[value];
+    }
+    setCharacterFilter(updatedFilter);
   };
 
   useEffect(()=>{
@@ -125,7 +119,7 @@ function Character() {
                   <div className="bg-gray-900 text-white p-2">
                     <div id="options" className="mb-3">
                       <div className="d-flex flex-wrap text-nowrap mb-n1" id="filter">
-                        {filterItems.map((item) => (
+                        {Object.keys(characterFilter).map((item) => (
                             <button
                                 key={item}
                                 onClick={() => toggle(item)}
@@ -147,10 +141,20 @@ function Character() {
 
 
             <div id="character" className="character row gx-0">
-              {characterList.map(character => (
+              {characterList.map(character => {
+                const tagList = character.tags.split(',').map(tag => tag.trim()); // 캐릭터의 tag를 배열로 변환
+                tagList.push(character.color)
+                // 필터에서 활성화된 항목을 배열로 변환 (전체를 제외한 활성화된 필터)
+                const activeFilters = Object.keys(characterFilter).filter(key => characterFilter[key] && key !== '전체');
+
+                // 모든 필터 조건이 tagList에 포함되어 있는지 확인 (AND 조건)
+                const isVisible = activeFilters.every(filter => tagList.includes(filter)) || characterFilter['전체'];
+
+                console.log(tagList,isVisible)
+                return(
                   <div
                       key={character.seq}
-                      className={'col-lg-2 col-md-2 ' + (characterFilter[character.type] || characterFilter['전체'] ? '' : 'd-none')}
+                      className={'col-lg-2 col-md-2 ' + (isVisible ? '' : 'd-none')}
                       onClick={() => handleCharacterClick(character)}
                   >
                     <div className="image w-100">
@@ -159,7 +163,7 @@ function Character() {
                           <img src="/assets/img/character/zoro.png" alt={character.name} />
                         </Link>
                         <p className="image-caption">
-                          <img style={{width: '30px', height: '30px'}} src="/assets/img/cmm/r_at-c.png" alt=""/>
+                          <img style={{width: '30px', height: '30px'}} src={"/assets/img/cmm/"+character.enStyle+".png"} alt=""/>
                         </p>
                       </div>
                       <div className="image-info">
@@ -169,7 +173,7 @@ function Character() {
                       </div>
                     </div>
                   </div>
-              ))}
+              )})}
             </div>
 
           </div>

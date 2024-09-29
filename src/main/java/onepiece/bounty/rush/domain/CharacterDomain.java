@@ -35,4 +35,8 @@ public class CharacterDomain extends BaseDomain {
     @JsonProperty("special2")           private String special2 = "";
     @JsonProperty("buSpecial")          private String buSpecial = "";
     @JsonProperty("bigSpecial")         private String bigSpecial = "";
+    @JsonProperty("enStyle")            private String enStyle = "";
+    @JsonProperty("enNm")               private String enNm = "";
+    @JsonProperty("tags")               private String tags = "";
+    private String bgPath = "";
 }

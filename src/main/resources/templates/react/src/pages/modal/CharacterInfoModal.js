@@ -26,7 +26,26 @@ const CharacterInfoModal = ({ show ,toggleShow,character}) => {
   ////////////////////////////////////////////////////////////////////////////////////////////////////////
   // 라이프사이클 끝
   ////////////////////////////////////////////////////////////////////////////////////////////////////////
+  const imgNmEdit = (value,type) =>{
+    if (type === "bg"){
+      if (value==="적"){
+        return "bg_red.png"
+      }else if(value ==="녹"){
+        return "bg_green.png"
+      }
+      else if(value ==="청"){
+        return "bg_bule.png"
+      }
+      else if(value ==="빛"){
+        return "bg_white.png"
+      }
+      else if(value ==="어둠"){
+        return "bg_dark.png"
+      }
+    }else{
 
+    }
+  }
 
   const handleOpened = async () => {
 
@@ -52,7 +71,7 @@ const CharacterInfoModal = ({ show ,toggleShow,character}) => {
       <Modal.Header closeButton className='p-2 ps-4 pe-4' style={{ alignContent: 'space-evenly' }}>
         <Modal.Title>캐릭터 정보</Modal.Title>
       </Modal.Header>
-      <Modal.Body className='p-1' style={{backgroundImage:'url(/assets/img/cmm/bg_red.png)',backgroundSize:'5%'}}>
+      <Modal.Body className='p-1' style={{backgroundImage:`url(${character.bgPath})`,backgroundSize:'5%'}}>
         <div style={{backgroundImage:'url(/assets/img/cmm/headerbg.png)',backgroundSize: 'cover'}}>
           <ul className="nav nav-pills mb-2">
             <li className="nav-item">
@@ -74,16 +93,16 @@ const CharacterInfoModal = ({ show ,toggleShow,character}) => {
               </a>
             </li>
           </ul>
-          <div className="tab-content p-3 rounded-top panel rounded-0 m-0" style={{backgroundImage:'url(/assets/img/cmm/characterModalbg.png),url(/assets/img/cmm/bg_red.png)',backgroundSize: 'cover,5%'}}>
+          <div className="tab-content p-3 rounded-top panel rounded-0 m-0" style={{backgroundImage:`url(/assets/img/cmm/characterModalbg.png),url(${character.bgPath})`,backgroundSize: 'cover,5%'}}>
           <div className="tab-pane fade active show p-2" id="nav-pills-tab-1" >
             <div className="row p-0 m-0">
               <div className="col-md-4 col-12">
                 <div className="character">
                   <div className="image w-100">
                     <div className="image-inner">
-                      <img src="/assets/img/character/zoro.png" alt={character.name}/>
+                      <img src={"/assets/img/character/ov/"+character.enNm+"_ov.png"} alt={character.name}/>
                       <p className="image-caption">
-                        <img style={{width: '30px', height: '30px'}} src="/assets/img/cmm/r_at-c.png" alt=""/>
+                        <img style={{width: '30px', height: '30px'}} src={"/assets/img/cmm/"+character.enStyle+".png"} alt=""/>
                       </p>
                     </div>
                   </div>
@@ -129,7 +148,7 @@ const CharacterInfoModal = ({ show ,toggleShow,character}) => {
                        style={{backgroundImage: 'url(/assets/img/cmm/bg_hatching.png)'}}>태그
                   </div>
                   <div className="mt-2">
-                    밀집모자 해적단,공격수,선장
+                    {character.tags}
                   </div>
 
 

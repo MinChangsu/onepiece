@@ -85,6 +85,10 @@ public class CharacterController {
             totCnt = this.characterRepo.LIST_CNT_CHARACTERS(domain);
             if (totCnt > 0) {
                 resultList = this.characterRepo.LIST_CHARACTERS(domain);
+                for(CharacterDomain cdo :resultList){
+                    String chgVale = makeBgPath(cdo);
+                    cdo.setBgPath(chgVale);
+                }
             }
             result = "success";
         } catch (SQLException e) {
@@ -97,6 +101,27 @@ public class CharacterController {
             rtn.put("result", result);
         }
         return rtn;
+    }
+
+    private static String makeBgPath(CharacterDomain cdo) {
+        String value ="";
+        value = cdo.getColor();
+        String chgVale = "/assets/img/cmm/";
+        if (value.equals("적")){
+            chgVale+= "bg_red.png";
+        }else if(value.equals("청")){
+            chgVale+= "bg_blue.png";
+        }
+        else if(value.equals("녹")){
+            chgVale+= "bg_green.png";
+        }
+        else if(value.equals("빛")){
+            chgVale+= "bg_white.png";
+        }
+        else if(value.equals("어둠")){
+            chgVale+= "bg_dark.png";
+        }
+        return chgVale;
     }
 
 

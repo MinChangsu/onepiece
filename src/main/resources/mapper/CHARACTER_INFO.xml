@@ -46,6 +46,9 @@
              , special2				    	AS	special2
              , bu_special			    	AS	buSpecial
              , big_special			    	AS	bigSpecial
+             , en_style			        	AS	enStyle
+             , en_nm			        	AS	enNm
+             , tags			            	AS	tags
           FROM character_info C
           WHERE 1 = 1
         <if test="#fn=chkNotEmpty, #fn(searchWrd)">
@@ -82,6 +85,9 @@
              , special2				    	AS	special2
              , bu_special			    	AS	buSpecial
              , big_special			    	AS	bigSpecial
+             , en_style			        	AS	enStyle
+             , en_nm			        	AS	enNm
+             , tags			            	AS	tags
           FROM character_info C
          WHERE 1 = 1
            AND seq = #{seq}
