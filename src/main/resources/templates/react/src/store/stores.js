@@ -52,9 +52,9 @@ export const propertyModalViewMode = atom({
   default: false,
 });
 
-// 하천점용 목록 모달 출력 여부
-export const dataListModalViewMode = atom({
-  key: 'dataListModalViewMode',
+// 캐릭터 모달 출력 여부
+export const characterInfoModalViewMode = atom({
+  key: 'characterInfoViewMode',
   default: false,
 });
 
@@ -155,12 +155,6 @@ export const refreshLayerList = atom({
 export const krasData = atom({
   key: 'krasData',
   default: {},
-});
-
-// 하천점용 이미지 업로드를 위한 허가번호 키값
-export const licenseNoData = atom({
-  key: 'licenseNoData',
-  default: '',
 });
 
 // SHP 수정 모드 // UPD, ADD, DEL

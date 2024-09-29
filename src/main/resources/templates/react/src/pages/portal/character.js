@@ -6,6 +6,7 @@ import {Panel} from "../../components/panel/panel";
 import {Card, CardBody} from "react-bootstrap";
 import {Link} from "react-router-dom";
 import agent from "../../agents";
+import CharacterInfoModal from "../modal/CharacterInfoModal";
 
 function Character() {
   const [cookies, setCookie, removeCookie] = useCookies(['gis-pos']);
@@ -13,6 +14,15 @@ function Character() {
   const [filterItems, setFilterItems] = useState(['전체', '공격수', '수비수', '득점자']);
   const [characterFilter, setCharacterFilter] = useState({});
   const [searchWrd, setSearchWrd] = useState("");
+
+  // 모달
+  const [isViewModal, setIsViewModal] = useState(false);
+  const [seq, setSeq] = useState(0);
+  const [selectCharacter, setSelectCharacter] = useState({});
+  const handleToggleShow = () => {
+    setIsViewModal((p) => !p);
+  };
+
 
   const fetchFilterItems = async () => {
     // const items = await agent.getFilterItems(); // 서버에서 항목 가져옴 (API 요청)
@@ -49,20 +59,11 @@ function Character() {
   };
 
   useEffect(()=>{
-  console.log(characterFilter);
-  },[characterFilter])
-
-  useEffect(()=>{
     fetchFilterItems();
     fetchCharacters();
 
   },[])
 
-  useEffect(()=>{
-
-    // fetchCharacters();
-console.log(characterList);
-  },[characterList])
 
   const fetchCharacters = async () => {
     let params = {
@@ -84,6 +85,16 @@ console.log(characterList);
   const handleSearchChange = (e) => {
     setSearchWrd(e.target.value);
   };
+  const handleKeyDown = (event) => {
+    if (event.key === 'Enter') {
+      fetchCharacters();
+    }
+  };
+
+  const handleCharacterClick = (data) => {
+    setSelectCharacter(data);
+    setIsViewModal(true);
+  };
 
   return (
       <>
@@ -96,7 +107,7 @@ console.log(characterList);
               <div className="row p-0 m-0">
                 <div className="col-9 col-md-10 col-lg-11 p-0 m-0">
                   <div className="form-group">
-                    <input type="text" className="form-control" onChange={handleSearchChange} placeholder="캐릭터 이름 또는 특성 검색"/>
+                    <input type="text" className="form-control" onKeyDown={handleKeyDown} onChange={handleSearchChange} placeholder="캐릭터 이름 또는 특성 검색"/>
                     <button onClick={fetchCharacters} className="btn btn-search">
                       <i className="fa fa-search"></i>
                     </button>
@@ -140,6 +151,7 @@ console.log(characterList);
                   <div
                       key={character.seq}
                       className={'col-lg-2 col-md-2 ' + (characterFilter[character.type] || characterFilter['전체'] ? '' : 'd-none')}
+                      onClick={() => handleCharacterClick(character)}
                   >
                     <div className="image w-100">
                       <div className="image-inner">
@@ -162,8 +174,7 @@ console.log(characterList);
 
           </div>
         </Card>
-
-
+        <CharacterInfoModal show={isViewModal} toggleShow={handleToggleShow} character={selectCharacter}/>
       </>
   );
 }

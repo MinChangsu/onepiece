@@ -535,6 +535,21 @@ body, html {
   margin: 0;
   position: relative;
 }
+.modal-content{
+  background: #171717!important;
+}
+.character-modal-label {
+  border-left: 1.3333333333vw solid #ff8a00;
+  background-size: contain;
+  background-position: 0 0;
+  background-repeat: repeat;
+  width: 100%;
+  //height: 1.6666666667vw;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
 
 
 

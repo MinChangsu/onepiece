@@ -99,3 +99,26 @@
 		}
 	}
 }
+
+.rating {
+	margin: 0;
+	display: flex;
+
+	& span {
+		&.star {
+			margin-right: rem(1px);
+
+			&:before {
+				content: '\f005';
+				color: rgba(var(--#{$prefix}component-color-rgb), .15);
+
+				@include fontawesome();
+			}
+			&.active {
+				&:before {
+					color: $orange;
+				}
+			}
+		}
+	}
+}

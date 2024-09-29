@@ -29,10 +29,10 @@ public class CharacterDomain extends BaseDomain {
     @JsonProperty("skill2_2Nm")         private String skill2_2Nm = "";
     @JsonProperty("skill2_2Effect")     private String skill2_2Effect = "";
     @JsonProperty("skill2_2Dtl")        private String skill2_2Dtl = "";
-    @JsonProperty("team_bu")            private String team_bu = "";
-    @JsonProperty("basic_special")      private String basic_special = "";
+    @JsonProperty("teamBu")             private String teamBu = "";
+    @JsonProperty("basicSpecial")       private String basicSpecial = "";
     @JsonProperty("special1")           private String special1 = "";
     @JsonProperty("special2")           private String special2 = "";
-    @JsonProperty("bu_special")         private String bu_special = "";
-    @JsonProperty("big_special")        private String big_special = "";
+    @JsonProperty("buSpecial")          private String buSpecial = "";
+    @JsonProperty("bigSpecial")         private String bigSpecial = "";
 }

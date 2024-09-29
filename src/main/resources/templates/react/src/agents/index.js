@@ -1,8 +1,8 @@
 import superagentPromise from 'superagent-promise';
 import _superagent from 'superagent';
 
-// export const CONTEXT_ROOT = 'http://localhost:15271'; // 로컬서버
-export const CONTEXT_ROOT = 'http://43.200.83.147'; // 실서버
+export const CONTEXT_ROOT = 'http://localhost:15271'; // 로컬서버
+// export const CONTEXT_ROOT = 'http://43.200.83.147'; // 실서버
 const API_ROOT = CONTEXT_ROOT;
 const superagent = superagentPromise(_superagent, global.Promise);
 const agent = _superagent.agent();
@@ -49,39 +49,8 @@ const requests = {
     superagent.get(`${API_ROOT}${url}`).use(tokenPlugin).responseType('blob').end(handleErrors).then(responseBody),
 };
 
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// 점용 정보
-const DataInfo = {
-  postLicenseApp: (obj) => requests.post(`/doc/licenseapp?`, obj),
-  // 점용정보 목록
-  fetchLicenseApps: (values = {}) =>
-    requests.get(
-      [
-        `/doc/licenseapps?`,
-        `&areaCd=${values.areaCd}`,
-        `&umd=${values.umd}`,
-        `&ri=${values.ri}`,
-        `&lLicenseNo=${values.licenseNo}`,
-        `&lName=${values.name}`,
-        `&lPlace=${values.place}`,
-        `&lPurpose=${values.purpose}`,
-        `&sDate=${values.sDate}`,
-        `&eDate=${values.eDate}`,
-        `&page=${values.page}`,
-        `&sizePerPage=${values.sizePerPage}`,
-        `&expirDate=${values.expirDate}`,
-      ].join(''),
-    ),
-  fetchLicenseApp: (values = {}) => requests.get([`/doc/licenseapp?`, `dataSeq=${values.dataSeq}`].join('')),
-  fetchCheckSHPExist: (areaCd, val) => requests.get(`/doc/checkExistSHP?areaCd=${areaCd}&dataSeq=${val}`),
-  deleteLicenseApp: (val) => requests.del(`/doc/licenseapp?dataSeq=${val}`),
-  cancelLicenseApp: (obj) => requests.post(`/doc/cancelLicenseapp`, obj),
 
-  // 허가증
-  fetchLicense: (values = {}) => requests.get([`/doc/license?`, `dataSeq=${values.dataSeq}`].join('')),
-  postLicense: (obj) => requests.post(`/doc/license?`, obj),
-  fetchGenerateLicenseNo: (val) => requests.get(`/doc/generateLicenseNo?lPlaceUmd=${val}`),
-};
+
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // 재산정보
@@ -343,7 +312,6 @@ const LayerMngInfo = {
 };
 
 export default {
-  DataInfo,
   UsrInfo,
   BrdInfo,
   AddrInfo,
