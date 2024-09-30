@@ -49,6 +49,8 @@ const App: React.FC = () => {
   const [appSidebarEndToggled, setAppSidebarEndToggled] = useState(false);
   const [appSidebarEndMobileToggled, setAppSidebarEndMobileToggled] = useState(false);
 
+    const [isTopBtnVisible, setIsTopBtnVisible] = useState(false);
+
   // 추가
   const [appThemePanelNone, setAppThemePanelNone] = useState(false);
   const [loginInfo] = useRecoilState(loginState);
@@ -239,14 +241,10 @@ const App: React.FC = () => {
     }
 
     const handleScroll = () => {
-      if (window.scrollY > 0) {
-        setHasScroll(true);
+      if (window.scrollY > 200) {
+          setIsTopBtnVisible(true);
       } else {
-        setHasScroll(false);
-      }
-      var elm = document.getElementsByClassName('nvtooltip');
-      for (var i = 0; i < elm.length; i++) {
-        elm[i].classList.add('d-none');
+          setIsTopBtnVisible(false);
       }
     };
 
@@ -256,6 +254,13 @@ const App: React.FC = () => {
       window.removeEventListener('scroll', handleScroll);
     };
   }, [appTheme, appDarkMode]);
+
+    const scrollToTop = () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'  // 부드러운 스크롤
+        });
+    };
 
   //<--뒤로가기시 관리자페이지 헤더나오는 오류 수정 시작(09.04)
   // useLayoutEffect(() => {
@@ -334,43 +339,47 @@ const App: React.FC = () => {
             }}
       >
 
-            <div
+          <div
               className={
-                'app app-content-full-height ' +
-                (appGradientEnabled ? 'app-gradient-enabled ' : '') +
-                (appHeaderNone ? 'app-without-header ' : '') +
-                (appSysHeaderNone ? 'app-without-header ' : '') +
-                // (appHeaderFixed && !appHeaderNone ? 'app-header-fixed ' : '') +
-                (appSidebarFixed ? 'app-sidebar-fixed ' : '') +
-                (appSidebarNone ? 'app-without-sidebar ' : '') +
-                (appSidebarEnd ? 'app-with-end-sidebar ' : '') +
-                (appSidebarWide ? 'app-with-wide-sidebar ' : '') +
-                (appSidebarMinify ? 'app-sidebar-minified ' : '') +
-                (appSidebarMobileToggled ? 'app-sidebar-mobile-toggled ' : '') +
-                (appTopMenu ? 'app-with-top-menu ' : '') +
-                (appContentFullHeight ? 'app-content-full-height ' : '') +
-                // (appSidebarTwo ? 'app-with-two-sidebar ' : '') +
-                (appSidebarEndToggled ? 'app-sidebar-end-toggled ' : '') +
-                (appSidebarEndMobileToggled ? 'app-sidebar-end-mobile-toggled ' : '') +
-                (hasScroll ? 'has-scroll ' : '')
+                  'app app-content-full-height ' +
+                  (appGradientEnabled ? 'app-gradient-enabled ' : '') +
+                  (appHeaderNone ? 'app-without-header ' : '') +
+                  (appSysHeaderNone ? 'app-without-header ' : '') +
+                  // (appHeaderFixed && !appHeaderNone ? 'app-header-fixed ' : '') +
+                  (appSidebarFixed ? 'app-sidebar-fixed ' : '') +
+                  (appSidebarNone ? 'app-without-sidebar ' : '') +
+                  (appSidebarEnd ? 'app-with-end-sidebar ' : '') +
+                  (appSidebarWide ? 'app-with-wide-sidebar ' : '') +
+                  (appSidebarMinify ? 'app-sidebar-minified ' : '') +
+                  (appSidebarMobileToggled ? 'app-sidebar-mobile-toggled ' : '') +
+                  (appTopMenu ? 'app-with-top-menu ' : '') +
+                  (appContentFullHeight ? 'app-content-full-height ' : '') +
+                  // (appSidebarTwo ? 'app-with-two-sidebar ' : '') +
+                  (appSidebarEndToggled ? 'app-sidebar-end-toggled ' : '') +
+                  (appSidebarEndMobileToggled ? 'app-sidebar-end-mobile-toggled ' : '') +
+                  (hasScroll ? 'has-scroll ' : '')
               }
-            >
+          >
 
-                {!appHeaderNone && <Header />}
-                {!appSidebarNone && <Sidebar />}
-                {appTopMenu && <TopMenu />}
-                {!appContentNone && <Content />}
-                {/*<Footer/>*/}
+              {!appHeaderNone && <Header/>}
+              {!appSidebarNone && <Sidebar/>}
+              {appTopMenu && <TopMenu/>}
+              {!appContentNone && <Content/>}
+              <button className={`btn btn-icon btn-circle btn-theme btn-scroll-to-top ${isTopBtnVisible ? 'show' : ''}`}
+                 onClick={scrollToTop}
+                ><img src="/assets/img/cmm/pagetop.png" alt=""/></button>
+              {/*<Footer/>*/}
 
-            </div>
-          </AppSettings.Provider>
+
+          </div>
+      </AppSettings.Provider>
     );
   } else {
-    return (
-      <AppSettings.Provider
-        value={{
-          handleSetAppHeaderNone,
-          handleSetAppSidebarNone,
+      return (
+          <AppSettings.Provider
+              value={{
+                  handleSetAppHeaderNone,
+                  handleSetAppSidebarNone,
           handleSetAppContentClass,
           handleSetAppThemePanelNone,
           handleSetAppSysHeaderNone,

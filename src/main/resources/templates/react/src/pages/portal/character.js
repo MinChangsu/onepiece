@@ -155,7 +155,6 @@ function Character() {
                   characterImgPath = "/assets/img/character/ill/"+character.enNm+".png";
                 }
 
-                console.log(tagList,isVisible)
                 return(
                   <div
                       key={character.seq}
