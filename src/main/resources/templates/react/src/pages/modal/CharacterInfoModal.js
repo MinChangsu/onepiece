@@ -76,7 +76,7 @@ const CharacterInfoModal = ({ show ,toggleShow,character}) => {
         <Modal.Title>캐릭터 정보</Modal.Title>
       </Modal.Header>
       <Modal.Body className='p-1' style={{backgroundImage:`url(${character.bgPath})`,backgroundSize:'5%'}}>
-        <div style={{backgroundImage:'url(/assets/img/cmm/headerbg.png)',backgroundSize: 'cover'}}>
+        <div>
           <ul className="nav nav-pills mb-2">
             <li className="nav-item">
               <a href="#nav-pills-tab-1" data-bs-toggle="tab" className="nav-link active">
@@ -133,7 +133,7 @@ const CharacterInfoModal = ({ show ,toggleShow,character}) => {
                   </div>
                   <div className="mt-2">
                     <div className="rating">
-                      {Array.from({length: 5}, (v, i) => (
+                      {Array.from({length: 4}, (v, i) => (
                           <span
                               key={i}
                               className={`star ${i < character.lv ? 'active' : ''}`} // lv 값에 따라 active 클래스 추가

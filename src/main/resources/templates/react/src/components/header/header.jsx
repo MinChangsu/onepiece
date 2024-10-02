@@ -22,7 +22,7 @@ function Header() {
         appSidebarNone,
       }) => (
           <div id="header" className="app-header" style={{backgroundImage:'url(/assets/img/cmm/headerbg.png)',backgroundSize: 'cover'}} data-bs-theme={appHeaderInverse ? 'dark' : ''}>
-            <div className="navbar-header" style={{backgroundImage:'url(/assets/img/cmm/logocover.png)',backgroundSize: 'cover'}}>
+            <div className="navbar-header" >
               {appSidebarTwo && (
                   <button type="button" className="navbar-mobile-toggler" onClick={toggleAppSidebarEndMobile}>
                     <span className="icon-bar"></span>
@@ -30,7 +30,7 @@ function Header() {
                     <span className="icon-bar"></span>
                   </button>
               )}
-              <Link to='/' className='navbar-brand'>
+              <Link to='/' className='navbar-brand' style={{backgroundImage:'url(/assets/img/cmm/logocover.png)',backgroundSize: 'cover'}}>
                 <img className='me-1' src='/assets/img/logo.png' width='160px' height='90px' alt='f'/>
                 {/*<b>OnePiece</b> BountyRush*/}
               </Link>

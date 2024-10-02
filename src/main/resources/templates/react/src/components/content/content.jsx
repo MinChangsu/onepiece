@@ -8,7 +8,7 @@ function Content() {
 	return (
 		<AppSettings.Consumer>
 			{({appContentClass}) => (<>
-				<div className={'app-content'+ appContentClass} style={{backgroundImage:'url(/assets/img/cmm/bodyline.png), url(/assets/img/cmm/bodybg.png)',backgroundSize: 'cover, cover'}}>
+				<div className={'app-content'+ appContentClass} style={{backgroundImage:'url(/assets/img/cmm/bodybg.png)',backgroundSize: 'cover'}}>
 					<div className="h-100 d-flex flex-column">
 					<PerfectScrollbar className="app-content-padding flex-grow-1" options={{ suppressScrollX: true }}>
 						<Outlet/>
