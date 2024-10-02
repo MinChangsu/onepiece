@@ -552,6 +552,44 @@ body, html {
 
 
 
+.hexagonBox {
+  width: 110px;
+  height: 110px;
+  /* 반투명한 배경 추가 */
+
+  // 미디어 쿼리 - 화면이 600px 이하일 때 스타일 변경
+  @media screen and (max-width: 800px) {
+    width: 80px;
+    height: 80px;
+  }
+  // 미디어 쿼리 - 화면이 600px 이하일 때 스타일 변경
+  @media screen and (max-width: 500px) {
+    width: 60px;
+    height: 60px;
+  }
+}
+.hexagon {
+  width: 110px;
+  height: 100px;
+  color: white;  /* 텍스트를 흰색으로 설정 */
+  font-weight: bold;  /* 텍스트 가독성을 위해 굵게 설정 */
+  /* 반투명한 배경 추가 */
+
+  // 미디어 쿼리 - 화면이 600px 이하일 때 스타일 변경
+  @media screen and (max-width: 800px) {
+    width: 80px;
+    height: 80px;
+  }
+  // 미디어 쿼리 - 화면이 600px 이하일 때 스타일 변경
+  @media screen and (max-width: 500px) {
+    width: 60px;
+    height: 60px;
+  }
+}
+
+
+
+
 
 
 

@@ -11,8 +11,6 @@ import Loading from '../../composables/loading';
 import {Link} from "react-router-dom";
 
 const CharacterInfoModal = ({ show ,toggleShow,character}) => {
-  console.log(character)
-
   const [loading, setLoading] = useState(false);
 
 

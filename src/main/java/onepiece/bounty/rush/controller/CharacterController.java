@@ -33,8 +33,8 @@ import java.util.List;
 import java.util.Random;
 
 /**
- * @Class Name : CMNNtcController.java
- * @Description : 공지사항 정보
+ * @Class Name : CharacterController.java
+ * @Description : 캐릭터 정보
  * @Modification Information
  *
  *   수정일         수정자      수정내용
@@ -66,7 +66,7 @@ public class CharacterController {
     static DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
 
-    // 공지사항 목록
+    // 캐릭터 목록
     @GetMapping(value = "/characters")
     public HashMap<String, Object> listCharacters(@RequestParam(defaultValue = "") String searchWrd,
                                             @RequestParam(defaultValue = "1") String page,

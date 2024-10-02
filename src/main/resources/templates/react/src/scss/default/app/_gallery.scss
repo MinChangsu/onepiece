@@ -99,7 +99,191 @@
 		}
 	}
 }
+.character-surpot {
+	margin: $spacer * -.333;
 
+	& .image {
+		width: 100%;
+		display: block;
+		overflow: hidden;
+		padding: $spacer * .333;
+
+		@include media-breakpoint-up(md) {
+			width: 50%;
+		}
+		@include media-breakpoint-up(lg) {
+			width: 33.33%;
+		}
+		@include media-breakpoint-up(xl) {
+			width: 25%;
+		}
+
+		& a {
+			transition: all .2s linear;
+
+			&:hover,
+			&:focus {
+				opacity: .8;
+			}
+		}
+		& img,
+		& .img {
+			width: 100%;
+			height: rem(150px);
+			border-radius: $border-radius $border-radius 0 0;
+		}
+		& .img {
+			background-size: cover;
+			background-repeat: no-repeat;
+			background-position: center;
+		}
+		& .image-inner {
+			position: relative;
+			background: var(--#{$prefix}component-bg);
+			border-radius: $border-radius $border-radius 0 0;
+		}
+		& .image-caption {
+			position: absolute;
+			top: $spacer;
+			left: 0;
+			//background: rgba($gray-900, .85);
+			color: $white;
+			font-weight: $font-weight-bold;
+			padding: $spacer * .233 $spacer * .733;
+			margin: 0;
+		}
+		& .image-info {
+			background: #15181c;
+			//background: var(--#{$prefix}component-bg);
+			padding: .8px;
+			color: rgba(var(--#{$prefix}component-color-rgb), .75);
+			border-radius: 0 0 $border-radius $border-radius;
+
+			& .title {
+				margin: 0 0 $spacer * .5;
+				line-height: $headings-line-height;
+				font-size: $h5-font-size;
+				font-weight: $font-weight-bold;
+				white-space: nowrap;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				color: var(--#{$prefix}component-color);
+			}
+			& .desc {
+				line-height: rem(17px);
+				font-size: rem(12px);
+				height: rem(15px);
+				overflow: hidden;
+			}
+		}
+	}
+}
+.surpot-list {
+	margin: $spacer * -.333;
+
+	& .image {
+		width: 100%;
+		display: block;
+		overflow: hidden;
+		padding: $spacer * .333;
+
+		@include media-breakpoint-up(md) {
+			width: 50%;
+		}
+		@include media-breakpoint-up(lg) {
+			width: 33.33%;
+		}
+		@include media-breakpoint-up(xl) {
+			width: 25%;
+		}
+
+		& a {
+			transition: all .2s linear;
+
+			&:hover,
+			&:focus {
+				opacity: .8;
+			}
+		}
+		& img,
+		& .img {
+			width: rem(120px);
+			height: rem(120px);
+			border-radius: $border-radius $border-radius 0 0;
+			// 미디어 쿼리 - 화면이 600px 이하일 때 스타일 변경
+			@media screen and (max-width: 800px) {
+				width: 80px;
+				height: 80px;
+			}
+			// 미디어 쿼리 - 화면이 600px 이하일 때 스타일 변경
+			@media screen and (max-width: 500px) {
+				width: 60px;
+				height: 60px;
+			}
+		}
+		& .img {
+			background-size: cover;
+			background-repeat: no-repeat;
+			background-position: center;
+		}
+		& .image-inner {
+			position: relative;
+			width: rem(120px);
+			background: var(--#{$prefix}component-bg);
+			border-radius: $border-radius $border-radius 0 0;
+			@media screen and (max-width: 800px) {
+				width: 80px;
+			}
+			// 미디어 쿼리 - 화면이 600px 이하일 때 스타일 변경
+			@media screen and (max-width: 500px) {
+				width: 60px;
+			}
+		}
+		& .image-caption {
+			position: absolute;
+			top: $spacer;
+			left: 0;
+			//background: rgba($gray-900, .85);
+			color: $white;
+			font-weight: $font-weight-bold;
+			padding: $spacer * .233 $spacer * .733;
+			margin: 0;
+		}
+		& .image-info {
+			background: #15181c;
+			//background: var(--#{$prefix}component-bg);
+			padding: .8px;
+			color: rgba(var(--#{$prefix}component-color-rgb), .75);
+			border-radius: 0 0 $border-radius $border-radius;
+			width: 120px;
+			// 미디어 쿼리 - 화면이 600px 이하일 때 스타일 변경
+			@media screen and (max-width: 800px) {
+				width: 80px;
+			}
+			// 미디어 쿼리 - 화면이 600px 이하일 때 스타일 변경
+			@media screen and (max-width: 500px) {
+				width: 60px;
+			}
+
+			& .title {
+				margin: 0 0 $spacer * .5;
+				line-height: $headings-line-height;
+				font-size: $h5-font-size;
+				font-weight: $font-weight-bold;
+				white-space: nowrap;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				color: var(--#{$prefix}component-color);
+			}
+			& .desc {
+				line-height: rem(17px);
+				font-size: rem(12px);
+				height: rem(15px);
+				overflow: hidden;
+			}
+		}
+	}
+}
 .rating {
 	margin: 0;
 	display: flex;

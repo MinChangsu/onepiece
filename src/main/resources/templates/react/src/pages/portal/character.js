@@ -11,7 +11,7 @@ import CharacterInfoModal from "../modal/CharacterInfoModal";
 function Character() {
   const [cookies, setCookie, removeCookie] = useCookies(['gis-pos']);
   const [characterList, setCharacterList] = useState([]);
-  const [filterItems, setFilterItems] = useState(['전체', '공격수', '수비수', '득점자','적','청','녹','빛','어둠','선장','자연계 능력자','초인계 능력자','동물계 능력자', '혁명군','코즈키 가문/코즈키 가문 가신','돈기호테 패밀리','이스트 블루','흰 수염 해적단','밀짚모자 일당','로저 해적단/전 로저 해적단','백수 해적단','샬롯 가','최악의 세대','그랜드 라인','어인','해군','신세계','칠무해','원거리 일반 공격','버기즈 딜리버리','바로크 워크스','사이퍼 폴','능력자','검은 수염 해적단','빨간 머리 해적단','구사 해적단','제르마 66','닌자','알라바스타 왕국','샴블즈','밍크족']);
+  const [filterItems, setFilterItems] = useState([]);
   const [characterFilter, setCharacterFilter] = useState({});
   const [searchWrd, setSearchWrd] = useState("");
 
@@ -23,20 +23,6 @@ function Character() {
     setIsViewModal((p) => !p);
   };
 
-
-  const fetchFilterItems = async () => {
-    // const items = await agent.getFilterItems(); // 서버에서 항목 가져옴 (API 요청)
-    // setFilterItems(items);
-
-    // 가져온 항목들을 기반으로 초기 상태 설정
-    const initialFilterState = filterItems.reduce((acc, item) => {
-      acc[item] = false;
-      return acc;
-    }, {});
-    initialFilterState.전체 = true;
-
-    setCharacterFilter(initialFilterState);
-  };
 
   const toggle = (value) => {
 
@@ -53,11 +39,38 @@ function Character() {
   };
 
   useEffect(()=>{
-    fetchFilterItems();
+    fetchTags("");
     fetchCharacters();
 
   },[])
+  const fetchTags = async (effectYn) => {
+    let params = {
+      effectYn: effectYn,
+    };
 
+    await agent.TagInfo.fetchTags(params)
+        .then(({ resultList, result }) => {
+          if (result === 'success') {
+
+            // 가져온 항목들을 기반으로 초기 상태 설정
+            const initialFilterState = resultList.reduce((acc, item) => {
+              acc[item.tagNm] = false;
+              return acc;
+            }, {});
+            const orderedFilterState = {
+              '전체': true,         // '전체'를 맨 앞에 추가
+              ...initialFilterState // 나머지 필터 상태를 뒤에 추가
+            };
+            setCharacterFilter(orderedFilterState);
+            setFilterItems(resultList);
+          } else if (result === 'fail') {
+            console.log(result)
+            setCharacterFilter([]);
+            setFilterItems([]);
+          }
+        })
+        .finally(() => {});
+  };
 
   const fetchCharacters = async () => {
     let params = {
@@ -68,9 +81,7 @@ function Character() {
         .then(({ resultList, result }) => {
           if (result === 'success') {
             setCharacterList(resultList);
-            console.log(resultList)
           } else if (result === 'fail') {
-            console.log(result)
             setCharacterList([]);
           }
         })
@@ -150,10 +161,7 @@ function Character() {
                 // 모든 필터 조건이 tagList에 포함되어 있는지 확인 (AND 조건)
                 const isVisible = activeFilters.every(filter => tagList.includes(filter)) || characterFilter['전체'];
 
-                let characterImgPath = "/assets/img/character/zoro.png";
-                if(character.color==="녹" || character.color==="어둠" || character.color==="빛"){
-                  characterImgPath = "/assets/img/character/ill/"+character.enNm+".png";
-                }
+                let characterImgPath = "/assets/img/character/ill/" + character.enNm + ".png";
 
                 return(
                   <div

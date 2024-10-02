@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="onepiece.bounty.rush.repository.TagRepo">
+
+
+    <!-- ############################################################################################# -->
+    <!--    캐릭터 시작-->
+    <!-- ############################################################################################# -->
+    <select id="LIST_CNT_TAGS" parameterType="TagDomain" resultType="int">
+        <include refid="onepiece.bounty.rush.Function.chkNotEmpty" />
+        SELECT COUNT(*)
+          FROM tag_info T
+         WHERE 1 = 1
+        <if test="#fn=chkNotEmpty, #fn(searchWrd)">
+            AND (    nick_nm  LIKE CONCAT( '%', #{ searchWrd }, '%' )
+            OR name     LIKE CONCAT( '%', #{ searchWrd }, '%' )
+            OR color    LIKE CONCAT( '%', #{ searchWrd }, '%' )
+            OR type     LIKE CONCAT( '%', #{ searchWrd }, '%' ))
+        </if>
+    </select>
+
+    <select id="LIST_TAGS" parameterType="TagDomain" resultType="TagDomain">
+        <include refid="onepiece.bounty.rush.Function.chkNotEmpty" />
+        SELECT seq					AS seq
+             , tag_nm				AS tagNm
+             , tag_effect1			AS tagEffect1
+             , tag_effect2			AS tagEffect2
+             , tag_effect3			AS tagEffect3
+             , tag_effect4			AS tagEffect4
+             , tag_effect5			AS tagEffect5
+             , tag_effect1_lv		AS tagEffect1Lv
+             , tag_effect2_lv		AS tagEffect2Lv
+             , tag_effect3_lv		AS tagEffect3Lv
+             , tag_effect4_lv		AS tagEffect4Lv
+             , tag_effect5_lv		AS tagEffect5Lv
+             , effect_yn			AS effectYn
+             , type				    AS type
+          FROM tag_info C
+          WHERE 1 = 1
+        <if test="#fn=chkNotEmpty, #fn(effectYn)">
+            AND effectYn    = #{effectYn}
+        </if>
+    </select>
+
+    <select id="TAGS_INFO" parameterType="TagDomain" resultType="TagDomain">
+        <include refid="onepiece.bounty.rush.Function.chkNotEmpty" />
+        SELECT seq					AS seq
+             , tag_nm				AS tagNm
+             , tag_effect1			AS tagEffect1
+             , tag_effect2			AS tagEffect2
+             , tag_effect3			AS tagEffect3
+             , tag_effect4			AS tagEffect4
+             , tag_effect5			AS tagEffect5
+             , tag_effect1_lv		AS tagEffect1Lv
+             , tag_effect2_lv		AS tagEffect2Lv
+             , tag_effect3_lv		AS tagEffect3Lv
+             , tag_effect4_lv		AS tagEffect4Lv
+             , tag_effect5_lv		AS tagEffect5Lv
+             , effect_yn			AS effectYn
+             , type				    AS type
+          FROM tag_info C
+         WHERE 1 = 1
+           AND seq = #{seq}
+    </select>
+
+</mapper>
