@@ -596,11 +596,11 @@ body, html {
   background-size: contain;
 }
 .characterList{
-  height: 70vh;
+  max-height: 70vh;
   overflow: auto;
   // 미디어 쿼리 - 화면이 600px 이하일 때 스타일 변경
   @media screen and (max-width: 767px) {
-    height: 40vh;
+    max-height: 40vh;
   }
   // 미디어 쿼리 - 화면이 600px 이하일 때 스타일 변경
   @media screen and (max-width: 500px) {
@@ -608,11 +608,11 @@ body, html {
   }
 }
 .characterList2{
-  height: 80vh;
+  max-height: 80vh;
   overflow: auto;
   // 미디어 쿼리 - 화면이 600px 이하일 때 스타일 변경
   @media screen and (max-width: 767px) {
-    height: 60vh;
+    max-height: 60vh;
   }
   // 미디어 쿼리 - 화면이 600px 이하일 때 스타일 변경
   @media screen and (max-width: 500px) {
