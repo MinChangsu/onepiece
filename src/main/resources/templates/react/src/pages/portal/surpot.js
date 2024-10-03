@@ -37,7 +37,6 @@ function Surpot() {
       updatedFilter["전체"] = false;
     }
     setCharacterFilter(updatedFilter);
-    console.log(updatedFilter);
 
   };
 
@@ -67,7 +66,6 @@ function Surpot() {
             const filteredResultList = resultList.filter(item => item.effectYn === 'Y');
             setTagItems(filteredResultList);
           } else if (result === 'fail') {
-            console.log(result)
             setCharacterFilter([]);
             setTagItems([]);
           }
@@ -108,7 +106,6 @@ function Surpot() {
       const newArray = [...selectSurpot];
       newArray[index] = {}; // 원하는 데이터를 추가
       let tagList = tags.split(",");
-      console.log(tagList);
       let tagArray = [...tagItems];
       for(let i of tagList){
         let index = tagItems.findIndex(item => item.tagNm === i);
@@ -116,7 +113,6 @@ function Surpot() {
           tagItems[index].currentLv = tagItems[index].currentLv-=lv;
         }
       }
-      console.log(tagArray);
       setTagItems(tagArray);
 
       setSelectSurpot(newArray); // 상태 업데이트
@@ -148,7 +144,6 @@ function Surpot() {
       const newArray = [...selectSurpot];
       newArray[index] = data; // 원하는 데이터를 추가
       let tagList = data.tags.split(",");
-      console.log(tagList);
       let tagArray = [...tagItems];
       for(let i of tagList){
         let index = tagItems.findIndex(item => item.tagNm === i);
@@ -156,7 +151,6 @@ function Surpot() {
           tagItems[index].currentLv = tagItems[index].currentLv+=100;
         }
       }
-      console.log(tagArray);
       setTagItems(tagArray);
 
       setSelectSurpot(newArray); // 상태 업데이트
@@ -258,7 +252,6 @@ function Surpot() {
                     ableEffect = item.tagEffect1;
                     currentLvPersent = 20 + Math.ceil(((currentLv - item.tagEffect1Lv) / item.tagEffect2Lv) * 100);
                   }
-                  console.log(currentLvPersent);
                 }
 
 
