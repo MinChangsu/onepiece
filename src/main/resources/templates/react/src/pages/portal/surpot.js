@@ -130,8 +130,19 @@ function Surpot() {
       alert('빈 자리가 없습니다. 삭제 후 추가 해주세요');
 
     } else if(isDuplicate) {
-      alert('이미 추가된 서포터 입니다!');
-       // 중복된 경우 추가하지 않음
+      let deleteIndex = selectSurpot.findIndex(item => item.enNm === data.enNm);
+      const newArray = [...selectSurpot];
+      newArray[deleteIndex] = {}; // 원하는 데이터를 추가
+      let tagList = data.tags.split(",");
+      let tagArray = [...tagItems];
+      for(let i of tagList){
+        let index = tagItems.findIndex(item => item.tagNm === i);
+        if(index !== -1){
+          tagItems[index].currentLv = tagItems[index].currentLv-=100;
+        }
+      }
+      setTagItems(tagArray);
+      setSelectSurpot(newArray); // 상태 업데이트
     }
     else{
       const newArray = [...selectSurpot];
@@ -159,7 +170,7 @@ function Surpot() {
     <>
       <div className="row p-0 m-0">
         <div className="surpot-container col-12 col-md-5 p-2">
-          <Card className="p-2 mb-3 surpotBat onepieceCard" style={{backgroundImage:'url(/assets/img/cmm/bodyline2.png)'}} >
+          <Card className="p-2 mb-3 surpotBat onepieceCard" style={{backgroundImage:'url(/assets/img/cmm/bodyLine2.png)'}} >
             <div className="" style={{fontSize: '1.1em', fontWeight: 'bold'}}>
               서포터 배치
             </div>
@@ -217,7 +228,7 @@ function Surpot() {
               })}
             </div>
           </Card>
-          <Card className="p-2 onepieceCard" style={{backgroundImage:'url(/assets/img/cmm/bodyline2.png)'}}>
+          <Card className="p-2 onepieceCard" style={{backgroundImage:'url(/assets/img/cmm/bodyLine2.png)'}}>
             <div className="" style={{fontSize: '1.1em', fontWeight: 'bold'}}>
               서포터 타입효과
             </div>
@@ -303,7 +314,7 @@ function Surpot() {
           </Card>
         </div>
         <div className="character-container col-md-7 p-2">
-          <Card className="p-2 onepieceCard" style={{backgroundImage:'url(/assets/img/cmm/bodyline2.png)'}}>
+          <Card className="p-2 onepieceCard" style={{backgroundImage:'url(/assets/img/cmm/bodyLine2.png)'}}>
             <div className="" style={{fontSize: '1.1em', fontWeight: 'bold'}}>
               캐릭터정보
             </div>
@@ -355,10 +366,6 @@ function Surpot() {
 
               // 모든 필터 조건이 tagList에 포함되어 있는지 확인 (AND 조건)
               const isVisible = activeFilters.every(filter => tagList.includes(filter)) || characterFilter['전체'];
-              console.log(isVisible);
-
-
-
               let characterImgPath = "/assets/img/character/sum/" + character.enNm + ".png";
 
 

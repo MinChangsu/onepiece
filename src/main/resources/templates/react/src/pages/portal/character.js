@@ -103,7 +103,7 @@ function Character() {
 
   return (
       <>
-        <Card className="onepieceCard" style={{backgroundImage:'url(/assets/img/cmm/bodyline2.png)'}}>
+        <Card className="onepieceCard" style={{backgroundImage:'url(/assets/img/cmm/bodyLine2.png)'}}>
           <div className="character-container p-2">
             <div className="d-flex justify-content-center" style={{fontSize: '1.1em', fontWeight: 'bold'}}>
               캐릭터정보
