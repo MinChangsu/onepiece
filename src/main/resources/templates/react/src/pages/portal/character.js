@@ -103,7 +103,7 @@ function Character() {
 
   return (
       <>
-        <Card>
+        <Card className="onepieceCard" style={{backgroundImage:'url(/assets/img/cmm/bodyline2.png)'}}>
           <div className="character-container p-2">
             <div className="d-flex justify-content-center" style={{fontSize: '1.1em', fontWeight: 'bold'}}>
               캐릭터정보
@@ -151,7 +151,7 @@ function Character() {
             </div>
 
 
-            <div id="character" className="character row gx-0">
+            <div id="character" className="character row gx-0 characterList2">
               {characterList.map(character => {
                 const tagList = character.tags.split(',').map(tag => tag.trim()); // 캐릭터의 tag를 배열로 변환
                 tagList.push(character.color)

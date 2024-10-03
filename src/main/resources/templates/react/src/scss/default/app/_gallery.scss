@@ -131,6 +131,14 @@
 			width: 100%;
 			height: rem(150px);
 			border-radius: $border-radius $border-radius 0 0;
+			// 미디어 쿼리 - 화면이 600px 이하일 때 스타일 변경
+			@media screen and (max-width: 800px) {
+				height: rem(80px);
+			}
+			// 미디어 쿼리 - 화면이 600px 이하일 때 스타일 변경
+			@media screen and (max-width: 500px) {
+				height: rem(60px);
+			}
 		}
 		& .img {
 			background-size: cover;
@@ -151,6 +159,14 @@
 			font-weight: $font-weight-bold;
 			padding: $spacer * .233 $spacer * .733;
 			margin: 0;
+			// 미디어 쿼리 - 화면이 600px 이하일 때 스타일 변경
+			@media screen and (max-width: 800px) {
+
+			}
+			// 미디어 쿼리 - 화면이 600px 이하일 때 스타일 변경
+			@media screen and (max-width: 500px) {
+				padding: 0;
+			}
 		}
 		& .image-info {
 			background: #15181c;
@@ -207,18 +223,19 @@
 		}
 		& img,
 		& .img {
-			width: rem(120px);
+			//width: rem(120px);
+			width: 100%;
 			height: rem(120px);
 			border-radius: $border-radius $border-radius 0 0;
-			// 미디어 쿼리 - 화면이 600px 이하일 때 스타일 변경
+			//// 미디어 쿼리 - 화면이 600px 이하일 때 스타일 변경
 			@media screen and (max-width: 800px) {
-				width: 80px;
+				//width: 80px;
 				height: 80px;
 			}
 			// 미디어 쿼리 - 화면이 600px 이하일 때 스타일 변경
 			@media screen and (max-width: 500px) {
-				width: 60px;
-				height: 60px;
+				//width: 50px;
+				height: 50px;
 			}
 		}
 		& .img {
@@ -228,16 +245,16 @@
 		}
 		& .image-inner {
 			position: relative;
-			width: rem(120px);
+			//width: rem(120px);
 			background: var(--#{$prefix}component-bg);
 			border-radius: $border-radius $border-radius 0 0;
-			@media screen and (max-width: 800px) {
-				width: 80px;
-			}
-			// 미디어 쿼리 - 화면이 600px 이하일 때 스타일 변경
-			@media screen and (max-width: 500px) {
-				width: 60px;
-			}
+			//@media screen and (max-width: 800px) {
+			//	width: 80px;
+			//}
+			//// 미디어 쿼리 - 화면이 600px 이하일 때 스타일 변경
+			//@media screen and (max-width: 500px) {
+			//	width: 50px;
+			//}
 		}
 		& .image-caption {
 			position: absolute;
@@ -249,21 +266,30 @@
 			padding: $spacer * .233 $spacer * .733;
 			margin: 0;
 		}
+		& .image-caption-img{
+			width: 30px;
+			height: 30px;
+			// 미디어 쿼리 - 화면이 600px 이하일 때 스타일 변경
+			@media screen and (max-width: 500px) {
+				width:15px;
+				height:15px;
+			}
+		}
 		& .image-info {
 			background: #15181c;
 			//background: var(--#{$prefix}component-bg);
 			padding: .8px;
 			color: rgba(var(--#{$prefix}component-color-rgb), .75);
 			border-radius: 0 0 $border-radius $border-radius;
-			width: 120px;
-			// 미디어 쿼리 - 화면이 600px 이하일 때 스타일 변경
-			@media screen and (max-width: 800px) {
-				width: 80px;
-			}
-			// 미디어 쿼리 - 화면이 600px 이하일 때 스타일 변경
-			@media screen and (max-width: 500px) {
-				width: 60px;
-			}
+			//width: 120px;
+			//// 미디어 쿼리 - 화면이 600px 이하일 때 스타일 변경
+			//@media screen and (max-width: 800px) {
+			//	width: 80px;
+			//}
+			//// 미디어 쿼리 - 화면이 600px 이하일 때 스타일 변경
+			//@media screen and (max-width: 500px) {
+			//	width: 50px;
+			//}
 
 			& .title {
 				margin: 0 0 $spacer * .5;
@@ -280,6 +306,12 @@
 				font-size: rem(12px);
 				height: rem(15px);
 				overflow: hidden;
+				// 미디어 쿼리 - 화면이 600px 이하일 때 스타일 변경
+				@media screen and (max-width: 500px) {
+					height: rem(10px);
+					font-size: rem(10px);
+					line-height: rem(12px);
+				}
 			}
 		}
 	}

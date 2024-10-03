@@ -158,39 +158,58 @@ function Surpot() {
   return (
     <>
       <div className="row p-0 m-0">
-        <div className="surpot-container col-12 col-md-6 p-2">
-          <Card className="p-2 mb-3">
-            <div className="d-flex justify-content-center" style={{fontSize: '1.1em', fontWeight: 'bold'}}>
+        <div className="surpot-container col-12 col-md-5 p-2">
+          <Card className="p-2 mb-3 surpotBat onepieceCard" style={{backgroundImage:'url(/assets/img/cmm/bodyline2.png)'}} >
+            <div className="" style={{fontSize: '1.1em', fontWeight: 'bold'}}>
               서포터 배치
             </div>
             <div className="row surpot-list m-0">
-              {selectSurpot.map((item,index) => {
+              {selectSurpot.map((item, index) => {
                 let characterImgPath = "/assets/img/cmm/bodybg.png";
+                let styleImgPath = "/assets/img/cmm/bodybg.png";
                 let name = "";
                 let tags = "";
                 let lv = 0;
+                let color = "";
                 let isVisible = false;
-                if(Object.keys(item).length === 0){
+                if (Object.keys(item).length === 0) {
 
-                }else{
-                  characterImgPath = "/assets/img/character/ov/" + item.enNm + "_ov.png";
+                } else {
+                  characterImgPath = "/assets/img/character/sum/" + item.enNm + ".png";
+                  characterImgPath = "/assets/img/character/sum2/test2.png";
+                  styleImgPath = "/assets/img/cmm/" + item.enStyle + ".png";
                   name = item.name;
                   tags = item.tags;
                   lv = 100;
-                  isVisible =true;
+                  isVisible = true;
+                  if (item.color === "녹") {
+                    color = '#2E5C3A';
+                  } else if (item.color === "적") {
+                    color = '#54130D';
+                  } else if (item.color === "청") {
+                    color = '#19386C'
+                  }
+                  else if(item.color ==="빛"){
+                    color = "#61666B";
+                  }
+                  else if(item.color ==="어둠"){
+                    color = "#1F2123";
+                  }
                 }
                 return (
                     <div
                         key={index}
-                        className={'col m-2'}
-                        onClick={() => handleSurputClick(index,isVisible,tags,lv)}
+                        className={'my-2 p-sm-2 p-1'}
+                        onClick={() => handleSurputClick(index, isVisible, tags, lv)}
+                        style={{width: '20%'}}
                     >
-                      <div className="image w-100">
+                      <div className="image w-100 p-0 " style={{border: '3px solid ' + color,borderRadius:'15px'}}>
                         <div className="image-inner">
-                          <img src={characterImgPath} alt={name} width={'120px'} height={'120px'}/>
+                          <img src={characterImgPath} alt={name}/>
                         </div>
-                        <div className={'image-info ' + (isVisible ? '' : 'd-none')}>
-                          <div className="desc">{name}</div>
+                        <div className={'image-info ' + (isVisible ? '' : 'd-none')}
+                             style={{backgroundImage: `url(${item.bgPath})`, backgroundSize: '5%'}}>
+                          <div className="desc d-flex justify-content-center">Lv. {lv}</div>
                         </div>
                       </div>
                     </div>
@@ -198,11 +217,11 @@ function Surpot() {
               })}
             </div>
           </Card>
-          <Card className="p-2">
-            <div className="d-flex justify-content-center" style={{fontSize: '1.1em', fontWeight: 'bold'}}>
+          <Card className="p-2 onepieceCard" style={{backgroundImage:'url(/assets/img/cmm/bodyline2.png)'}}>
+            <div className="" style={{fontSize: '1.1em', fontWeight: 'bold'}}>
               서포터 타입효과
             </div>
-            <div className="row m-0">
+            <div className="row m-0 surpotList">
               {tagItems.map((item, index) => {
                 let isVisible = false;
                 let maxLv = item.tagEffect5Lv;
@@ -211,58 +230,70 @@ function Surpot() {
                 let ableEffect = "";
                 if (item.currentLv > 0) {
                   isVisible = true;
-                  currentLvPersent = Math.ceil((currentLv/maxLv)*100);
-                  console.log(currentLvPersent)
-                  if(currentLv >= item.tagEffect5Lv){
+                  currentLvPersent = Math.ceil((currentLv / maxLv) * 100);
+                  if (currentLv >= item.tagEffect5Lv) {
                     ableEffect = item.tagEffect5;
-                  }else if(currentLv >= item.tagEffect4Lv){
+                    currentLvPersent = 100;
+                  } else if (currentLv >= item.tagEffect4Lv) {
                     ableEffect = item.tagEffect4;
-                  }
-                  else if(currentLv >= item.tagEffect3Lv){
+                    currentLvPersent = 80 + Math.ceil(((currentLv - item.tagEffect4Lv) / item.tagEffect5Lv) * 100);
+                  } else if (currentLv >= item.tagEffect3Lv) {
                     ableEffect = item.tagEffect3;
-                  }
-                  else if(currentLv >= item.tagEffect2Lv){
+                    currentLvPersent = 60 + Math.ceil(((currentLv - item.tagEffect3Lv) / item.tagEffect4Lv) * 100);
+                  } else if (currentLv >= item.tagEffect2Lv) {
                     ableEffect = item.tagEffect2;
-                  }
-                  else if(currentLv >= item.tagEffect1Lv){
+                    currentLvPersent = 40 + Math.ceil(((currentLv - item.tagEffect2Lv) / item.tagEffect3Lv) * 100);
+                  } else if (currentLv >= item.tagEffect1Lv) {
                     ableEffect = item.tagEffect1;
+                    currentLvPersent = 20 + Math.ceil(((currentLv - item.tagEffect1Lv) / item.tagEffect2Lv) * 100);
                   }
+                  console.log(currentLvPersent);
                 }
-
 
 
                 return (
                     <div
                         key={index}
-                        className={'col-sm-6 ' + (isVisible ? '' : 'd-none')}
+                        className={' col-sm-6 p-1 ' + (isVisible ? '' : 'd-none')}
                     >
-                      <div>{item.tagNm}</div>
-                      <div className="progress rounded-pill mb-2">
-                        <div
-                            className="progress-bar bg-indigo progress-bar-striped progress-bar-animated rounded-pill fs-10px fw-bold"
-                            style={{width: currentLvPersent + '%'}}
-                        >
-                          {item.currentLv}
+                      <div className={'p-1 effectBox'}>
+                        <div className="m-1" style={{fontWeight:'bold'}}>
+                          <span className="badge bg-dark-900">{item.tagNm}</span>
                         </div>
+                        <div className="progress rounded-pill mb-2">
+                          <div
+                              className="progress-bar bg-indigo progress-bar-striped progress-bar-animated rounded-pill fs-10px fw-bold"
+                              style={{width: currentLvPersent + '%'}}
+                          >
+                            {item.currentLv}
+                          </div>
+                        </div>
+                        <div className="progress" style={{height: '15px'}}>
+                          <div
+                              className={"progress-bar fs-10px fw-bold " + (currentLv >= item.tagEffect1Lv ? 'bg-lime' : 'bg-dark')}
+                              style={{width: '20%', border: '.7px solid black'}}>{item.tagEffect1Lv}</div>
+                          <div
+                              className={"progress-bar fs-10px fw-bold " + (currentLv >= item.tagEffect2Lv ? 'bg-lime' : 'bg-dark')}
+                              style={{width: '20%', border: '.7px solid black'}}>{item.tagEffect2Lv}</div>
+                          <div
+                              className={"progress-bar fs-10px fw-bold " + (currentLv >= item.tagEffect3Lv ? 'bg-lime' : 'bg-dark')}
+                              style={{width: '20%', border: '.7px solid black'}}>{item.tagEffect3Lv}</div>
+                          <div
+                              className={"progress-bar fs-10px fw-bold " + (currentLv >= item.tagEffect4Lv ? 'bg-lime' : 'bg-dark')}
+                              style={{width: '20%', border: '.7px solid black'}}>{item.tagEffect4Lv}</div>
+                          <div
+                              className={"progress-bar fs-10px fw-bold " + (currentLv >= item.tagEffect5Lv ? 'bg-lime' : 'bg-dark')}
+                              style={{width: '20%', border: '.7px solid black'}}>{item.tagEffect5Lv}</div>
+                        </div>
+                          <div className="tagEffectDesc p-1 my-1">
+                            {ableEffect.split(',').map((item, index) => (
+                                <React.Fragment key={index}>
+                                  {item}
+                                  <br />
+                                </React.Fragment>
+                            ))}
+                          </div>
                       </div>
-                      <div className="progress" style={{height: '15px'}}>
-                        <div
-                            className={"progress-bar fs-10px fw-bold " + (currentLv >= item.tagEffect1Lv ? 'bg-lime' : 'bg-dark')}
-                            style={{width: '20%', border: '.7px solid black'}}>{item.tagEffect1Lv}</div>
-                        <div
-                            className={"progress-bar fs-10px fw-bold " + (currentLv >= item.tagEffect2Lv ? 'bg-lime' : 'bg-dark')}
-                            style={{width: '20%', border: '.7px solid black'}}>{item.tagEffect2Lv}</div>
-                        <div
-                            className={"progress-bar fs-10px fw-bold " + (currentLv >= item.tagEffect3Lv ? 'bg-lime' : 'bg-dark')}
-                            style={{width: '20%', border: '.7px solid black'}}>{item.tagEffect3Lv}</div>
-                        <div
-                            className={"progress-bar fs-10px fw-bold " + (currentLv >= item.tagEffect4Lv ? 'bg-lime' : 'bg-dark')}
-                            style={{width: '20%', border: '.7px solid black'}}>{item.tagEffect4Lv}</div>
-                        <div
-                            className={"progress-bar fs-10px fw-bold " + (currentLv >= item.tagEffect5Lv ? 'bg-lime' : 'bg-dark')}
-                            style={{width: '20%', border: '.7px solid black'}}>{item.tagEffect5Lv}</div>
-                      </div>
-                      <div>{ableEffect}</div>
                     </div>
 
                 );
@@ -271,9 +302,9 @@ function Surpot() {
             </div>
           </Card>
         </div>
-        <div className="character-container col-md-6 p-2">
-          <Card className="p-2">
-            <div className="d-flex justify-content-center" style={{fontSize: '1.1em', fontWeight: 'bold'}}>
+        <div className="character-container col-md-7 p-2">
+          <Card className="p-2 onepieceCard" style={{backgroundImage:'url(/assets/img/cmm/bodyline2.png)'}}>
+            <div className="" style={{fontSize: '1.1em', fontWeight: 'bold'}}>
               캐릭터정보
             </div>
             <div className="searchBar my-2">
@@ -315,7 +346,7 @@ function Surpot() {
               </div>
             </div>
           </div>
-          <div id="character-surpot" className="character-surpot row gx-0">
+          <div id="character-surpot" className="character-surpot row gx-0 characterList">
             {characterList.map(character => {
               const tagList = character.tags.split(',').map(tag => tag.trim()); // 캐릭터의 tag를 배열로 변환
               tagList.push(character.color);
@@ -334,21 +365,17 @@ function Surpot() {
               return (
                   <div
                       key={character.seq}
-                      className={'col-6 col-md-4 col-lg-3 col-xl-2 ' + (isVisible ? '' : 'd-none')}
+                      className={'col-4 col-md-4 col-lg-3 col-xl-2 ' + (isVisible ? '' : 'd-none')}
                       onClick={() => handleCharacterListClick(character)}
                   >
                     <div className="image w-100">
-                      <div className="image-inner">
+                      <div className="image-inner" >
                         <img src={characterImgPath} alt={character.name}/>
                         <p className="image-caption">
                           <img style={{width: '30px', height: '30px'}}
                                src={"/assets/img/cmm/" + character.enStyle + ".png"} alt=""/>
                         </p>
                       </div>
-                      {/*<div className="image-info">*/}
-                      {/*  <div className="desc">{character.nickNm}</div>*/}
-                      {/*  <div className="desc">{character.name}</div>*/}
-                      {/*</div>*/}
                     </div>
                   </div>
               )
@@ -357,7 +384,6 @@ function Surpot() {
         </Card>
         </div>
         </div>
-      <CharacterInfoModal show={isViewModal} toggleShow={handleToggleShow} character={selectCharacter}/>
     </>
   );
 }
