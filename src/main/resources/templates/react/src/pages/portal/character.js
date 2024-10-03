@@ -166,7 +166,7 @@ function Character() {
                 return(
                   <div
                       key={character.seq}
-                      className={'col-lg-2 col-md-2 ' + (isVisible ? '' : 'd-none')}
+                      className={'col-lg-3 col-md-2 ' + (isVisible ? '' : 'd-none')}
                       onClick={() => handleCharacterClick(character)}
                   >
                     <div className="image w-100">

@@ -365,7 +365,7 @@ function Surpot() {
               return (
                   <div
                       key={character.seq}
-                      className={'character-surpot_list col-4 col-md-4 col-lg-3 col-xl-2 ' + (isVisible ? '' : 'd-none')}
+                      className={'character-surpot_list col-6 col-md-5 col-lg-4 col-xl-3 ' + (isVisible ? '' : 'd-none')}
                       onClick={() => handleCharacterListClick(character)}
                   >
                     <div className="image w-100">
