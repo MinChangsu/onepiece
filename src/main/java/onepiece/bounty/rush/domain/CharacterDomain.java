@@ -38,5 +38,6 @@ public class CharacterDomain extends BaseDomain {
     @JsonProperty("enStyle")            private String enStyle = "";
     @JsonProperty("enNm")               private String enNm = "";
     @JsonProperty("tags")               private String tags = "";
+    @JsonProperty("ord")                private int ord = 0;
     private String bgPath = "";
 }

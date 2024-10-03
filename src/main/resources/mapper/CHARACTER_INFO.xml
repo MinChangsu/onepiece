@@ -49,6 +49,7 @@
              , en_style			        	AS	enStyle
              , en_nm			        	AS	enNm
              , tags			            	AS	tags
+             , ord			            	AS	ord
           FROM character_info C
           WHERE 1 = 1
         <if test="#fn=chkNotEmpty, #fn(searchWrd)">
@@ -57,6 +58,7 @@
                   OR color    LIKE CONCAT( '%', #{ searchWrd }, '%' )
                   OR type     LIKE CONCAT( '%', #{ searchWrd }, '%' ))
         </if>
+          order by ord DESC
     </select>
 
     <select id="CHARACTERS_INFO" parameterType="CharacterDomain" resultType="CharacterDomain">
@@ -88,6 +90,7 @@
              , en_style			        	AS	enStyle
              , en_nm			        	AS	enNm
              , tags			            	AS	tags
+             , ord			            	AS	ord
           FROM character_info C
          WHERE 1 = 1
            AND seq = #{seq}

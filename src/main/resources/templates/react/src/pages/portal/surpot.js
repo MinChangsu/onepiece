@@ -359,7 +359,7 @@ function Surpot() {
 
               // 모든 필터 조건이 tagList에 포함되어 있는지 확인 (AND 조건)
               const isVisible = activeFilters.every(filter => tagList.includes(filter)) || characterFilter['전체'];
-              let characterImgPath = "/assets/img/character/sum/" + character.enNm + ".png";
+              let characterImgPath = "/assets/img/character/ill/" + character.enNm + ".png";
 
 
               return (

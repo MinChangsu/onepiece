@@ -52,17 +52,14 @@ const CharacterInfoModal = ({ show ,toggleShow,character}) => {
   const handleClose = async () => {
     toggleShow();
   };
-  let characterImgPath = "/assets/img/character/ov/"+character.enNm+"_ov.png";
-  if(character.color==="녹" || character.color==="어둠" || character.color==="빛"){
-    characterImgPath = "/assets/img/character/ill/"+character.enNm+".png";
-  }
+  let characterImgPath = "/assets/img/character/ill/"+character.enNm+".png";
 
 
   return (
     <Modal
       show={show}
       onHide={handleClose}
-      backdrop='static'
+      // backdrop='static'
       keyboard={true}
       onEnter={handleOpened}
       dialogClassName='characterInfo-modal modal-xl-dialog '
@@ -95,7 +92,7 @@ const CharacterInfoModal = ({ show ,toggleShow,character}) => {
               </a>
             </li>
           </ul>
-          <div className="tab-content p-3 rounded-top panel rounded-0 m-0" style={{backgroundImage:`url(/assets/img/cmm/characterModalbg.png),url(${character.bgPath})`,backgroundSize: 'cover,5%'}}>
+          <div className="tab-content p-3 rounded-top panel rounded-0 m-0" style={{backgroundImage:`url(${character.bgPath})`,backgroundSize: '5%'}}>
           <div className="tab-pane fade active show p-2" id="nav-pills-tab-1" >
             <div className="row p-0 m-0">
               <div className="col-md-4 col-12">
