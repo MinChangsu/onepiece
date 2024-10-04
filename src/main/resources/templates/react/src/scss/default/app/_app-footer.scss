@@ -4,4 +4,6 @@
 	border-top: 1px solid $app-footer-border;
 	font-weight: $font-weight-bold;
 	color: $app-footer-color;
+	display: flex;
+	justify-content: center;
 }

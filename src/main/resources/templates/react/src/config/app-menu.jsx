@@ -33,22 +33,22 @@ const Menu = [
   },*/
 
   {
-    path: '/character',
+    path: '/content/character',
     icon: 'fa fa-user',
     title: '캐릭터',
   },
   {
-    path: '/surpot',
+    path: '/content/surpot',
     icon: 'fa fa-plus',
     title: '서포터',
   },
   {
-    path: '/medal',
+    path: '/content/medal',
     icon: 'fa fa-circle',
     title: '매달',
   },
   {
-    path: '/board',
+    path: '/content/board',
     icon: 'fa fa-pen',
     title: '게시판',
   },

@@ -1,18 +1,21 @@
-import React, { useEffect, useState, useLayoutEffect } from 'react';
-import { AppSettings } from './config/app-settings.js';
-import { slideToggle } from './composables/slideToggle.js';
-import { useLocation } from 'react-router-dom';
+import React, {useEffect, useState, useLayoutEffect} from 'react';
+import {useRecoilState} from "recoil";
+import {NavLink, Outlet, useLocation} from "react-router-dom";
+import Header from "../components/header/header";
+import Sidebar from "../components/sidebar/sidebar";
+import TopMenu from "../components/top-menu/top-menu";
+import Content from "../components/content/content";
+import Login from "./login";
+import {AppSettings} from '../config/app-settings.js';
+import {slideToggle} from "../composables/slideToggle";
+import loginState from "../store/loginState";
+import { Link } from 'react-router-dom';
+import Footer from "../components/custom/footer";
+import PerfectScrollbar from "react-perfect-scrollbar";
+import PageWithFooter from "../components/footer/footer";
 
-import Header from './components/header/header.jsx';
-import TopMenu from './components/top-menu/top-menu.jsx';
-import Content from './components/content/content.jsx';
-import Login from './pages/login';
-import Sidebar from './components/sidebar/sidebar';
-import { useRecoilState } from 'recoil';
-import loginState from './store/loginState';
 
-
-const App: React.FC = () => {
+const Main: React.FC = () => {
   const [appTheme] = useState('');
   const [appDarkMode, setAppDarkMode] = useState(true);
   const [appGradientEnabled, setAppGradientEnabled] = useState(false);
@@ -42,7 +45,7 @@ const App: React.FC = () => {
   const [appSidebarEndToggled, setAppSidebarEndToggled] = useState(false);
   const [appSidebarEndMobileToggled, setAppSidebarEndMobileToggled] = useState(false);
 
-    const [isTopBtnVisible, setIsTopBtnVisible] = useState(false);
+  const [isTopBtnVisible, setIsTopBtnVisible] = useState(false);
 
   // 추가
   const [appThemePanelNone, setAppThemePanelNone] = useState(false);
@@ -235,9 +238,9 @@ const App: React.FC = () => {
 
     const handleScroll = () => {
       if (window.scrollY > 200) {
-          setIsTopBtnVisible(true);
+        setIsTopBtnVisible(true);
       } else {
-          setIsTopBtnVisible(false);
+        setIsTopBtnVisible(false);
       }
     };
 
@@ -248,12 +251,12 @@ const App: React.FC = () => {
     };
   }, [appTheme, appDarkMode]);
 
-    const scrollToTop = () => {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'  // 부드러운 스크롤
-        });
-    };
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'  // 부드러운 스크롤
+    });
+  };
 
   //<--뒤로가기시 관리자페이지 헤더나오는 오류 수정 시작(09.04)
   // useLayoutEffect(() => {
@@ -270,8 +273,8 @@ const App: React.FC = () => {
 
   if (true) {
     return (
-      <AppSettings.Provider
-        value={{
+        <AppSettings.Provider
+            value={{
               appTheme,
               appDarkMode,
               appGradientEnabled,
@@ -330,57 +333,141 @@ const App: React.FC = () => {
               handleSetAppThemePanelNone,
               handleSetAppSysHeaderNone,
             }}
-      >
+        >
 
           <div
               className={
-                  'app app-content-full-height ' +
-                  (appGradientEnabled ? 'app-gradient-enabled ' : '') +
-                  (appHeaderNone ? 'app-without-header ' : '') +
-                  (appSysHeaderNone ? 'app-without-header ' : '') +
-                  // (appHeaderFixed && !appHeaderNone ? 'app-header-fixed ' : '') +
-                  (appSidebarFixed ? 'app-sidebar-fixed ' : '') +
-                  (appSidebarNone ? 'app-without-sidebar ' : '') +
-                  (appSidebarEnd ? 'app-with-end-sidebar ' : '') +
-                  (appSidebarWide ? 'app-with-wide-sidebar ' : '') +
-                  (appSidebarMinify ? 'app-sidebar-minified ' : '') +
-                  (appSidebarMobileToggled ? 'app-sidebar-mobile-toggled ' : '') +
-                  (appTopMenu ? 'app-with-top-menu ' : '') +
-                  (appContentFullHeight ? 'app-content-full-height ' : '') +
-                  // (appSidebarTwo ? 'app-with-two-sidebar ' : '') +
-                  (appSidebarEndToggled ? 'app-sidebar-end-toggled ' : '') +
-                  (appSidebarEndMobileToggled ? 'app-sidebar-end-mobile-toggled ' : '') +
-                  (hasScroll ? 'has-scroll ' : '')
+                  'app app-content-full-height2 app-without-header app-sidebar-fixed app-without-sidebar '
               }
           >
+            <div className="d-none d-lg-flex">
+              <Header/>
+            </div>
+            {appTopMenu && <TopMenu/>}
+            <div className="d-lg-flex d-none h-100 d-flex flex-column">
+              <div style={{
+                backgroundImage: 'url(/assets/img/cmm/mainBg.png)',
+                backgroundSize: '100% 100%',
+                backgroundRepeat: "no-repeat",
+                height: '100vh',
+              }}>
+                <Link to='/'>
+                  <h1 className="top-main--logo">
+                    <span>
+                      <img src="/assets/img/cmm/logo.png" alt="ONE PIECE BOUNTY RUSH"/>
+                    </span>
+                  </h1>
+                </Link>
+                <div class="top-main--store"
+                     style={{backgroundImage: 'url(/assets/img/cmm/bg_store-btn-large.png.webp)'}}>
+                  <ul class="top-main--store-list">
+                    <li className="top-main--store-list__item">
+                      <a href="https://app.adjust.com/drv77ri?campaign=iOS&amp;fallback=https://apps.apple.com/us/app/id1343688545?mt=8%E2%80%BB%E3%82%A2%E3%83%A1%E3%83%AA%E3%82%AB"
+                         target="_blank">
+                        <img src="/assets/img/cmm/btn_appstore.png.webp" alt="Download on the App Store"/>
+                      </a>
+                    </li>
+                    <li className="top-main--store-list__item">
+                      <a href="https://app.adjust.com/4lkrf6e?campaign=Android&amp;fallback=https://play.google.com/store/apps/details?id=com.bandainamcoent.opbrww"
+                         target="_blank">
+                        <img src="/assets/img/cmm/btn_googleplay.png.webp" alt=""/>
+                      </a>
+                    </li>
+                    <li className="top-main--store-list__item">
+                      <a href="https://store.steampowered.com/app/2918150/ONE_PIECE/" target="_blank">
+                        <img src="/assets/img/cmm/btn_steam.png.webp" alt="Steam"/>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div className="d-lg-none d-flex h-100 d-flex flex-column">
+              <div style={{
+                backgroundImage: 'url(/assets/img/cmm/mainBg2.png.webp)',
+                height: '100vh',
+                backgroundSize: 'cover',
+              }}>
+                <Link to='/'>
+                  <h1 className="top-main--logo">
+                    <span>
+                      <img src="/assets/img/cmm/logo.png" alt="ONE PIECE BOUNTY RUSH"/>
+                    </span>
+                  </h1>
+                </Link>
+                <div className="top-main-menu px-5">
+                  <Link className="main-link" to='/content/character'>
+                    <div className="m-2 top-main-menu-item"
+                         style={{backgroundImage: 'url(/assets/img/cmm/bg_btn.png.webp)'}}>캐릭터 정보 확인 >
+                    </div>
+                  </Link>
+                  <Link className="main-link" to='/content/surpot'>
+                    <div className="m-2 top-main-menu-item"
+                         style={{backgroundImage: 'url(/assets/img/cmm/bg_btn.png.webp)'}}>서포터 맞추기 >
+                    </div>
+                  </Link>
+                  <Link className="main-link" to='/content/medal'>
+                    <div className="m-2 top-main-menu-item"
+                         style={{backgroundImage: 'url(/assets/img/cmm/bg_btn.png.webp)'}}>매달 정보 확인 >
+                    </div>
+                  </Link>
+                  <Link className="main-link" to='/content/board'>
+                    <div className="m-2 top-main-menu-item"
+                         style={{backgroundImage: 'url(/assets/img/cmm/bg_btn.png.webp)'}}>게시판 >
+                    </div>
+                  </Link>
+                </div>
+                <div class="top-main--store "
+                     style={{backgroundImage: 'url(/assets/img/cmm/bg_store-btn-large.png.webp)'}}>
+                  <ul class="top-main--store-list">
+                    <li className="top-main--store-list__item">
+                      <a href="https://app.adjust.com/drv77ri?campaign=iOS&amp;fallback=https://apps.apple.com/us/app/id1343688545?mt=8%E2%80%BB%E3%82%A2%E3%83%A1%E3%83%AA%E3%82%AB"
+                         target="_blank">
+                        <img src="/assets/img/cmm/btn_appstore.png.webp" alt="Download on the App Store"/>
+                      </a>
+                    </li>
+                    <li className="top-main--store-list__item">
+                      <a href="https://app.adjust.com/4lkrf6e?campaign=Android&amp;fallback=https://play.google.com/store/apps/details?id=com.bandainamcoent.opbrww"
+                         target="_blank">
+                        <img src="/assets/img/cmm/btn_googleplay.png.webp" alt=""/>
+                      </a>
+                    </li>
+                    <li className="top-main--store-list__item">
+                      <a href="https://store.steampowered.com/app/2918150/ONE_PIECE/" target="_blank">
+                        <img src="/assets/img/cmm/btn_steam.png.webp" alt="Steam"/>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
 
-              {!appHeaderNone && <Header/>}
-              {!appSidebarNone && <Sidebar/>}
-              {appTopMenu && <TopMenu/>}
-              {!appContentNone && <Content/>}
-              <button className={`btn btn-icon btn-circle btn-theme btn-scroll-to-top ${isTopBtnVisible ? 'show' : ''}`}
-                 onClick={scrollToTop}
-                ><img src="/assets/img/cmm/pagetop.png" alt=""/></button>
-              {/*<Footer/>*/}
 
 
+            <button
+                className={`btn btn-icon btn-circle btn-theme btn-scroll-to-top ${isTopBtnVisible ? 'show' : ''}`}
+                onClick={scrollToTop}
+            ><img src="/assets/img/cmm/pagetop.png" alt=""/></button>
+            <PageWithFooter/>
           </div>
-      </AppSettings.Provider>
-    );
+        </AppSettings.Provider>
+
+    )
+        ;
   } else {
-      return (
-          <AppSettings.Provider
-              value={{
-                  handleSetAppHeaderNone,
-                  handleSetAppSidebarNone,
-          handleSetAppContentClass,
-          handleSetAppThemePanelNone,
-          handleSetAppSysHeaderNone,
-        }}>
-        <Login/>
-      </AppSettings.Provider>
+    return (
+        <AppSettings.Provider
+            value={{
+              handleSetAppHeaderNone,
+              handleSetAppSidebarNone,
+              handleSetAppContentClass,
+              handleSetAppThemePanelNone,
+              handleSetAppSysHeaderNone,
+            }}>
+          <Login/>
+        </AppSettings.Provider>
     );
   }
 }
 
-export default App;
+export default Main;

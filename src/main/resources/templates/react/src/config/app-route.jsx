@@ -12,10 +12,15 @@ import Surpot from "../pages/portal/surpot";
 import Medal from "../pages/portal/medal";
 import Character from "../pages/portal/character";
 import Board from "../pages/portal/board";
+import Main from "../pages/main";
 
 const AppRoute = [
   {
     path: '*',
+    element: <Main />,
+  },
+  {
+    path: 'content',
     element: <App />,
     children: [
       { path: '', element: <Home /> },

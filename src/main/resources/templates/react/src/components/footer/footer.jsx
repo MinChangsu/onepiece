@@ -24,9 +24,15 @@ function PageWithFooter() {
 
   return (
 
-        <div id="footer" className="app-footer m-0">
-          &copy; 2024 OnePieceBountyRush Util by MinChangSu
-        </div>
+      <div id="footer" className="app-footer m-0">
+        &copy; 2024 OnePieceBountyRush Util by MinChangSu
+        <br/>
+        &copy; Eiichiro Oda/2022 "One Piece" production committee
+        <br/>
+        &copy; Eiichiro Oda/Shueisha, Toei Animation
+        <br/>
+        &copy; Bandai Namco Entertainment Inc.
+      </div>
 
   );
 }

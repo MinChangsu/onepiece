@@ -1,21 +1,50 @@
+//.app-content-full-height {
+//	//height: 100%;
+//	height: calc(100vh - #{$app-header-height * 2 + 1});
+//
+//	& .app-content {
+//		@include media-breakpoint-up(md) {
+//			height: calc(100vh - #{$app-header-height * 2 + 1});
+//		}
+//		@include media-breakpoint-down(md) {
+//			min-height: calc(100vh - #{$app-header-height * 2 + 1});
+//		}
+//	}
+//	&.app-without-header,
+//	&.app-empty {
+//		& .app-content {
+//			@include media-breakpoint-up(md) {
+//				height: calc(100vh - #{$app-header-height * 2 + 1});
+//			}
+//		}
+//	}
+//}
 .app-content-full-height {
 	//height: 100%;
-	height: calc(100vh - #{$app-header-height * 2 + 1});
-	
+	height: calc(100vh - 190px);
+
 	& .app-content {
 		@include media-breakpoint-up(md) {
-			height: calc(100vh - #{$app-header-height * 2 + 1});
+			height: calc(100vh - 190px);
 		}
 		@include media-breakpoint-down(md) {
-			min-height: calc(100vh - #{$app-header-height * 2 + 1});
+			min-height: calc(100vh - 190px);
 		}
 	}
 	&.app-without-header,
 	&.app-empty {
 		& .app-content {
 			@include media-breakpoint-up(md) {
-				height: calc(100vh - #{$app-header-height * 2 + 1});
+				height: calc(100vh - 190px);
 			}
 		}
 	}
+}
+.app-content-full-height2 {
+
+	height: calc(100vh - 190px);
+	@media screen and (max-width: 767px) {
+		height: calc(100vh - 20px);
+	}
+
 }
