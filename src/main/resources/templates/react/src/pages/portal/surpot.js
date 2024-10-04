@@ -96,6 +96,13 @@ function Surpot() {
       fetchCharacters();
     }
   };
+  const handleCheckboxChange = (event,tag) => {
+    const checked = event.target.checked;
+    const updatedFilter = { ...characterFilter };
+    updatedFilter[tag] = checked;
+    updatedFilter["전체"] = false;
+    setCharacterFilter(updatedFilter);
+  };
 
   const handleCharacterClick = (data) => {
     setSelectCharacter(data);
@@ -164,8 +171,8 @@ function Surpot() {
     <>
       <div className="row p-0 m-0">
         <div className="surpot-container col-12 col-md-5 p-2">
-          <Card className="p-2 mb-3 surpotBat onepieceCard" style={{backgroundImage:'url(/assets/img/cmm/bodyLine2.png)'}} >
-            <div className="" style={{fontSize: '1.1em', fontWeight: 'bold'}}>
+          <Card className="p-0 p-md-2 mb-md-3 mb-1 surpotBat onepieceCard" style={{backgroundImage:'url(/assets/img/cmm/bodyLine2.png)'}} >
+            <div className="d-md-block d-none" style={{fontSize: '1.1em', fontWeight: 'bold'}}>
               서포터 배치
             </div>
             <div className="row surpot-list m-0">
@@ -180,8 +187,8 @@ function Surpot() {
                 if (Object.keys(item).length === 0) {
 
                 } else {
-                  characterImgPath = "/assets/img/character/sum/" + item.enNm + ".png";
-                  characterImgPath = "/assets/img/character/sum2/test2.png";
+                  characterImgPath = "/assets/img/character/sum2/" + item.enNm + ".png";
+                  // characterImgPath = "/assets/img/character/sum2/test2.png";
                   styleImgPath = "/assets/img/cmm/" + item.enStyle + ".png";
                   name = item.name;
                   tags = item.tags;
@@ -223,7 +230,7 @@ function Surpot() {
             </div>
           </Card>
           <Card className="p-2 onepieceCard" style={{backgroundImage:'url(/assets/img/cmm/bodyLine2.png)'}}>
-            <div className="" style={{fontSize: '1.1em', fontWeight: 'bold'}}>
+            <div className="d-md-block d-none" style={{fontSize: '1.1em', fontWeight: 'bold'}}>
               서포터 타입효과
             </div>
             <div className="row m-0 surpotList">
@@ -232,7 +239,7 @@ function Surpot() {
                 let maxLv = item.tagEffect5Lv;
                 let currentLvPersent = 0;
                 let currentLv = item.currentLv;
-                let ableEffect = "";
+                let ableEffect = "활성화된 효과 없음";
                 if (item.currentLv > 0) {
                   isVisible = true;
                   currentLvPersent = Math.ceil((currentLv / maxLv) * 100);
@@ -258,35 +265,42 @@ function Surpot() {
                 return (
                     <div
                         key={index}
-                        className={' col-sm-6 p-1 ' + (isVisible ? '' : 'd-none')}
+                        className={' col-sm-12 p-1 ' + (isVisible ? '' : 'd-none')}
                     >
-                      <div className={'p-1 effectBox'}>
-                        <div className="m-1" style={{fontWeight:'bold'}}>
-                          <span className="badge bg-dark-900">{item.tagNm}</span>
-                        </div>
-                        <div className="progress rounded-pill mb-2">
-                          <div
-                              className="progress-bar bg-indigo progress-bar-striped progress-bar-animated rounded-pill fs-10px fw-bold"
-                              style={{width: currentLvPersent + '%'}}
-                          >
-                            {item.currentLv}
+                      <div className={'p-3 effectBox'} style={{backgroundImage:'url(/assets/img/cmm/surpotTag2.webp)',backgroundSize:'100% 100%'}}>
+                        <div className="m-1 d-flex justify-content-between" style={{fontWeight:'bold'}}>
+                          <div>{item.tagNm} : {currentLv}</div>
+                          <div>
+                            <div className="form-check form-switch">
+                              <input className="form-check-input" type="checkbox" onChange={(e) => handleCheckboxChange(e, item.tagNm)}/>
+                              <label className="form-check-label" htmlFor="checkbox1">필터</label>
+                            </div>
                           </div>
+                          {/*<span className="badge bg-warning">{item.tagNm}</span>*/}
                         </div>
+                        {/*<div className="progress rounded-pill mb-2">*/}
+                        {/*  <div*/}
+                        {/*      className="progress-bar bg-indigo progress-bar-striped progress-bar-animated rounded-pill fs-10px fw-bold"*/}
+                        {/*      style={{width: currentLvPersent + '%'}}*/}
+                        {/*  >*/}
+                        {/*    {item.currentLv}*/}
+                        {/*  </div>*/}
+                        {/*</div>*/}
                         <div className="progress" style={{height: '15px'}}>
                           <div
-                              className={"progress-bar fs-10px fw-bold " + (currentLv >= item.tagEffect1Lv ? 'bg-lime' : 'bg-dark')}
+                              className={"progress-bar progress-bar-striped fs-10px fw-bold " + (currentLv >= item.tagEffect1Lv ? 'bg-success' : 'bg-dark')}
                               style={{width: '20%', border: '.7px solid black'}}>{item.tagEffect1Lv}</div>
                           <div
-                              className={"progress-bar fs-10px fw-bold " + (currentLv >= item.tagEffect2Lv ? 'bg-lime' : 'bg-dark')}
+                              className={"progress-bar progress-bar-striped fs-10px fw-bold " + (currentLv >= item.tagEffect2Lv ? 'bg-success' : 'bg-dark')}
                               style={{width: '20%', border: '.7px solid black'}}>{item.tagEffect2Lv}</div>
                           <div
-                              className={"progress-bar fs-10px fw-bold " + (currentLv >= item.tagEffect3Lv ? 'bg-lime' : 'bg-dark')}
+                              className={"progress-bar progress-bar-striped fs-10px fw-bold " + (currentLv >= item.tagEffect3Lv ? 'bg-success' : 'bg-dark')}
                               style={{width: '20%', border: '.7px solid black'}}>{item.tagEffect3Lv}</div>
                           <div
-                              className={"progress-bar fs-10px fw-bold " + (currentLv >= item.tagEffect4Lv ? 'bg-lime' : 'bg-dark')}
+                              className={"progress-bar progress-bar-striped fs-10px fw-bold " + (currentLv >= item.tagEffect4Lv ? 'bg-success' : 'bg-dark')}
                               style={{width: '20%', border: '.7px solid black'}}>{item.tagEffect4Lv}</div>
                           <div
-                              className={"progress-bar fs-10px fw-bold " + (currentLv >= item.tagEffect5Lv ? 'bg-lime' : 'bg-dark')}
+                              className={"progress-bar progress-bar-striped fs-10px fw-bold " + (currentLv >= item.tagEffect5Lv ? 'bg-success' : 'bg-dark')}
                               style={{width: '20%', border: '.7px solid black'}}>{item.tagEffect5Lv}</div>
                         </div>
                           <div className="tagEffectDesc p-1 my-1">
@@ -308,7 +322,7 @@ function Surpot() {
         </div>
         <div className="character-container col-md-7 p-2">
           <Card className="p-2 onepieceCard" style={{backgroundImage:'url(/assets/img/cmm/bodyLine2.png)'}}>
-            <div className="" style={{fontSize: '1.1em', fontWeight: 'bold'}}>
+            <div className="d-md-block d-none" style={{fontSize: '1.1em', fontWeight: 'bold'}}>
               캐릭터정보
             </div>
             <div className="searchBar my-2">
@@ -367,6 +381,10 @@ function Surpot() {
                       key={character.seq}
                       className={'character-surpot_list col-6 col-md-5 col-lg-4 col-xl-3 ' + (isVisible ? '' : 'd-none')}
                       onClick={() => handleCharacterListClick(character)}
+                      onContextMenu={(event) => {
+                        event.preventDefault(); // 기본 우클릭 메뉴를 막음
+                        handleCharacterClick(character); // 원하는 함수 실행
+                      }}
                   >
                     <div className="image w-100">
                       <div className="image-inner" >
@@ -384,6 +402,7 @@ function Surpot() {
         </Card>
         </div>
         </div>
+      <CharacterInfoModal show={isViewModal} toggleShow={handleToggleShow} character={selectCharacter}/>
     </>
   );
 }

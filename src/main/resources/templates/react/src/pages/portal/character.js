@@ -171,9 +171,7 @@ function Character() {
                   >
                     <div className="image w-100">
                       <div className="image-inner">
-                        <Link to="/character">
                           <img src={characterImgPath} alt={character.name} />
-                        </Link>
                         <p className="image-caption">
                           <img style={{width: '30px', height: '30px'}} src={"/assets/img/cmm/"+character.enStyle+".png"} alt=""/>
                         </p>

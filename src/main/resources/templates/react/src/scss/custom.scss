@@ -621,8 +621,11 @@ body, html {
 }
 .surpotList{
   min-height: 100px;
-  max-height: 22vh;
+  max-height: 35vh;
   overflow: auto;
+  @media screen and (max-width: 767px) {
+    max-height: 22vh;
+  }
 }
 .tagEffectDesc{
   background: #4c4e4f;
