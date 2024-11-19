@@ -23,8 +23,6 @@ function Surpot() {
   const handleToggleShow = () => {
     setIsViewModal((p) => !p);
   };
-
-
   const toggle = (value) => {
 
     const updatedFilter = { ...characterFilter };
